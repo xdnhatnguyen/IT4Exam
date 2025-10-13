@@ -1,5 +1,3 @@
-Gmail mình: trhchau2000@gmail.com
-Môn VTP1 gồm 2 phần là Lý thuyết (75% mà các bạn đã học 2 tuần rồi) và Thực hành (25% - mình phụ trách). Trong 25% này lại chia thành 2 phần nữa là MATLAB (50%) và Bài tập kiểm tra (50%).  Về MATLAB, mình khuyến khích lớp tải MATLAB về máy tính cá nhân:
- ĐHQG đã sở hữu bản quyền MATLAB, thông tin chi tiết xem link này.
- Từng phiên bản MATLAB yêu cầu cấu hình máy tính khác nhau. Vì vậy, trước khi tải MATLAB, bạn xem yêu cầu cấu hình máy phù hợp cho các phiên bản MATLAB qua link cấu hình
-Đính kèm mail này là link tài liệu phần thực hành.
+Gmail GV: trhchau2000@gmail.com
+Môn VTP1 gồm 2 phần là Lý thuyết (75% mà các bạn đã học 2 tuần rồi) và Thực hành (25% - mình phụ trách). Trong 25% này lại chia thành 2 phần nữa là MATLAB (50%) và Bài tập kiểm tra (50%).
+Link tài liệu: https://drive.google.com/drive/folders/1l1AxhnnJkzv9YUs7YNfXWPUxeRqELMkt
