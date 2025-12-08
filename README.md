@@ -1,1 +1,8 @@
 # Matlab25CCT3B
+Gmail GV: trhchau2000@gmail.com
+Môn VTP1 gồm 2 phần là Lý thuyết (75% mà các bạn đã học 2 tuần rồi) và Thực hành (25% - mình phụ trách). Trong 25% này lại chia thành 2 phần nữa là MATLAB (50%) và Bài tập kiểm tra (50%).
+Link tài liệu: 
+'''https://drive.google.com/drive/folders/1l1AxhnnJkzv9YUs7YNfXWPUxeRqELMkt'''
+tuan sau
+103 - 115
+117 - 121
