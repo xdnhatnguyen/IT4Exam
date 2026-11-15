@@ -1,0 +1,10 @@
+# Sensitive / Confidential Exam Materials
+mmt/docs/Tom_Tat_Ly_Thuyet_MMT_Slide01_05.pdf
+mmt/docs/De_Mau_GK_2024_2025_LoiGiai_ChiTiet.pdf
+mmt/docs/De_Thi_Du_Doan_GK_MMT_2025_2026.pdf
+*.pdf.fdmdownload
+
+# Temporary & OS files
+.DS_Store
+Thumbs.db
+*.swp

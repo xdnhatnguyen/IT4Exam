@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT4Exam - Hệ Thống Ôn Thi Học Kỳ FIT HCMUS (25CTT3)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    code, pre, .font-mono {
+      font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .subject-card {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .subject-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+  <!-- ================= TOP HEADER ================= -->
+  <header class="bg-indigo-900 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-500 to-indigo-400 flex items-center justify-center text-xl shadow-md font-bold">
+          🎓
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight leading-snug flex items-center gap-2">
+            IT4Exam Portal
+            <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-500/30 text-blue-200 border border-blue-400/30">Lớp 25CTT3</span>
+          </h1>
+          <p class="text-xs text-indigo-200">Khoa CNTT - Trường ĐH Khoa học Tự nhiên ĐHQG-HCM</p>
+        </div>
+      </div>
+
+      <nav class="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-medium">
+        <a href="#lich-thi" class="hover:text-blue-300 px-3 py-1.5 rounded-lg transition">
+          📅 Lịch thi
+        </a>
+        <a href="#cac-mon-hoc" class="hover:text-blue-300 px-3 py-1.5 rounded-lg transition">
+          📚 Các môn học
+        </a>
+        <a href="https://github.com/xdnhatnguyen/IT4Exam" target="_blank" class="bg-indigo-800 hover:bg-indigo-700 text-indigo-100 px-3 py-1.5 rounded-lg border border-indigo-700 transition flex items-center gap-1.5">
+          <span>⭐</span>
+          <span>GitHub</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTAINER ================= -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+    <!-- HERO BANNER -->
+    <section class="bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
+      <div class="relative z-10 max-w-3xl space-y-3">
+        <span class="inline-block px-3 py-1 bg-white/15 backdrop-blur-sm rounded-full text-xs font-semibold text-blue-100 uppercase tracking-wider">
+          Học kỳ I • Năm học 2026–2027 • Lớp 25CTT3
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
+          Cổng Ôn Thi Giữa Kỳ FIT HCMUS
+        </h2>
+        <p class="text-blue-100 text-sm sm:text-base leading-relaxed">
+          Nền tảng tổng hợp đề thi thử nghiệm, ngân hàng trắc nghiệm có lời giải chi tiết, tóm tắt lý thuyết trọng tâm và tài liệu học tập dành cho sinh viên Chương trình Tiên tiến & CLC.
+        </p>
+        <div class="pt-2 flex flex-wrap gap-3 text-xs font-semibold">
+          <a href="mmt/index.html" class="bg-amber-400 hover:bg-amber-300 text-amber-950 px-4 py-2.5 rounded-xl shadow transition active:scale-95 flex items-center gap-1.5">
+            <span>🚀</span> Vào ôn thi Mạng Máy Tính (Form 57 câu/40')
+          </a>
+          <a href="#lich-thi" class="bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded-xl border border-white/20 transition flex items-center gap-1.5">
+            <span>📅</span> Xem Lịch thi Giữa kỳ
+          </a>
+        </div>
+      </div>
+      <!-- Background glow -->
+      <div class="absolute -right-16 -bottom-16 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    </section>
+
+    <!-- ================= SECTION 1: LỊCH THI GIỮA KỲ (EXAM SCHEDULE) ================= -->
+    <section id="lich-thi" class="space-y-4 scroll-mt-24">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span>📅</span> Lịch Thi Giữa Kỳ Học Kỳ I (Lớp 25CTT3)
+          </h3>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Kế hoạch tổ chức thi Giữa kỳ chính thức của Phòng Khảo thí & Đào tạo
+          </p>
+        </div>
+        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-200 text-slate-700">
+          Phòng thi: Giảng đường LT
+        </span>
+      </div>
+
+      <!-- Schedule Table / Cards Responsive -->
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm text-slate-700">
+            <thead class="bg-slate-100/80 text-xs font-bold uppercase text-slate-600 border-b border-slate-200">
+              <tr>
+                <th class="py-3 px-4">Mã MH</th>
+                <th class="py-3 px-4">Tên môn học</th>
+                <th class="py-3 px-4 text-center">Lớp</th>
+                <th class="py-3 px-4">Ngày thi</th>
+                <th class="py-3 px-4">Giờ thi</th>
+                <th class="py-3 px-4">Thời gian</th>
+                <th class="py-3 px-4">Cán bộ giảng dạy</th>
+                <th class="py-3 px-4 text-center">Trạng thái</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              
+              <!-- Row 1: PHY00002 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3.5 px-4 font-mono font-bold text-indigo-700 text-xs">PHY00002</td>
+                <td class="py-3.5 px-4 font-semibold text-slate-900">
+                  Vật lý đại cương 2 (Điện từ - Quang)
+                </td>
+                <td class="py-3.5 px-4 text-center font-mono text-xs">25CTT3</td>
+                <td class="py-3.5 px-4 font-medium">16/11/2026</td>
+                <td class="py-3.5 px-4 font-mono font-semibold text-amber-600">16g00</td>
+                <td class="py-3.5 px-4">60 phút</td>
+                <td class="py-3.5 px-4 text-slate-600">Nguyễn Nhật Kim Ngân</td>
+                <td class="py-3.5 px-4 text-center">
+                  <span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">
+                    🔴 Hôm nay
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Row 2: MTH00044 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3.5 px-4 font-mono font-bold text-indigo-700 text-xs">MTH00044</td>
+                <td class="py-3.5 px-4 font-semibold text-slate-900">
+                  Xác suất thống kê
+                </td>
+                <td class="py-3.5 px-4 text-center font-mono text-xs">25CTT3</td>
+                <td class="py-3.5 px-4 font-medium">18/11/2026</td>
+                <td class="py-3.5 px-4 font-mono font-semibold text-slate-700">14g45</td>
+                <td class="py-3.5 px-4">60 phút</td>
+                <td class="py-3.5 px-4 text-slate-600">Thái Phúc Hưng</td>
+                <td class="py-3.5 px-4 text-center">
+                  <span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                    ⏳ Còn 2 ngày
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Row 3: CSC10008 (HIGHLIGHTED) -->
+              <tr class="bg-blue-50/50 hover:bg-blue-50 transition border-l-4 border-l-blue-600">
+                <td class="py-3.5 px-4 font-mono font-bold text-blue-700 text-xs">CSC10008</td>
+                <td class="py-3.5 px-4 font-bold text-blue-900 flex items-center gap-2">
+                  <span>Mạng máy tính</span>
+                  <span class="text-[10px] uppercase font-extrabold px-2 py-0.5 rounded bg-blue-600 text-white">Trọng tâm</span>
+                </td>
+                <td class="py-3.5 px-4 text-center font-mono text-xs">25CTT3</td>
+                <td class="py-3.5 px-4 font-semibold text-blue-900">19/11/2026</td>
+                <td class="py-3.5 px-4 font-mono font-bold text-blue-700">13g30</td>
+                <td class="py-3.5 px-4">60 phút</td>
+                <td class="py-3.5 px-4 text-blue-950 font-medium">Huỳnh Thụy Bảo Trân</td>
+                <td class="py-3.5 px-4 text-center">
+                  <a href="mmt/index.html" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-600 text-white shadow-sm hover:bg-emerald-700 transition">
+                    🚀 Đang mở ôn thi
+                  </a>
+                </td>
+              </tr>
+
+              <!-- Row 4: MTH00050 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3.5 px-4 font-mono font-bold text-indigo-700 text-xs">MTH00050</td>
+                <td class="py-3.5 px-4 font-semibold text-slate-900">
+                  Toán học tổ hợp
+                </td>
+                <td class="py-3.5 px-4 text-center font-mono text-xs">25CTT3</td>
+                <td class="py-3.5 px-4 font-medium">20/11/2026</td>
+                <td class="py-3.5 px-4 font-mono font-semibold text-slate-700">10g15</td>
+                <td class="py-3.5 px-4">60 phút</td>
+                <td class="py-3.5 px-4 text-slate-600">Bùi Văn Thạch</td>
+                <td class="py-3.5 px-4 text-center">
+                  <span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
+                    ⏳ Còn 4 ngày
+                  </span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: CÁC MÔN HỌC ÔN TẬP (SUBJECTS HUB) ================= -->
+    <section id="cac-mon-hoc" class="space-y-4 scroll-mt-24">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <span>📚</span> Các Môn Học Ôn Tập (Exam Hub)
+          </h3>
+          <p class="text-xs text-slate-500 mt-0.5">
+            Hệ thống module hóa linh hoạt, cho phép mở rộng không giới hạn cho mọi môn học
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1: MẠNG MÁY TÍNH (ACTIVE & FULL FEATURE) -->
+        <div class="subject-card bg-white rounded-3xl p-6 border-2 border-blue-400 shadow-md flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+            Sẵn sàng 100%
+          </div>
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-3xl mb-4 shadow-sm group-hover:scale-105 transition-transform">
+              🌐
+            </div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-bold text-blue-700 uppercase tracking-wider">CSC10008</span>
+              <span class="text-xs text-slate-400">•</span>
+              <span class="text-xs text-emerald-600 font-semibold">185 câu trắc nghiệm</span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+              Mạng Máy Tính
+            </h4>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              Trọn bộ trắc nghiệm Form 57 câu/40', Đề 2024, Đề dự đoán 2025, bài tập Subnetting Moodle & toàn bộ tài liệu PDF (ref. anh Phúc Hoàng - itus).
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 space-y-2">
+            <a href="mmt/index.html" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl text-sm transition shadow-sm flex items-center justify-center gap-2">
+              <span>🚀 Vào làm đề trắc nghiệm</span>
+              <span>→</span>
+            </a>
+            <a href="mmt/index.html#tai-lieu-section" class="w-full bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold py-2 px-4 rounded-xl text-xs transition border border-slate-200 flex items-center justify-center gap-1.5">
+              <span>📖 Xem tài liệu tóm tắt (MMT.pdf)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: XÁC SUẤT THỐNG KÊ (UPCOMING) -->
+        <div class="subject-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between group hover:border-slate-300">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-3xl mb-4 shadow-sm">
+              📊
+            </div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">MTH00044</span>
+              <span class="text-xs text-slate-400">•</span>
+              <span class="text-xs text-slate-500">Thi 18/11</span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900">
+              Xác Suất Thống Kê
+            </h4>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              Tổng hợp công thức biến ngẫu nhiên, hàm mật độ, phân phối xác suất, ước lượng khoảng, kiểm định giả thuyết và bài tập giải mẫu.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <button disabled class="w-full bg-slate-100 text-slate-400 font-medium py-2.5 px-4 rounded-xl text-xs cursor-not-allowed text-center">
+              ⏳ Đang cập nhật tài liệu & đề thi
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3: VẬT LÝ ĐẠI CƯƠNG 2 (UPCOMING) -->
+        <div class="subject-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between group hover:border-slate-300">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-3xl mb-4 shadow-sm">
+              ⚡
+            </div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-bold text-rose-700 uppercase tracking-wider">PHY00002</span>
+              <span class="text-xs text-slate-400">•</span>
+              <span class="text-xs text-rose-600 font-bold">Thi hôm nay 16h</span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900">
+              Vật Lý Đại Cương 2
+            </h4>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              Tổng hợp kiến thức Điện trường, Từ trường, Định luật cảm ứng Faraday, Sóng điện từ, Hiện tượng Giao thoa và Nhiễu xạ ánh sáng.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <button disabled class="w-full bg-slate-100 text-slate-400 font-medium py-2.5 px-4 rounded-xl text-xs cursor-not-allowed text-center">
+              ⏳ Đang cập nhật tài liệu
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4: TOÁN HỌC TỔ HỢP (UPCOMING) -->
+        <div class="subject-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between group hover:border-slate-300">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-3xl mb-4 shadow-sm">
+              🔢
+            </div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-bold text-purple-700 uppercase tracking-wider">MTH00050</span>
+              <span class="text-xs text-slate-400">•</span>
+              <span class="text-xs text-slate-500">Thi 20/11</span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900">
+              Toán Học Tổ Hợp
+            </h4>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              Nguyên lý đếm, giải tích tổ hợp, nguyên lý bù trừ, phương trình truy hồi, hàm sinh và các bài toán đồ thị kinh điển.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <button disabled class="w-full bg-slate-100 text-slate-400 font-medium py-2.5 px-4 rounded-xl text-xs cursor-not-allowed text-center">
+              ⏳ Đang cập nhật bài tập
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 5: CALCULUS 1 & MATLAB (EXISTING FOLDER) -->
+        <div class="subject-card bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between group hover:border-slate-300">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-3xl mb-4 shadow-sm">
+              💻
+            </div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-bold text-teal-700 uppercase tracking-wider">Calculus1_Matlab</span>
+              <span class="text-xs text-slate-400">•</span>
+              <span class="text-xs text-slate-500">Mã nguồn</span>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900">
+              Thực Hành Giải Tích & Matlab
+            </h4>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">
+              Kho mã nguồn script Matlab phục vụ tính toán đạo hàm, tích phân, xấp xỉ số nghiệm phương trình và các bài kiểm tra thực hành.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100">
+            <a href="https://github.com/xdnhatnguyen/IT4Exam/tree/main/Calculus1_Matlab" target="_blank" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2.5 px-4 rounded-xl text-xs transition flex items-center justify-center gap-1.5">
+              <span>📂 Xem thư mục code Matlab trên GitHub</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs space-y-2">
+      <p class="font-medium text-slate-300">
+        IT4Exam - Hệ Thống Ôn Thi Học Kỳ • Khóa 25CTT3 (Chương trình Tiên tiến & CLC)
+      </p>
+      <p class="text-slate-500">
+        Khoa Công nghệ Thông tin - Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
