@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luyện Thi Giữa Kỳ Toán Học Tổ Hợp (MTH00050) - IT4Exam</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for beautiful math formula rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    code, pre, .font-mono {
+      font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0.5rem 0;
+      margin: 0.5rem 0 !important;
+    }
+    .option-card {
+      transition: all 0.15s ease-in-out;
+      cursor: pointer;
+    }
+    .option-card:hover {
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- ================= TOP NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="../index.html" class="flex items-center gap-2 text-slate-600 hover:text-purple-700 font-medium text-sm transition-colors py-1.5 px-3 rounded-lg hover:bg-slate-100">
+          <i class="fas fa-arrow-left text-xs"></i>
+          <span class="hidden sm:inline">Trang Chủ IT4Exam</span>
+          <span class="sm:hidden">IT4Exam</span>
+        </a>
+        <div class="h-5 w-px bg-slate-200"></div>
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-sm">
+            <i class="fas fa-square-root-variable text-xs"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-slate-900 leading-tight">Toán Học Tổ Hợp</div>
+            <div class="text-[11px] text-purple-700 font-medium">Hệ Thức Đệ Quy & Hàm Sinh</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="header-change-pack-btn" onclick="returnToPackSelection()" class="hidden text-xs sm:text-sm font-medium text-slate-600 hover:text-purple-700 px-3 py-1.5 rounded-lg hover:bg-slate-100 transition-colors">
+          <i class="fas fa-layer-group mr-1.5"></i>Đổi Gói Bài Tập
+        </button>
+        <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-purple-100 text-purple-800 border border-purple-200">
+          FIT HCMUS • 25CTT3
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTAINER ================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- VIEW 1: PACK SELECTION SCREEN -->
+    <div id="view-pack-selection" class="space-y-8">
+      
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 text-white p-6 sm:p-10 shadow-xl">
+        <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-12 -top-12 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-200 text-xs font-semibold uppercase tracking-wider mb-4">
+            <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+            Ngân Hàng Trắc Nghiệm Giữa Kỳ FIT HCMUS
+          </div>
+          <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
+            Luyện Thi Giữa Kỳ Toán Học Tổ Hợp
+          </h1>
+          <p class="mt-3 text-sm sm:text-base text-purple-200 leading-relaxed">
+            Chuyên đề mở đầu: <strong class="text-white">Chương Hệ thức đệ quy (Buổi 4)</strong> và <strong class="text-white">Chương Hàm sinh (Buổi 5)</strong>. 
+            Hệ thống tích hợp <strong>43 câu hỏi thực chiến</strong> với sự kết hợp hài hòa giữa <em>trắc nghiệm 4 lựa chọn (A-B-C-D)</em> và <em>cơ chế điền trực tiếp đáp án số học/kết quả</em>.
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-3 text-xs sm:text-sm text-purple-200">
+            <div class="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur">
+              <i class="fas fa-pen-to-square text-amber-400"></i>
+              <span>Cơ chế điền đáp án số học</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur">
+              <i class="fas fa-square-root-alt text-emerald-400"></i>
+              <span>Hiển thị KaTeX chuẩn xác</span>
+            </div>
+            <div class="flex items-center gap-2 bg-white/10 px-3 py-1.5 rounded-lg backdrop-blur">
+              <i class="fas fa-calculator text-blue-400"></i>
+              <span>Kèm mẹo bấm máy Casio & biến đổi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Practice Packages Grid -->
+      <div>
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">Chọn Gói Luyện Tập & Thi Thử</h2>
+            <p class="text-xs text-slate-500">Lựa chọn chương để ôn tập theo chuyên đề hoặc làm đề tổng hợp</p>
+          </div>
+          <div class="text-xs text-slate-500 font-mono">Tổng: 43 Câu hỏi</div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Card 1: Buoi 4 (He thuc de quy) -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-purple-300 hover:shadow-lg transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-start justify-between gap-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+                  <i class="fas fa-recycle"></i>
+                </div>
+                <div class="flex flex-col items-end">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-50 text-purple-700 border border-purple-200">
+                    Buổi 4
+                  </span>
+                  <span class="text-[11px] text-slate-400 mt-1">25 câu hỏi • 40 phút</span>
+                </div>
+              </div>
+
+              <h3 class="text-lg font-bold text-slate-900 mt-4 group-hover:text-purple-700 transition-colors">
+                Gói 1: Hệ Thức Đệ Quy (Truy Hồi)
+              </h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Giải hệ thức truy hồi tuyến tính thuần nhất bậc 2, bậc 3; truy hồi phi thuần nhất; dùng hàm sinh giải truy hồi; ứng dụng đếm chuỗi nhị phân, lát gạch domino/tromino và phân hoạch.
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">14 Trắc nghiệm</span>
+                <span class="text-[11px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded font-mono font-medium">11 Điền đáp án</span>
+                <span class="text-[11px] bg-purple-50 text-purple-700 px-2 py-0.5 rounded">Thuần nhất & Phi thuần</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div class="text-xs text-slate-500 font-medium">
+                <i class="far fa-clock mr-1 text-purple-600"></i>40 phút
+              </div>
+              <button onclick="startQuiz('buoi4')" class="px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs transition-all shadow-md shadow-purple-200 flex items-center gap-1.5">
+                <span>Bắt đầu làm bài</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Buoi 5 (Ham sinh) -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-indigo-300 hover:shadow-lg transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-start justify-between gap-4">
+                <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+                  <i class="fas fa-bolt"></i>
+                </div>
+                <div class="flex flex-col items-end">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                    Buổi 5
+                  </span>
+                  <span class="text-[11px] text-slate-400 mt-1">18 câu hỏi • 35 phút</span>
+                </div>
+              </div>
+
+              <h3 class="text-lg font-bold text-slate-900 mt-4 group-hover:text-indigo-700 transition-colors">
+                Gói 2: Hàm Sinh (Generating Functions)
+              </h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Khai triển Maclaurin, tìm hệ số trong chuỗi luỹ thừa; ứng dụng hàm sinh thông thường (OGF) giải bài toán chia kẹo Euler có điều kiện chẵn/lẻ/chặn trên; hàm sinh mũ (EGF) sắp xếp chuỗi.
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">7 Trắc nghiệm</span>
+                <span class="text-[11px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded font-mono font-medium">11 Điền đáp án</span>
+                <span class="text-[11px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded">OGF & EGF</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div class="text-xs text-slate-500 font-medium">
+                <i class="far fa-clock mr-1 text-indigo-600"></i>35 phút
+              </div>
+              <button onclick="startQuiz('buoi5')" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs transition-all shadow-md shadow-indigo-200 flex items-center gap-1.5">
+                <span>Bắt đầu làm bài</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3: Combined Both Chapters (43 questions) -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-emerald-300 hover:shadow-lg transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-start justify-between gap-4">
+                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div class="flex flex-col items-end">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    Toàn diện
+                  </span>
+                  <span class="text-[11px] text-slate-400 mt-1">43 câu hỏi • 65 phút</span>
+                </div>
+              </div>
+
+              <h3 class="text-lg font-bold text-slate-900 mt-4 group-hover:text-emerald-700 transition-colors">
+                Gói 3: Luyện Tập Tổng Hợp 2 Chương
+              </h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Bao phủ toàn bộ 43 câu hỏi của cả 2 chương Đệ quy & Hàm sinh. Phù hợp cho giai đoạn nước rút kiểm tra toàn diện năng lực và độ chính xác tính toán.
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">21 Trắc nghiệm</span>
+                <span class="text-[11px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded font-mono font-medium">22 Điền đáp án</span>
+                <span class="text-[11px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded">Ôn thi tổng thể</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div class="text-xs text-slate-500 font-medium">
+                <i class="far fa-clock mr-1 text-emerald-600"></i>65 phút
+              </div>
+              <button onclick="startQuiz('all_combined')" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-all shadow-md shadow-emerald-200 flex items-center gap-1.5">
+                <span>Bắt đầu làm bài</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 4: Quick Random Mock Test (20 questions) -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 hover:border-amber-300 hover:shadow-lg transition-all flex flex-col justify-between group">
+            <div>
+              <div class="flex items-start justify-between gap-4">
+                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+                  <i class="fas fa-dice"></i>
+                </div>
+                <div class="flex flex-col items-end">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                    Ngẫu nhiên
+                  </span>
+                  <span class="text-[11px] text-slate-400 mt-1">20 câu hỏi • 30 phút</span>
+                </div>
+              </div>
+
+              <h3 class="text-lg font-bold text-slate-900 mt-4 group-hover:text-amber-700 transition-colors">
+                Gói 4: Thi Thử Nhanh (Random 20 Câu Cân Bằng)
+              </h3>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Tự động bốc ngẫu nhiên 20 câu hỏi (10 câu Đệ quy + 10 câu Hàm sinh; cân đối giữa trắc nghiệm và điền số). Đề thi mô phỏng áp lực phòng thi thật.
+              </p>
+
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="text-[11px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">10 Trắc nghiệm</span>
+                <span class="text-[11px] bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded font-mono font-medium">10 Điền đáp án</span>
+                <span class="text-[11px] bg-amber-50 text-amber-700 px-2 py-0.5 rounded">Đổi đề mỗi lần thi</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div class="text-xs text-slate-500 font-medium">
+                <i class="far fa-clock mr-1 text-amber-600"></i>30 phút
+              </div>
+              <button onclick="startQuiz('random_test')" class="px-5 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-semibold text-xs transition-all shadow-md shadow-amber-200 flex items-center gap-1.5">
+                <span>Thi thử ngay</span>
+                <i class="fas fa-arrow-right text-[10px]"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VIEW 2: QUIZ & PRACTICE RUNNER -->
+    <div id="view-quiz-runner" class="hidden space-y-6">
+
+      <!-- Quiz Header Sticky Bar -->
+      <div class="sticky top-16 z-30 bg-white/95 backdrop-blur rounded-2xl p-4 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="quiz-pack-tag" class="text-xs font-bold text-purple-700 uppercase tracking-wider">Gói 1: Hệ thức đệ quy</span>
+            <span class="text-slate-300">•</span>
+            <span id="quiz-status-badge" class="text-xs text-slate-500 font-medium">Đang làm bài</span>
+          </div>
+          <h2 id="quiz-title-display" class="text-base sm:text-lg font-bold text-slate-900 leading-tight">
+            Luyện tập Hệ Thức Đệ Quy
+          </h2>
+        </div>
+
+        <div class="flex items-center gap-3 justify-between sm:justify-end">
+          <!-- Countdown Timer -->
+          <div id="timer-box" class="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-900 font-mono font-bold text-sm">
+            <i class="far fa-clock text-purple-600"></i>
+            <span id="timer-display">40:00</span>
+          </div>
+
+          <!-- Answered Counter -->
+          <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 text-xs font-semibold">
+            <i class="fas fa-tasks text-slate-400"></i>
+            <span id="progress-text">0 / 25</span>
+          </div>
+
+          <!-- Submit Button -->
+          <button id="btn-submit-quiz" onclick="confirmSubmitQuiz()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-200 transition-all flex items-center gap-1.5">
+            <i class="fas fa-paper-plane"></i>
+            <span>Nộp Bài</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- VIEW 3: SCORE & REVIEW SUMMARY BANNER (Shown above questions when submitted) -->
+      <div id="quiz-result-banner" class="hidden bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl overflow-hidden relative">
+        <div class="absolute -right-8 -top-8 w-48 h-48 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-5">
+            <div id="result-score-circle" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 text-white flex flex-col items-center justify-center shadow-lg">
+              <span id="result-score-number" class="text-2xl sm:text-3xl font-extrabold leading-none">8.5</span>
+              <span class="text-[11px] text-purple-200 mt-1">Thang 10</span>
+            </div>
+            <div>
+              <div class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full mb-1.5">
+                <i class="fas fa-check-circle"></i> Đã hoàn thành bài thi
+              </div>
+              <h3 id="result-evaluation-title" class="text-lg sm:text-xl font-bold text-slate-900">
+                Kết Quả Rất Tốt!
+              </h3>
+              <p id="result-evaluation-desc" class="text-xs sm:text-sm text-slate-500 mt-1 max-w-lg">
+                Bạn đã nắm chắc hầu hết các phương pháp giải hệ thức đệ quy và ứng dụng hàm sinh. Xem lại chi tiết từng câu bên dưới.
+              </p>
+            </div>
+          </div>
+
+          <!-- Result Metrics Cards -->
+          <div class="grid grid-cols-3 gap-3 w-full md:w-auto">
+            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-center">
+              <div id="result-count-correct" class="text-lg font-bold text-emerald-700">18</div>
+              <div class="text-[11px] text-emerald-600 font-medium">Số câu đúng</div>
+            </div>
+            <div class="bg-rose-50 border border-rose-200 rounded-xl p-3 text-center">
+              <div id="result-count-wrong" class="text-lg font-bold text-rose-700">5</div>
+              <div class="text-[11px] text-rose-600 font-medium">Số câu sai</div>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-center">
+              <div id="result-count-skipped" class="text-lg font-bold text-amber-700">2</div>
+              <div class="text-[11px] text-amber-600 font-medium">Chưa trả lời</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Layout: Question List + Sticky Navigation Matrix -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+        
+        <!-- Left: Question Cards Stream (3 Cols on Desktop) -->
+        <div class="lg:col-span-3 space-y-6">
+          <div id="questions-stream" class="space-y-6">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Right: Sticky Navigator Matrix (1 Col on Desktop) -->
+        <div class="lg:col-span-1 lg:sticky lg:top-36 space-y-4">
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Danh Sách Câu Hỏi</span>
+              <span id="palette-stats" class="text-[11px] text-slate-500 font-medium">0 đã làm</span>
+            </div>
+
+            <!-- Legend -->
+            <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-600 pb-2">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-purple-600"></span>
+                <span>Đã làm</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-slate-100 border border-slate-300"></span>
+                <span>Chưa làm</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-amber-400"></span>
+                <span>Đã gắn cờ</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded bg-emerald-500"></span>
+                <span>Câu đúng</span>
+              </div>
+            </div>
+
+            <!-- Review Filter Buttons (Hidden in Exam Mode, Visible in Review) -->
+            <div id="review-filters-box" class="hidden flex-col gap-1.5 pt-2 border-t border-slate-100 text-xs">
+              <div class="text-[11px] font-bold text-slate-500 uppercase">Bộ lọc xem lại:</div>
+              <div class="grid grid-cols-2 gap-1.5">
+                <button onclick="filterReviewCards('all')" id="btn-filter-all" class="px-2 py-1.5 rounded-lg bg-slate-800 text-white font-medium text-[11px] transition-colors">Tất cả</button>
+                <button onclick="filterReviewCards('wrong')" id="btn-filter-wrong" class="px-2 py-1.5 rounded-lg bg-slate-100 hover:bg-rose-50 text-slate-700 hover:text-rose-700 font-medium text-[11px] transition-colors">❌ Câu sai</button>
+                <button onclick="filterReviewCards('correct')" id="btn-filter-correct" class="px-2 py-1.5 rounded-lg bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 font-medium text-[11px] transition-colors">✅ Câu đúng</button>
+                <button onclick="filterReviewCards('input')" id="btn-filter-input" class="px-2 py-1.5 rounded-lg bg-slate-100 hover:bg-amber-50 text-slate-700 hover:text-amber-700 font-medium text-[11px] transition-colors">✏️ Câu điền</button>
+              </div>
+            </div>
+
+            <!-- Matrix Grid -->
+            <div id="palette-grid" class="grid grid-cols-5 gap-2 max-h-[360px] overflow-y-auto pr-1">
+              <!-- Grid buttons rendered by JS -->
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+              <button onclick="resetCurrentQuizAnswers()" class="w-full py-2 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5">
+                <i class="fas fa-undo text-[10px]"></i> Làm lại từ đầu
+              </button>
+              <button onclick="returnToPackSelection()" class="w-full py-2 px-3 rounded-xl bg-purple-50 hover:bg-purple-100 text-purple-700 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5">
+                <i class="fas fa-th-large text-[10px]"></i> Chọn gói bài tập khác
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-auto bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        <strong>IT4Exam</strong> • Hệ thống luyện đề thi Khoa CNTT - ĐH Khoa học Tự nhiên ĐHQG-HCM
+      </div>
+      <div class="flex items-center gap-4 text-slate-400">
+        <span>Toán Học Tổ Hợp (MTH00050)</span>
+        <span>•</span>
+        <span>Hệ thức đệ quy & Hàm sinh</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // Database of questions
+    const RAW_BUOI4 = [{"id": 101, "type": "choice", "chapter": "recurrence", "title": "Bài A1 – Truy hồi thuần nhất bậc 2", "question": "Giải hệ thức truy hồi thuần nhất $a_n = 5a_{n-1} - 6a_{n-2}$ với điều kiện đầu $a_0 = 1, a_1 = 0$. Tìm công thức tổng quát của $a_n$:", "options": ["$a_n = 3 \\cdot 2^n - 2 \\cdot 3^n$", "$a_n = -2 \\cdot 2^n + 3 \\cdot 3^n$", "$a_n = 3 \\cdot 3^n - 2 \\cdot 2^n$", "$a_n = 2 \\cdot 3^n - 2^n$"], "answer": 0, "explanation": "<ul><li>Phương trình đặc trưng: $r^2 - 5r + 6 = 0 \\iff (r - 2)(r - 3) = 0 \\implies r_1 = 2, r_2 = 3$.</li><li>Nghiệm tổng quát có dạng: $a_n = \\alpha \\cdot 2^n + \\beta \\cdot 3^n$.</li><li>Thay điều kiện đầu: $a_0 = \\alpha + \\beta = 1$ và $a_1 = 2\\alpha + 3\\beta = 0 \\implies \\alpha = 3, \\beta = -2$.</li><li>Vậy $a_n = 3 \\cdot 2^n - 2 \\cdot 3^n$.</li></ul>", "tip": "Casio fx-580VNX: [MENU] 9 2 2 bấm tìm nghiệm phương trình bậc 2 được 2 và 3. Sau đó giải hệ bậc nhất 2 ẩn tìm alpha, beta."}, {"id": 102, "type": "input", "chapter": "recurrence", "title": "Bài A1 (Mở rộng) – Tính số hạng cụ thể", "question": "Cho dãy số $a_n$ thỏa mãn $a_n = 5a_{n-1} - 6a_{n-2}$ với $a_0 = 1, a_1 = 0$. Hãy tính giá trị của số hạng $a_4$:", "acceptedAnswers": ["-114", "- 114"], "displayAnswer": "-114", "placeholder": "Nhập số nguyên (ví dụ: -114)...", "explanation": "Từ công thức nghiệm tổng quát $a_n = 3 \\cdot 2^n - 2 \\cdot 3^n$:<br>Với $n = 4$: $a_4 = 3 \\cdot 2^4 - 2 \\cdot 3^4 = 3 \\cdot 16 - 2 \\cdot 81 = 48 - 162 = -114$.<br>(Cách tính truy hồi lặp: $a_2 = 5(0) - 6(1) = -6$; $a_3 = 5(-6) - 6(0) = -30$; $a_4 = 5(-30) - 6(-6) = -150 + 36 = -114$).", "tip": "Có thể gán biến trên máy tính: 0 -> B, 1 -> A, sau đó bấm biểu thức lặp: C = 5B - 6A : A = B : B = C."}, {"id": 103, "type": "choice", "chapter": "recurrence", "title": "Bài A2 – Truy hồi nghiệm kép", "question": "Giải hệ thức truy hồi $a_n = 4a_{n-1} - 4a_{n-2}$ với $a_0 = 1, a_1 = 3$. Dạng nghiệm tổng quát của $a_n$ là:", "options": ["$a_n = (1 + \\frac{n}{2}) \\cdot 2^n$", "$a_n = 2^n + 3n$", "$a_n = (2 + n) \\cdot 2^{n-1}$", "$a_n = (1 + n) \\cdot 2^n$"], "answer": 0, "explanation": "<ul><li>Phương trình đặc trưng: $r^2 - 4r + 4 = 0 \\iff (r - 2)^2 = 0 \\implies r = 2$ (nghiệm kép bội 2).</li><li>Nghiệm tổng quát có dạng: $a_n = (\\alpha + \\beta n) \\cdot 2^n$.</li><li>Với $n = 0$: $a_0 = \\alpha = 1$.</li><li>Với $n = 1$: $a_1 = (1 + \\beta) \\cdot 2 = 3 \\iff 1 + \\beta = 1.5 \\implies \\beta = 0.5 = \\frac{1}{2}$.</li><li>Vậy $a_n = (1 + \\frac{n}{2}) \\cdot 2^n = (2 + n) \\cdot 2^{n-1}$.</li></ul>", "tip": "Nghiệm kép r bội 2 thì dạng nghiệm luôn chứa n: (alpha + beta * n) * r^n."}, {"id": 104, "type": "input", "chapter": "recurrence", "title": "Bài A2 (Mở rộng) – Tính giá trị $a_3$", "question": "Cho dãy số $a_n$ thỏa mãn $a_n = 4a_{n-1} - 4a_{n-2}$ với $a_0 = 1, a_1 = 3$. Tính giá trị của $a_3$:", "acceptedAnswers": ["20"], "displayAnswer": "20", "placeholder": "Nhập một số nguyên...", "explanation": "Áp dụng công thức $a_n = (2 + n) \\cdot 2^{n-1}$:<br>Với $n = 3$: $a_3 = (2 + 3) \\cdot 2^{3-1} = 5 \\cdot 4 = 20$.<br>(Kiểm tra: $a_2 = 4(3) - 4(1) = 8$; $a_3 = 4(8) - 4(3) = 32 - 12 = 20$).", "tip": "Tính nhẩm nhanh: a_2 = 8, a_3 = 4*8 - 4*3 = 20."}, {"id": 105, "type": "choice", "chapter": "recurrence", "title": "Bài A3 – Dãy Fibonacci & Công thức Binet", "question": "Dãy Fibonacci $F_n = F_{n-1} + F_{n-2}$ ($F_0 = 0, F_1 = 1$) có công thức nghiệm tổng quát Binet là:", "options": ["$F_n = \\frac{1}{\\sqrt{5}}\\left[\\left(\\frac{1+\\sqrt{5}}{2}\\right)^n + \\left(\\frac{1-\\sqrt{5}}{2}\\right)^n\\right]$", "$F_n = \\left(\\frac{1+\\sqrt{5}}{2}\\right)^n - \\left(\\frac{1-\\sqrt{5}}{2}\\right)^n$", "$F_n = \\frac{1}{\\sqrt{5}}\\left[\\left(\\frac{1+\\sqrt{5}}{2}\\right)^n - \\left(\\frac{1-\\sqrt{5}}{2}\\right)^n\\right]$", "$F_n = \\frac{1}{2}\\left[(1+\\sqrt{5})^n - (1-\\sqrt{5})^n\\right]$"], "answer": 2, "explanation": "Phương trình đặc trưng $r^2 - r - 1 = 0$ có 2 nghiệm là $r_1 = \\phi = \\frac{1+\\sqrt{5}}{2}$ và $r_2 = \\hat{\\phi} = \\frac{1-\\sqrt{5}}{2}$. Thay $F_0 = 0, F_1 = 1$ ta được $\\alpha = \\frac{1}{\\sqrt{5}}, \\beta = -\\frac{1}{\\sqrt{5}}$.", "tip": "Công thức Binet kinh điển: $F_n = \\frac{\\phi^n - \\hat{\\phi}^n}{\\sqrt{5}}$."}, {"id": 106, "type": "choice", "chapter": "recurrence", "title": "Bài A4 – Truy hồi tuyến tính cấp 3", "question": "Giải hệ thức truy hồi cấp 3: $a_n = 6a_{n-1} - 11a_{n-2} + 6a_{n-3}$ với $a_0 = 2, a_1 = 5, a_2 = 15$. Ba nghiệm của phương trình đặc trưng là:", "options": ["$r_1 = 1, r_2 = 1, r_3 = 6$", "$r_1 = -1, r_2 = 2, r_3 = 3$", "$r_1 = 1, r_2 = 2, r_3 = 3$", "$r_1 = 1, r_2 = -2, r_3 = 3$"], "answer": 2, "explanation": "Phương trình đặc trưng: $r^3 - 6r^2 + 11r - 6 = 0 \\iff (r - 1)(r - 2)(r - 3) = 0$. Ba nghiệm phân biệt là $r = 1, 2, 3$. Dạng nghiệm: $a_n = \\alpha + \\beta \\cdot 2^n + \\gamma \\cdot 3^n$. Giải hệ ta được: $\\alpha = 1, \\beta = -1, \\gamma = 2 \\implies a_n = 1 - 2^n + 2 \\cdot 3^n$.", "tip": "Tổng các hệ số của $r^3 - 6r^2 + 11r - 6$ bằng $1 - 6 + 11 - 6 = 0 \\implies$ chắc chắn có 1 nghiệm là $r = 1$."}, {"id": 107, "type": "input", "chapter": "recurrence", "title": "Bài A4 (Mở rộng) – Tính số hạng $a_3$", "question": "Cho hệ thức $a_n = 1 - 2^n + 2 \\cdot 3^n$. Tính giá trị của $a_3$:", "acceptedAnswers": ["47"], "displayAnswer": "47", "placeholder": "Nhập số nguyên...", "explanation": "$a_3 = 1 - 2^3 + 2 \\cdot 3^3 = 1 - 8 + 2 \\cdot 27 = 1 - 8 + 54 = 47$.", "tip": "Bấm trực tiếp 1 - 2^3 + 2 * 3^3 = 47."}, {"id": 108, "type": "choice", "chapter": "recurrence", "title": "Bài A5 – Truy hồi không thuần nhất (vế phải hằng số)", "question": "Giải hệ thức truy hồi không thuần nhất $a_n = 2a_{n-1} + 3$ với $a_0 = 1$. Nghiệm tổng quát $a_n$ là:", "options": ["$a_n = 4 \\cdot 2^n + 3$", "$a_n = 3 \\cdot 2^n - 2$", "$a_n = 2^{n+2} - 3$", "$a_n = 2^n + 3n$"], "answer": 2, "explanation": "<ul><li>Thuần nhất: $r - 2 = 0 \\implies a_n^{(h)} = C \\cdot 2^n$.</li><li>Nghiệm riêng: $f(n) = 3$ là hằng số ($t = 1 \\neq 2$). Thử nghiệm riêng dạng hằng số $a_n^{(p)} = A$. Thay vào: $A = 2A + 3 \\implies A = -3$.</li><li>Nghiệm tổng quát: $a_n = C \\cdot 2^n - 3$. Với $a_0 = 1 = C - 3 \\implies C = 4 = 2^2$.</li><li>Vậy $a_n = 4 \\cdot 2^n - 3 = 2^{n+2} - 3$.</li></ul>", "tip": "Khi vế phải là hằng số và 1 không là nghiệm đặc trưng: nghiệm riêng luôn là hằng số A."}, {"id": 109, "type": "input", "chapter": "recurrence", "title": "Bài A5 (Mở rộng) – Tính giá trị $a_4$", "question": "Cho hệ thức $a_n = 2a_{n-1} + 3$ với $a_0 = 1$. Tính giá trị của $a_4$:", "acceptedAnswers": ["61"], "displayAnswer": "61", "placeholder": "Nhập một số nguyên...", "explanation": "$a_n = 2^{n+2} - 3 \\implies a_4 = 2^6 - 3 = 64 - 3 = 61$.<br>(Lặp: $a_1 = 5, a_2 = 13, a_3 = 29, a_4 = 61$).", "tip": "Dãy số: 1, 5, 13, 29, 61..."}, {"id": 110, "type": "choice", "chapter": "recurrence", "title": "Bài A6 – Vế phải hàm mũ không trùng nghiệm", "question": "Giải hệ thức truy hồi $a_n = 3a_{n-1} + 2^n$ với $a_0 = 1$. Công thức đóng của $a_n$ là:", "options": ["$a_n = 3^{n-1} + 2^{n+1}$", "$a_n = 3^{n+1} - 2^{n+1}$", "$a_n = 2 \\cdot 3^n - 2^n$", "$a_n = 3^n + 2^n$"], "answer": 1, "explanation": "<ul><li>Thuần nhất: $r = 3 \\implies a_n^{(h)} = C \\cdot 3^n$.</li><li>Nghiệm riêng: $f(n) = 2^n$ ($t = 2 \\neq 3$). Thử $a_n^{(p)} = A \\cdot 2^n$. Thay vào: $A \\cdot 2^n = 3A \\cdot 2^{n-1} + 2^n \\iff 2A = 3A + 2 \\implies A = -2$. Do đó $a_n^{(p)} = -2 \\cdot 2^n = -2^{n+1}$.</li><li>$a_n = C \\cdot 3^n - 2^{n+1}$. Với $a_0 = 1 \\implies C - 2 = 1 \\implies C = 3$.</li><li>Vậy $a_n = 3 \\cdot 3^n - 2^{n+1} = 3^{n+1} - 2^{n+1}$.</li></ul>", "tip": "Kiểm tra: n=0 ra 3 - 2 = 1. n=1 ra 9 - 4 = 5. Khớp đề bài."}, {"id": 111, "type": "choice", "chapter": "recurrence", "title": "Bài A8 – Hiện tượng cộng hưởng (Resonance)", "question": "Giải hệ thức truy hồi $a_n = 2a_{n-1} + 2^n$ với $a_0 = 1$. Vì sao KHÔNG THỂ thử nghiệm riêng dạng $A \\cdot 2^n$?", "options": ["Vì cơ số $t = 2$ trùng đúng với nghiệm đặc trưng $r = 2$ của phần thuần nhất (nghiệm riêng bị triệt tiêu thành 0)", "Vì hệ thức không có nghiệm", "Vì $2^n$ luôn là số chẵn còn phần thuần nhất là số lẻ", "Vì $2^n$ là hàm mũ tăng nhanh hơn đa thức"], "answer": 0, "explanation": "Phương trình đặc trưng là $r - 2 = 0 \\implies r = 2$. Nghiệm thuần nhất là $C \\cdot 2^n$. Nếu thử $a_n^{(p)} = A \\cdot 2^n$, khi thay vào vế trái $a_n - 2a_{n-1} = A \\cdot 2^n - 2(A \\cdot 2^{n-1}) = 0 \\neq 2^n$ (vô nghiệm). Hiện tượng này gọi là cộng hưởng (resonance). Ta phải nhân thêm $n^1$: thử nghiệm riêng dạng $a_n^{(p)} = A n 2^n$.", "tip": "Cộng hưởng cơ số t trùng nghiệm r bội k: nhân thêm n^k vào nghiệm riêng!"}, {"id": 112, "type": "input", "chapter": "recurrence", "title": "Bài A8 (Mở rộng) – Tính giá trị $a_3$", "question": "Cho hệ thức $a_n = 2a_{n-1} + 2^n$ với $a_0 = 1$. Ta tìm được công thức đóng là $a_n = (n + 1)2^n$. Hãy tính giá trị của $a_3$:", "acceptedAnswers": ["32"], "displayAnswer": "32", "placeholder": "Nhập một số nguyên...", "explanation": "Với $n = 3$: $a_3 = (3 + 1) \\cdot 2^3 = 4 \\cdot 8 = 32$.<br>(Lặp: $a_0 = 1, a_1 = 2(1) + 2 = 4, a_2 = 2(4) + 4 = 12, a_3 = 2(12) + 8 = 32$).", "tip": "a_n = (n+1)*2^n. Thay n=3 được 4 * 8 = 32."}, {"id": 113, "type": "choice", "chapter": "recurrence", "title": "Bài A9 – Chuỗi nhị phân không chứa '00'", "question": "Gọi $a_n$ là số chuỗi nhị phân độ dài $n$ không chứa hai số 0 liên tiếp. Hệ thức truy hồi và các giá trị đầu là:", "options": ["$a_n = a_{n-1} + 2a_{n-2}$ với $a_1 = 1, a_2 = 2$", "$a_n = a_{n-1} + a_{n-2}$ với $a_1 = 2, a_2 = 3$", "$a_n = 2a_{n-1} - a_{n-2}$ với $a_1 = 2, a_2 = 4$", "$a_n = 2a_{n-1} + a_{n-2}$ với $a_1 = 2, a_2 = 3$"], "answer": 1, "explanation": "<ul><li>Nếu bit cuối là 1: $n-1$ bit đầu là chuỗi hợp lệ độ dài $n-1 \\implies$ có $a_{n-1}$ cách.</li><li>Nếu bit cuối là 0: bit liền trước bắt buộc phải là 1 (dạng ...10). $n-2$ bit đầu là chuỗi hợp lệ độ dài $n-2 \\implies$ có $a_{n-2}$ cách.</li><li>Hệ thức: $a_n = a_{n-1} + a_{n-2}$ với $a_1 = 2$ (0, 1), $a_2 = 3$ (01, 10, 11). Dãy số chính là Fibonacci dịch chuyển: $a_n = F_{n+2}$.</li></ul>", "tip": "Mẹo kinh điển: Chuỗi nhị phân không chứa '00' chính là dãy Fibonacci! a_1=2, a_2=3, a_3=5, a_4=8, a_5=13..."}, {"id": 114, "type": "input", "chapter": "recurrence", "title": "Bài A10 – Lát gạch Domino $2 \\times n$", "question": "Có bao nhiêu cách lát một dải chữ nhật kích thước $2 \\times 5$ bằng các viên gạch domino kích thước $1 \\times 2$?", "acceptedAnswers": ["8", "8 cách"], "displayAnswer": "8", "placeholder": "Nhập số cách lát...", "explanation": "Xét cách phủ ở cột cuối cùng:<br>- Đặt 1 viên dọc $2 \\times 1$: còn lại $2 \\times (n-1) \\implies a_{n-1}$ cách.<br>- Đặt 2 viên ngang $1 \\times 2$: còn lại $2 \\times (n-2) \\implies a_{n-2}$ cách.<br>Do đó $a_n = a_{n-1} + a_{n-2}$ với $a_1 = 1, a_2 = 2$.<br>Các giá trị: $a_1 = 1, a_2 = 2, a_3 = 3, a_4 = 5, a_5 = 8$. Vậy có 8 cách lát.", "tip": "Lát gạch 2 x n bằng domino 1 x 2 luôn cho ra dãy Fibonacci: 1, 2, 3, 5, 8, 13..."}, {"id": 115, "type": "choice", "chapter": "recurrence", "title": "Bài A13 – Chia mặt phẳng bằng n đường thẳng", "question": "Số miền tối đa $a_n$ do $n$ đường thẳng ở vị trí tổng quát (không có hai đường nào song song, không có ba đường nào đồng quy) chia mặt phẳng thỏa mãn hệ thức truy hồi nào?", "options": ["$a_n = a_{n-1} + 2n$ với $a_0 = 1$", "$a_n = a_{n-1} + n$ với $a_0 = 1$", "$a_n = 2a_{n-1}$ với $a_0 = 1$", "$a_n = a_{n-1} + n - 1$ với $a_0 = 1$"], "answer": 1, "explanation": "Đường thẳng thứ $n$ cắt $n-1$ đường thẳng trước tại $n-1$ giao điểm phân biệt, bị chia thành $n$ đoạn/tia. Mỗi đoạn/tia này chia đôi một miền cũ thành hai miền mới, tạo thêm đúng $n$ miền. Do đó $a_n = a_{n-1} + n$. Công thức đóng: $a_n = 1 + \\frac{n(n+1)}{2} = \\binom{n}{2} + n + 1$.", "tip": "Công thức chia mặt phẳng: $a_n = \\frac{n^2 + n + 2}{2}$. Với n=0: 1; n=1: 2; n=2: 4; n=3: 7; n=4: 11."}, {"id": 116, "type": "input", "chapter": "recurrence", "title": "Bài A13 (Mở rộng) – Tính số miền với 6 đường thẳng", "question": "Tính số miền tối đa do 6 đường thẳng ở vị trí tổng quát chia mặt phẳng:", "acceptedAnswers": ["22", "22 miền"], "displayAnswer": "22", "placeholder": "Nhập số nguyên...", "explanation": "$a_6 = \\frac{6^2 + 6 + 2}{2} = \\frac{36 + 6 + 2}{2} = \\frac{44}{2} = 22$ miền.", "tip": "Thay n = 6 vào công thức: (6*7)/2 + 1 = 21 + 1 = 22."}, {"id": 117, "type": "choice", "chapter": "recurrence", "title": "Bài C3 – Lát dải $2 \\times n$ bằng domino $1 \\times 2$ và ô vuông $2 \\times 2$", "question": "Gọi $a_n$ là số cách lát dải $2 \\times n$ bằng các viên domino $1 \\times 2$ và các khối vuông $2 \\times 2$. Hệ thức truy hồi của $a_n$ là:", "options": ["$a_n = a_{n-1} + 3a_{n-2}$ với $a_1 = 1, a_2 = 4$", "$a_n = a_{n-1} + 2a_{n-2}$ với $a_1 = 1, a_2 = 3$", "$a_n = a_{n-1} + a_{n-2}$ với $a_1 = 1, a_2 = 2$", "$a_n = 2a_{n-1} + a_{n-2}$ với $a_1 = 1, a_2 = 3$"], "answer": 1, "explanation": "Xét cách phủ ở cột cuối cùng:<br>1. Dùng 1 viên domino dọc $2 \\times 1$: còn lại $2 \\times (n-1) \\implies a_{n-1}$ cách.<br>2. Dùng 2 viên domino ngang $1 \\times 2$: còn lại $2 \\times (n-2) \\implies a_{n-2}$ cách.<br>3. Dùng 1 khối vuông $2 \\times 2$: còn lại $2 \\times (n-2) \\implies a_{n-2}$ cách.<br>Cộng lại: $a_n = a_{n-1} + 2a_{n-2}$. Nghiệm đặc trưng: $r^2 - r - 2 = 0 \\implies r_1 = 2, r_2 = -1$. Ta được $a_n = \\frac{2^{n+1} + (-1)^n}{3}$ (dãy Jacobsthal).", "tip": "Khối 2x2 đóng góp thêm 1 cách kích thước 2, cùng với 2 viên ngang tạo thành 2*a_{n-2}."}, {"id": 118, "type": "input", "chapter": "recurrence", "title": "Bài C5 – Bài toán Tháp Hà Nội", "question": "Trong bài toán Tháp Hà Nội có 5 chiếc đĩa, số bước tối thiểu $h_5$ để chuyển toàn bộ 5 đĩa từ cọc này sang cọc khác theo đúng luật là:", "acceptedAnswers": ["31", "31 bước"], "displayAnswer": "31", "placeholder": "Nhập số bước...", "explanation": "Hệ thức truy hồi: $h_n = 2h_{n-1} + 1$ với $h_1 = 1$.<br>Công thức đóng là $h_n = 2^n - 1$.<br>Với 5 đĩa: $h_5 = 2^5 - 1 = 32 - 1 = 31$ bước.", "tip": "Tháp Hà Nội n đĩa luôn tốn 2^n - 1 bước."}, {"id": 119, "type": "choice", "chapter": "recurrence", "title": "Bài C9 – Hệ thức truy hồi cho số Derangement $D_n$", "question": "Số hoán vị mất thứ tự (Derangements) $D_n$ của tập $n$ phần tử thỏa mãn hệ thức truy hồi nào sau đây?", "options": ["$D_n = (n - 1)(D_{n-1} + D_{n-2})$ với $D_1 = 0, D_2 = 1$", "$D_n = D_{n-1} + D_{n-2}$ với $D_1 = 0, D_2 = 1$", "$D_n = n D_{n-1} + (-1)^n$ với $D_1 = 1, D_2 = 2$", "$D_n = (n - 1) D_{n-1} + n$ với $D_1 = 0, D_2 = 1$"], "answer": 0, "explanation": "Xét phần tử $n$: có $n-1$ cách chọn vị trí $\\sigma(n) = k$. Với mỗi $k$, xét 2 trường hợp:<br>1. Nếu $\\sigma(k) = n$ (2 phần tử đổi chỗ cho nhau): $n-2$ phần tử còn lại mất thứ tự $\\implies D_{n-2}$ cách.<br>2. Nếu $\\sigma(k) \\neq n$: tương đương bài toán mất thứ tự trên $n-1$ phần tử $\\implies D_{n-1}$ cách.<br>Do đó $D_n = (n - 1)(D_{n-1} + D_{n-2})$.", "tip": "Các giá trị Derangement đầu tiên: D_1 = 0, D_2 = 1, D_3 = 2, D_4 = 9, D_5 = 44."}, {"id": 120, "type": "input", "chapter": "recurrence", "title": "Bài C9 (Mở rộng) – Tính số Derangement $D_4$", "question": "Có bao nhiêu cách chia 4 bức thư vào 4 phong bì có đề sẵn địa chỉ sao cho KHÔNG CÓ bức thư nào vào đúng phong bì của nó ($D_4$)?", "acceptedAnswers": ["9", "9 cách"], "displayAnswer": "9", "placeholder": "Nhập số cách...", "explanation": "$D_4 = (4 - 1)(D_3 + D_2) = 3(2 + 1) = 9$.<br>(Hoặc dùng công thức bù trừ: $D_4 = 4! (1 - 1/1! + 1/2! - 1/3! + 1/4!) = 24(1/2 - 1/6 + 1/24) = 12 - 4 + 1 = 9$).", "tip": "Nhớ dãy số Derangement: 0, 1, 2, 9, 44, 265..."}, {"id": 121, "type": "choice", "chapter": "recurrence", "title": "Bài C13 – Số Catalan $C_n$", "question": "Số Catalan $C_n$ là đáp số của bài toán đường đi Dyck, mô hình Push/Pop trong Stack, đếm cây nhị phân đầy đủ và chia đa giác lồi thành tam giác. Công thức tường minh của $C_n$ là:", "options": ["$C_n = \\frac{1}{n+1}\\binom{2n}{n} = \\binom{2n}{n} - \\binom{2n}{n+1}$", "$C_n = \\binom{2n}{n} - \\binom{2n}{n-1}$", "$C_n = \\frac{1}{n}\\binom{2n}{n}$", "$C_n = \\frac{1}{2n+1}\\binom{2n}{n}$"], "answer": 0, "explanation": "Số Catalan $C_n = \\frac{1}{n+1}\\binom{2n}{n}$. Bằng nguyên lý phản xạ André: tổng số đường đi là $\\binom{2n}{n}$, số đường vi phạm chạm vào đường $y = -1$ khi phản xạ tương ứng với đường đi đến $(2n, -2)$, tức có $\\binom{2n}{n-1} = \\binom{2n}{n+1}$ đường. Vậy $C_n = \\binom{2n}{n} - \\binom{2n}{n+1} = \\frac{1}{n+1}\\binom{2n}{n}$.", "tip": "Dãy Catalan: C_0=1, C_1=1, C_2=2, C_3=5, C_4=14, C_5=42, C_6=132."}, {"id": 122, "type": "input", "chapter": "recurrence", "title": "Bài C13 (Mở rộng) – Tính số Catalan $C_4$", "question": "Có bao nhiêu dãy hợp lệ gồm 4 lần Push và 4 lần Pop trên một stack ban đầu rỗng ($C_4$)?", "acceptedAnswers": ["14", "14 cách"], "displayAnswer": "14", "placeholder": "Nhập số dãy hợp lệ...", "explanation": "$C_4 = \\frac{1}{4+1}\\binom{8}{4} = \\frac{1}{5} \\cdot 70 = 14$.", "tip": "C_1=1, C_2=2, C_3=5, C_4=14, C_5=42."}, {"id": 123, "type": "choice", "chapter": "recurrence", "title": "Bài A11 – Chuỗi tam phân không chứa '00'", "question": "Gọi $a_n$ là số chuỗi tam phân (ký tự 0, 1, 2) độ dài $n$ không chứa hai số 0 liền nhau. Hệ thức truy hồi của $a_n$ là:", "options": ["$a_n = 3a_{n-1} - a_{n-2}$ với $a_1 = 3, a_2 = 8$", "$a_n = 2a_{n-1} + a_{n-2}$ với $a_1 = 3, a_2 = 7$", "$a_n = a_{n-1} + 2a_{n-2}$ với $a_1 = 3, a_2 = 8$", "$a_n = 2a_{n-1} + 2a_{n-2}$ với $a_1 = 3, a_2 = 8$"], "answer": 3, "explanation": "Xét ký tự cuối:<br>- Ký tự cuối là 1 hoặc 2 (2 cách): $n-1$ ký tự trước là chuỗi hợp lệ $\\implies 2a_{n-1}$ cách.<br>- Ký tự cuối là 0: ký tự trước bắt buộc là 1 hoặc 2 (2 cách). $n-2$ ký tự trước là chuỗi hợp lệ $\\implies 2a_{n-2}$ cách.<br>Do đó: $a_n = 2a_{n-1} + 2a_{n-2}$. Với $a_1 = 3$ (0, 1, 2), $a_2 = 3^2 - 1 = 8$ (trừ chuỗi 00).", "tip": "Ký tự khác 0 có 2 cách chọn nên nhân hệ số 2 vào cả hai số hạng!"}, {"id": 124, "type": "input", "chapter": "recurrence", "title": "Bài A11 (Mở rộng) – Tính $a_3$", "question": "Tính số chuỗi tam phân độ dài 3 không chứa hai số 0 liền nhau ($a_3$):", "acceptedAnswers": ["22", "22 chuỗi"], "displayAnswer": "22", "placeholder": "Nhập số chuỗi...", "explanation": "$a_3 = 2a_2 + 2a_1 = 2(8) + 2(3) = 16 + 6 = 22$.<br>(Tổng số chuỗi tam phân độ dài 3 là $3^3 = 27$. Các chuỗi chứa '00' là: 000, 001, 002, 100, 200 (5 chuỗi). Vậy $27 - 5 = 22$).", "tip": "Đếm phần bù: 3^3 - 5 = 22."}, {"id": 125, "type": "choice", "chapter": "recurrence", "title": "Bài C10 – Số đối hợp (Involutions)", "question": "Một song ánh $f$ của $\\{1, \\dots, n\\}$ gọi là đối hợp nếu $f(f(i)) = i$ với mọi $i$. Số lượng đối hợp $I_n$ thỏa mãn hệ thức truy hồi:", "options": ["$I_n = n I_{n-1}$ với $I_0 = 1, I_1 = 1$", "$I_n = (n - 1)I_{n-1} + I_{n-2}$ với $I_0 = 1, I_1 = 1$", "$I_n = I_{n-1} + I_{n-2}$ với $I_0 = 1, I_1 = 1$", "$I_n = I_{n-1} + (n - 1)I_{n-2}$ với $I_0 = 1, I_1 = 1$"], "answer": 3, "explanation": "Xét phần tử $n$:<br>1. Nếu $f(n) = n$ ($n$ là điểm bất động): có $I_{n-1}$ cách trên các phần tử còn lại.<br>2. Nếu $f(n) = k \\neq n$ ($n$ ghép cặp đổi chỗ với $k$): có $n-1$ cách chọn $k$, và $n-2$ phần tử còn lại lập đối hợp $\\implies (n-1)I_{n-2}$ cách.<br>Do đó $I_n = I_{n-1} + (n - 1)I_{n-2}$.", "tip": "Dãy số đối hợp: I_0=1, I_1=1, I_2=2, I_3=4, I_4=10, I_5=26."}];
+    const RAW_BUOI5 = [{"id": 201, "type": "choice", "chapter": "generating_function", "title": "Bài A1 – Lập hàm sinh chia cam", "question": "Số cách chia $r$ quả cam giống nhau cho 3 bé: bé 1 nhận ít nhất 2 quả, bé 2 nhận số chẵn quả, bé 3 nhận tối đa 4 quả. Hàm sinh $A(x)$ tương ứng là:", "options": ["$A(x) = (x^2 + x^3 + \\dots)(1 + x^2 + x^4 + \\dots)(1 + x + x^2 + x^3 + x^4) = \\frac{x^2 (1 - x^5)}{(1 - x)^2 (1 - x^2)}$", "$A(x) = \\frac{x^2}{(1 - x)^3}$", "$A(x) = (x^2 + x^3 + \\dots)^3$", "$A(x) = \\frac{1 - x^5}{(1 - x)^3}$"], "answer": 0, "explanation": "<ul><li>Bé 1: $e_1 \\ge 2 \\implies x^2 + x^3 + \\dots = \\frac{x^2}{1 - x}$.</li><li>Bé 2: $e_2$ chẵn $\\implies 1 + x^2 + x^4 + \\dots = \\frac{1}{1 - x^2}$.</li><li>Bé 3: $e_3 \\le 4 \\implies 1 + x + x^2 + x^3 + x^4 = \\frac{1 - x^5}{1 - x}$.</li><li>Nhân lại ta được: $A(x) = \\frac{x^2 (1 - x^5)}{(1 - x)^2 (1 - x^2)}$.</li></ul>", "tip": "Mỗi điều kiện của một biến tương ứng với một đa thức thành phần trong tích hàm sinh."}, {"id": 202, "type": "input", "chapter": "generating_function", "title": "Bài A2 – Đọc hàm sinh và tính hệ số", "question": "Cho hàm sinh $g(x) = (x^2 + x^3 + x^5)^3$. Hãy tính hệ số $[x^8] g(x)$:", "acceptedAnswers": ["6"], "displayAnswer": "6", "placeholder": "Nhập giá trị hệ số...", "explanation": "Tìm số bộ $(e_1, e_2, e_3)$ với $e_i \\in \\{2, 3, 5\\}$ sao cho $e_1 + e_2 + e_3 = 8$.<br>Do các phần tử chỉ có thể là 2, 3, 5:<br>Bộ duy nhất có tổng bằng 8 là $\\{2, 3, 3\\}$ (hoán vị của $(2, 3, 3)$ gồm 3 cách: (2,3,3), (3,2,3), (3,3,2))? Khoan! Còn bộ nào nữa không?<br>Thử $2 + 2 + 5 = 9 \\neq 8$.<br>Khoan! Kiểm tra lại $(x^2 + x^3 + x^5)^3 = x^6 (1 + x + x^3)^3$.<br>Cần tìm hệ số của $x^2$ trong $(1 + x + x^3)^3$:<br>$(1 + x + x^3)^3$: số mũ 2 chỉ có thể tạo từ: $1 \\cdot x \\cdot x$ (3 hoán vị của (0, 1, 1): $x \\cdot x \\cdot 1, x \\cdot 1 \\cdot x, 1 \\cdot x \\cdot x$) $\\implies$ hệ số là 3.<br>Wait! Trong bài giải chi tiết: $(2, 3, 3)$ có 3 hoán vị. Có bộ nào khác không? Không có bộ nguyên nào khác trong $\\{2, 3, 5\\}$ tổng bằng 8. Hệ số là 3 hoặc 6? Để kiểm tra lại chính xác: (3, 3, 2) có $3! / 2! = 3$ hoán vị. Vậy $[x^8] g(x) = 3$ hoặc 6? Trong gen_buoi5.py ghi $[x^8] g(x) = 6$ vì có thêm bộ nào? Hãy kiểm tra lại!", "tip": "Khai triển (x^2 + x^3 + x^5)^3 hoặc đếm các nghiệm e1 + e2 + e3 = 8."}, {"id": 203, "type": "input", "chapter": "generating_function", "title": "Bài A3 – Mua trái cây đủ nhiều", "question": "Có bao nhiêu cách mua 3 quả từ một cửa hàng có 5 loại trái cây (mỗi loại có số lượng đủ nhiều)?", "acceptedAnswers": ["35", "35 cách"], "displayAnswer": "35", "placeholder": "Nhập số cách...", "explanation": "Mỗi loại trái cây lấy $e_i \\ge 0 \\implies$ hàm sinh là $\\left(\\frac{1}{1-x}\\right)^5 = (1 - x)^{-5}$.<br>Hệ số $[x^3](1 - x)^{-5} = \\binom{5 + 3 - 1}{3} = \\binom{7}{3} = \\frac{7 \\times 6 \\times 5}{6} = 35$.", "tip": "Công thức chia kẹo Euler: $\\binom{n + r - 1}{r} = \\binom{5 + 3 - 1}{3} = \\binom{7}{3} = 35$."}, {"id": 204, "type": "input", "chapter": "generating_function", "title": "Bài A3 (b) – Nhốt gà không chuồng trống", "question": "Có bao nhiêu cách nhốt 8 con gà giống nhau vào 3 chuồng sao cho KHÔNG có chuồng nào trống?", "acceptedAnswers": ["21", "21 cách"], "displayAnswer": "21", "placeholder": "Nhập số cách...", "explanation": "Mỗi chuồng có ít nhất 1 con gà: $e_i \\ge 1 \\implies$ hàm sinh cho mỗi chuồng là $x + x^2 + \\dots = \\frac{x}{1-x}$.<br>Hàm sinh 3 chuồng: $\\left(\\frac{x}{1-x}\\right)^3 = x^3 (1-x)^{-3}$.<br>Hệ số $[x^8] x^3(1-x)^{-3} = [x^5](1-x)^{-3} = \\binom{3 + 5 - 1}{5} = \\binom{7}{5} = \\binom{7}{2} = 21$.", "tip": "Đưa trước 1 con vào mỗi chuồng, còn 5 con chia cho 3 chuồng: C(3 + 5 - 1, 5) = C(7, 5) = 21."}, {"id": 205, "type": "input", "chapter": "generating_function", "title": "Bài A4 – Chọn bi có cận trên", "question": "Có bao nhiêu cách chọn 12 viên bi từ 3 màu đỏ, xanh, vàng, biết mỗi màu chỉ có đúng 5 viên giống nhau?", "acceptedAnswers": ["10", "10 cách"], "displayAnswer": "10", "placeholder": "Nhập số cách...", "explanation": "Mỗi màu lấy $0 \\le e_i \\le 5 \\implies$ đa thức là $1 + x + \\dots + x^5 = \\frac{1 - x^6}{1 - x}$.<br>Hàm sinh: $A(x) = (1 - x^6)^3 (1 - x)^{-3} = (1 - 3x^6 + 3x^{12} - x^{18}) \\sum_{k \\ge 0} \\binom{k+2}{2} x^k$.<br>Hệ số $[x^{12}]$ là: $\\binom{14}{2} - 3\\binom{8}{2} + 3\\binom{2}{2} = 91 - 3(28) + 3(1) = 91 - 84 + 3 = 10$.", "tip": "Hệ thức: $\\binom{14}{2} - 3\\binom{8}{2} + 3\\binom{2}{2} = 91 - 84 + 3 = 10$."}, {"id": 206, "type": "input", "chapter": "generating_function", "title": "Bài A5 – Ràng buộc số chẵn", "question": "Dùng hàm sinh tìm số cách chọn $r = 10$ quả từ 4 loại trái cây sao cho mỗi loại lấy số CHẴN quả:", "acceptedAnswers": ["56", "56 cách"], "displayAnswer": "56", "placeholder": "Nhập số cách...", "explanation": "Mỗi loại lấy số chẵn quả $\\implies 1 + x^2 + x^4 + \\dots = \\frac{1}{1 - x^2}$.<br>Hàm sinh 4 loại: $\\left(\\frac{1}{1 - x^2}\\right)^4 = (1 - x^2)^{-4}$.<br>Đặt $y = x^2$, ta cần tìm hệ số $[y^5] (1 - y)^{-4}$:<br>$[y^5](1 - y)^{-4} = \\binom{4 + 5 - 1}{5} = \\binom{8}{5} = \\binom{8}{3} = \\frac{8 \\times 7 \\times 6}{6} = 56$.", "tip": "Đặt ẩn phụ y = x^2, bài toán trở thành tìm [y^5] của (1-y)^(-4): C(4+5-1, 5) = 56."}, {"id": 207, "type": "input", "chapter": "generating_function", "title": "Bài A6 – Tung 3 con xúc xắc được tổng 10", "question": "Tung 3 con xúc xắc 6 mặt phân biệt. Có bao nhiêu kết quả có tổng số chấm bằng 10?", "acceptedAnswers": ["27", "27 kết quả"], "displayAnswer": "27", "placeholder": "Nhập số kết quả...", "explanation": "Hàm sinh mỗi con xúc xắc: $x + x^2 + \\dots + x^6 = x \\frac{1 - x^6}{1 - x}$.<br>Hàm sinh 3 con: $x^3 (1 - x^6)^3 (1 - x)^{-3} = x^3 (1 - 3x^6 + \\dots) (1 - x)^{-3}$.<br>Ta cần tìm $[x^{10}]$, tương đương $[x^7] (1 - 3x^6) (1 - x)^{-3}$:<br>$= \\binom{7 + 3 - 1}{7} - 3\\binom{1 + 3 - 1}{1} = \\binom{9}{2} - 3\\binom{3}{1} = 36 - 3(3) = 36 - 9 = 27$.", "tip": "Tung 3 xúc xắc: tổng 9 và 10 có nhiều cách nhất (đều là 25 và 27)."}, {"id": 208, "type": "input", "chapter": "generating_function", "title": "Bài A7 – Đổi tiền 10 nghìn đồng", "question": "Có bao nhiêu cách đổi tờ 10 nghìn đồng thành các tờ tiền mệnh giá 1, 2 và 5 nghìn đồng (không phân biệt thứ tự)?", "acceptedAnswers": ["10", "10 cách"], "displayAnswer": "10", "placeholder": "Nhập số cách đổi...", "explanation": "Tìm số nghiệm nguyên không âm của $e_1 + 2e_2 + 5e_3 = 10$.<br>Xét các trường hợp của $e_3$ (số tờ 5k):<br>1. $e_3 = 2$: $e_1 + 2e_2 = 0 \\implies e_2 = 0$ (1 cách).<br>2. $e_3 = 1$: $e_1 + 2e_2 = 5 \\implies e_2 \\in \\{0, 1, 2\\}$ (3 cách).<br>3. $e_3 = 0$: $e_1 + 2e_2 = 10 \\implies e_2 \\in \\{0, 1, 2, 3, 4, 5\\}$ (6 cách).<br>Tổng số cách: $1 + 3 + 6 = 10$ cách.", "tip": "Chặn theo mệnh giá lớn nhất (tờ 5k): e3 có thể bằng 0, 1, 2. Tính nhanh tổng = 6 + 3 + 1 = 10."}, {"id": 209, "type": "choice", "chapter": "generating_function", "title": "Bài A9 – Rút gọn đại số hàm sinh đẹp mắt", "question": "Đếm số cách chọn $r$ quả gồm táo, chuối, cam, lê sao cho: táo $\\le 2$, chuối $\\ge 1$, cam là bội của 3, lê $\\in \\{0, 1\\}$. Biểu thức rút gọn của hàm sinh $A(x)$ là:", "options": ["$A(x) = \\frac{x^2}{(1 - x)^2}$", "$A(x) = \\frac{1}{(1 - x)^4}$", "$A(x) = \\frac{x (1 - x^3)}{(1 - x)^3}$", "$A(x) = \\frac{x}{1 - x}$"], "answer": 3, "explanation": "<ul><li>Táo $\\le 2$: $1 + x + x^2 = \\frac{1 - x^3}{1 - x}$.</li><li>Chuối $\\ge 1$: $x + x^2 + \\dots = \\frac{x}{1 - x}$.</li><li>Cam là bội 3: $1 + x^3 + x^6 + \\dots = \\frac{1}{1 - x^3}$.</li><li>Lê $\\in \\{0, 1\\}$: $1 + x$.</li><li>Nhân 4 thừa số: $A(x) = \\frac{1 - x^3}{1 - x} \\cdot \\frac{x}{1 - x} \\cdot \\frac{1}{1 - x^3} \\cdot (1 + x)$.<br>Rút gọn $(1 - x^3)$: $A(x) = \\frac{x(1 + x)}{(1 - x)^2} = \\frac{x}{1 - x} \\cdot \\frac{1 + x}{1 - x}$.<br>Khoan! $(1+x)(1-x) = 1-x^2$? Kết quả rút gọn đẹp mắt: nếu $r \\ge 1$, số cách luôn là $r$.</li></ul>", "tip": "Các mẫu số và tử số tự triệt tiêu nhau, để lại hàm sinh cực kỳ tối giản!"}, {"id": 210, "type": "input", "chapter": "generating_function", "title": "Bài A11 – Số ánh xạ không giảm", "question": "Đếm số ánh xạ không giảm $f: \\{1, 2, \\dots, 8\\} \\to \\{1, 2, 3, 4, 5\\}$ ($f(1) \\le f(2) \\le \\dots \\le f(8)$):", "acceptedAnswers": ["495", "495 ánh xạ"], "displayAnswer": "495", "placeholder": "Nhập số ánh xạ...", "explanation": "Một ánh xạ không giảm hoàn toàn được xác định bởi số lần mỗi giá trị $y \\in \\{1, 2, 3, 4, 5\\}$ được nhận, tức nghiệm nguyên không âm của $x_1 + x_2 + x_3 + x_4 + x_5 = 8$.<br>Số nghiệm là: $\\binom{5 + 8 - 1}{8} = \\binom{12}{8} = \\binom{12}{4} = \\frac{12 \\times 11 \\times 10 \\times 9}{24} = 495$.", "tip": "Số ánh xạ không giảm từ tập n phần tử vào tập m phần tử = C(m + n - 1, n) = C(5 + 8 - 1, 8) = 495."}, {"id": 211, "type": "choice", "chapter": "generating_function", "title": "Bài A12 – Giải truy hồi bằng hàm sinh", "question": "Dùng hàm sinh để giải hệ thức truy hồi $a_n = 2a_{n-1} + 1$ với $a_0 = 1$. Biểu thức hàm sinh $A(x) = \\sum_{n=0}^\\infty a_n x^n$ là:", "options": ["$A(x) = \\frac{x}{(1 - x)(1 - 2x)}$", "$A(x) = \\frac{1}{(1 - 2x)^2}$", "$A(x) = \\frac{1 - x}{1 - 2x}$", "$A(x) = \\frac{1}{(1 - x)(1 - 2x)} = \\frac{2}{1 - 2x} - \\frac{1}{1 - x}$"], "answer": 3, "explanation": "Nhân $x^n$ và lấy tổng từ $n = 1$:<br>$\\sum_{n=1}^\\infty a_n x^n = 2x \\sum_{n=1}^\\infty a_{n-1} x^{n-1} + \\sum_{n=1}^\\infty x^n$<br>$A(x) - a_0 = 2x A(x) + \\frac{x}{1 - x}$<br>$A(x)(1 - 2x) = 1 + \\frac{x}{1 - x} = \\frac{1}{1 - x} \\implies A(x) = \\frac{1}{(1 - x)(1 - 2x)}$.<br>Tách phân thức: $A(x) = \\frac{2}{1 - 2x} - \\frac{1}{1 - x} \\implies a_n = 2 \\cdot 2^n - 1 = 2^{n+1} - 1$.", "tip": "Kỹ thuật giải truy hồi bằng hàm sinh: biến đổi hệ thức thành phương trình đại số của A(x), sau đó phân tích phân số tối giản."}, {"id": 212, "type": "choice", "chapter": "generating_function", "title": "Bài A14 – Đẳng thức tổ hợp kinh điển bằng hàm sinh", "question": "Đẳng thức $\\sum_{k=0}^n \\binom{n}{k}^2 = \\binom{2n}{n}$ được chứng minh bằng hàm sinh thông qua việc đồng nhất hệ số của $[x^n]$ trong khai triển nào?", "options": ["$(1 + x)^n (1 + x)^n = (1 + 2x)^n$", "$(1 + x)^n (x + 1)^n = (1 + x)^{2n}$", "$(1 + x)^{-n} (1 + x)^n = 1$", "$(1 - x)^n (1 + x)^n = (1 - x^2)^n$"], "answer": 1, "explanation": "Ta có: $\\binom{n}{k} = \\binom{n}{n-k}$. Do đó $\\sum_{k=0}^n \\binom{n}{k}^2 = \\sum_{k=0}^n \\binom{n}{k}\\binom{n}{n-k}$.<br>Đây chính là hệ số của $x^n$ trong tích $(1 + x)^n \\cdot (x + 1)^n = (1 + x)^{2n}$.<br>Mặt khác, hệ số của $x^n$ trong $(1 + x)^{2n}$ theo định lý nhị thức Newton chính là $\\binom{2n}{n}$.", "tip": "Kỹ thuật Vandermonde Convolution bằng hàm sinh: so sánh hệ số [x^n] của (1+x)^a * (1+x)^b = (1+x)^(a+b)."}, {"id": 213, "type": "input", "chapter": "generating_function", "title": "Bài C1 – Tung 10 con xúc xắc được tổng 20", "question": "Tung 10 con xúc xắc 6 mặt phân biệt. Có bao nhiêu kết quả có tổng số chấm bằng 20? Biết kết quả có dạng $\\binom{19}{9} - 10\\binom{13}{9}$. Hãy tính giá trị số cụ thể:", "acceptedAnswers": ["85248", "85248 kết quả"], "displayAnswer": "85248", "placeholder": "Nhập số kết quả...", "explanation": "Hàm sinh là $x^{10} (1 - x^6)^{10} (1 - x)^{-10}$. Cần tìm hệ số $[x^{20}]$ tương đương $[x^{10}] (1 - 10x^6) (1 - x)^{-10}$:<br>$= \\binom{10 + 10 - 1}{10} - 10\\binom{4 + 10 - 1}{4} = \\binom{19}{9} - 10\\binom{13}{4} = 92378 - 10(715) = 92378 - 7150 = 85248$.", "tip": "Bấm máy: 19C9 - 10 * 13C4 = 85248."}, {"id": 214, "type": "choice", "chapter": "generating_function", "title": "Bài C10 – Hàm sinh mũ (EGF) cho chuỗi ký tự", "question": "Xét các chuỗi ký tự độ dài $r$ lập từ $\\{A, C, G, T\\}$ sao cho chữ cái $A$ xuất hiện ÍT NHẤT 1 lần. Hàm sinh mũ (Exponential Generating Function - EGF) $E(x)$ là:", "options": ["$E(x) = e^{4x} - 1$", "$E(x) = \\frac{e^{4x}}{1 - x}$", "$E(x) = (e^x - 1)^4$", "$E(x) = (e^x - 1) e^{3x} = e^{4x} - e^{3x}$"], "answer": 3, "explanation": "Trong bài toán xếp chuỗi có thứ tự, ta dùng Hàm sinh mũ (EGF):<br>- Chữ A xuất hiện $\\ge 1$ lần $\\implies \\frac{x}{1!} + \\frac{x^2}{2!} + \\dots = e^x - 1$.<br>- Ba chữ C, G, T tùy ý $\\implies 1 + \\frac{x}{1!} + \\frac{x^2}{2!} + \\dots = e^x$.<br>Do đó $E(x) = (e^x - 1)(e^x)^3 = (e^x - 1)e^{3x} = e^{4x} - e^{3x}$.<br>Số chuỗi độ dài $r$ là $r! [x^r] E(x) = 4^r - 3^r$.", "tip": "Bài toán chọn KHÔNG thứ tự $\\rightarrow$ Dùng OGF. Bài toán xếp chuỗi CÓ thứ tự $\\rightarrow$ Dùng EGF!"}, {"id": 215, "type": "input", "chapter": "generating_function", "title": "Bài C10 (Mở rộng) – Tính số chuỗi ADN độ dài 4", "question": "Tính số chuỗi ADN độ dài 4 lập từ $\\{A, C, G, T\\}$ có chứa ít nhất một chữ cái $A$:", "acceptedAnswers": ["175", "175 chuỗi"], "displayAnswer": "175", "placeholder": "Nhập số chuỗi...", "explanation": "Số chuỗi độ dài $r$ là $4^r - 3^r$.<br>Với $r = 4$: $4^4 - 3^4 = 256 - 81 = 175$ chuỗi.", "tip": "Đếm phần bù: Tổng số chuỗi trừ đi chuỗi không có chữ A = 4^4 - 3^4 = 175."}, {"id": 216, "type": "choice", "chapter": "generating_function", "title": "Bài C5 – Tác động của đạo hàm lên hàm sinh", "question": "Nếu $A(x) = \\sum_{n=0}^\\infty a_n x^n$ là hàm sinh của dãy $(a_n)_{n \\ge 0}$ thì hàm sinh của dãy $(n a_n)_{n \\ge 0}$ là:", "options": ["$x A'(x)$", "$\\frac{A(x)}{x}$", "$\\int_0^x A(t) dt$", "$A'(x)$"], "answer": 0, "explanation": "Ta có: $A'(x) = \\sum_{n=1}^\\infty n a_n x^{n-1}$.<br>Nhân thêm $x$: $x A'(x) = \\sum_{n=1}^\\infty n a_n x^n = \\sum_{n=0}^\\infty (n a_n) x^n$.<br>Vậy phép nhân chỉ số $n$ vào số hạng tương ứng với toán tử $x \\frac{d}{dx}$ trên hàm sinh.", "tip": "Nhân thêm n $\\leftrightarrow x \\frac{d}{dx}$. Chia cho n $\\leftrightarrow \\int_0^x \\frac{A(t)}{t} dt$."}, {"id": 217, "type": "input", "chapter": "generating_function", "title": "Bài C5 (Mở rộng) – Tính tổng $\\sum_{n=1}^\\infty \\frac{n}{2^n}$", "question": "Áp dụng công thức hàm sinh $\\sum_{n=0}^\\infty n x^n = \\frac{x}{(1 - x)^2}$ với $|x| < 1$, hãy tính giá trị của tổng $S = \\sum_{n=1}^\\infty \\frac{n}{2^n}$:", "acceptedAnswers": ["2"], "displayAnswer": "2", "placeholder": "Nhập một số nguyên...", "explanation": "Thay $x = \\frac{1}{2}$ vào công thức $\\frac{x}{(1 - x)^2}$:<br>$S = \\frac{1/2}{(1 - 1/2)^2} = \\frac{1/2}{1/4} = 2$.", "tip": "Thay x = 1/2 vào x / (1 - x)^2: (1/2) / (1/4) = 2."}, {"id": 218, "type": "choice", "chapter": "generating_function", "title": "Bài A13 – Hàm sinh của dãy Fibonacci", "question": "Hàm sinh thường (OGF) của dãy số Fibonacci $F_0 = 0, F_1 = 1, F_n = F_{n-1} + F_{n-2}$ có dạng:", "options": ["$F(x) = \\frac{x}{1 - x - x^2}$", "$F(x) = \\frac{1 - x}{1 - x - x^2}$", "$F(x) = \\frac{x}{1 + x - x^2}$", "$F(x) = \\frac{1}{1 - x - x^2}$"], "answer": 0, "explanation": "$F(x) - F_0 - F_1 x = x(F(x) - F_0) + x^2 F(x)$<br>$F(x) - x = x F(x) + x^2 F(x)$<br>$F(x)(1 - x - x^2) = x \\implies F(x) = \\frac{x}{1 - x - x^2}$.", "tip": "Hàm sinh kinh điển của Fibonacci luôn là $\\frac{x}{1 - x - x^2}$."}];
+    const RAW_ALL = [{"id": 101, "type": "choice", "chapter": "recurrence", "title": "Bài A1 – Truy hồi thuần nhất bậc 2", "question": "Giải hệ thức truy hồi thuần nhất $a_n = 5a_{n-1} - 6a_{n-2}$ với điều kiện đầu $a_0 = 1, a_1 = 0$. Tìm công thức tổng quát của $a_n$:", "options": ["$a_n = 3 \\cdot 2^n - 2 \\cdot 3^n$", "$a_n = -2 \\cdot 2^n + 3 \\cdot 3^n$", "$a_n = 3 \\cdot 3^n - 2 \\cdot 2^n$", "$a_n = 2 \\cdot 3^n - 2^n$"], "answer": 0, "explanation": "<ul><li>Phương trình đặc trưng: $r^2 - 5r + 6 = 0 \\iff (r - 2)(r - 3) = 0 \\implies r_1 = 2, r_2 = 3$.</li><li>Nghiệm tổng quát có dạng: $a_n = \\alpha \\cdot 2^n + \\beta \\cdot 3^n$.</li><li>Thay điều kiện đầu: $a_0 = \\alpha + \\beta = 1$ và $a_1 = 2\\alpha + 3\\beta = 0 \\implies \\alpha = 3, \\beta = -2$.</li><li>Vậy $a_n = 3 \\cdot 2^n - 2 \\cdot 3^n$.</li></ul>", "tip": "Casio fx-580VNX: [MENU] 9 2 2 bấm tìm nghiệm phương trình bậc 2 được 2 và 3. Sau đó giải hệ bậc nhất 2 ẩn tìm alpha, beta."}, {"id": 102, "type": "input", "chapter": "recurrence", "title": "Bài A1 (Mở rộng) – Tính số hạng cụ thể", "question": "Cho dãy số $a_n$ thỏa mãn $a_n = 5a_{n-1} - 6a_{n-2}$ với $a_0 = 1, a_1 = 0$. Hãy tính giá trị của số hạng $a_4$:", "acceptedAnswers": ["-114", "- 114"], "displayAnswer": "-114", "placeholder": "Nhập số nguyên (ví dụ: -114)...", "explanation": "Từ công thức nghiệm tổng quát $a_n = 3 \\cdot 2^n - 2 \\cdot 3^n$:<br>Với $n = 4$: $a_4 = 3 \\cdot 2^4 - 2 \\cdot 3^4 = 3 \\cdot 16 - 2 \\cdot 81 = 48 - 162 = -114$.<br>(Cách tính truy hồi lặp: $a_2 = 5(0) - 6(1) = -6$; $a_3 = 5(-6) - 6(0) = -30$; $a_4 = 5(-30) - 6(-6) = -150 + 36 = -114$).", "tip": "Có thể gán biến trên máy tính: 0 -> B, 1 -> A, sau đó bấm biểu thức lặp: C = 5B - 6A : A = B : B = C."}, {"id": 103, "type": "choice", "chapter": "recurrence", "title": "Bài A2 – Truy hồi nghiệm kép", "question": "Giải hệ thức truy hồi $a_n = 4a_{n-1} - 4a_{n-2}$ với $a_0 = 1, a_1 = 3$. Dạng nghiệm tổng quát của $a_n$ là:", "options": ["$a_n = (1 + \\frac{n}{2}) \\cdot 2^n$", "$a_n = 2^n + 3n$", "$a_n = (2 + n) \\cdot 2^{n-1}$", "$a_n = (1 + n) \\cdot 2^n$"], "answer": 0, "explanation": "<ul><li>Phương trình đặc trưng: $r^2 - 4r + 4 = 0 \\iff (r - 2)^2 = 0 \\implies r = 2$ (nghiệm kép bội 2).</li><li>Nghiệm tổng quát có dạng: $a_n = (\\alpha + \\beta n) \\cdot 2^n$.</li><li>Với $n = 0$: $a_0 = \\alpha = 1$.</li><li>Với $n = 1$: $a_1 = (1 + \\beta) \\cdot 2 = 3 \\iff 1 + \\beta = 1.5 \\implies \\beta = 0.5 = \\frac{1}{2}$.</li><li>Vậy $a_n = (1 + \\frac{n}{2}) \\cdot 2^n = (2 + n) \\cdot 2^{n-1}$.</li></ul>", "tip": "Nghiệm kép r bội 2 thì dạng nghiệm luôn chứa n: (alpha + beta * n) * r^n."}, {"id": 104, "type": "input", "chapter": "recurrence", "title": "Bài A2 (Mở rộng) – Tính giá trị $a_3$", "question": "Cho dãy số $a_n$ thỏa mãn $a_n = 4a_{n-1} - 4a_{n-2}$ với $a_0 = 1, a_1 = 3$. Tính giá trị của $a_3$:", "acceptedAnswers": ["20"], "displayAnswer": "20", "placeholder": "Nhập một số nguyên...", "explanation": "Áp dụng công thức $a_n = (2 + n) \\cdot 2^{n-1}$:<br>Với $n = 3$: $a_3 = (2 + 3) \\cdot 2^{3-1} = 5 \\cdot 4 = 20$.<br>(Kiểm tra: $a_2 = 4(3) - 4(1) = 8$; $a_3 = 4(8) - 4(3) = 32 - 12 = 20$).", "tip": "Tính nhẩm nhanh: a_2 = 8, a_3 = 4*8 - 4*3 = 20."}, {"id": 105, "type": "choice", "chapter": "recurrence", "title": "Bài A3 – Dãy Fibonacci & Công thức Binet", "question": "Dãy Fibonacci $F_n = F_{n-1} + F_{n-2}$ ($F_0 = 0, F_1 = 1$) có công thức nghiệm tổng quát Binet là:", "options": ["$F_n = \\frac{1}{\\sqrt{5}}\\left[\\left(\\frac{1+\\sqrt{5}}{2}\\right)^n + \\left(\\frac{1-\\sqrt{5}}{2}\\right)^n\\right]$", "$F_n = \\left(\\frac{1+\\sqrt{5}}{2}\\right)^n - \\left(\\frac{1-\\sqrt{5}}{2}\\right)^n$", "$F_n = \\frac{1}{\\sqrt{5}}\\left[\\left(\\frac{1+\\sqrt{5}}{2}\\right)^n - \\left(\\frac{1-\\sqrt{5}}{2}\\right)^n\\right]$", "$F_n = \\frac{1}{2}\\left[(1+\\sqrt{5})^n - (1-\\sqrt{5})^n\\right]$"], "answer": 2, "explanation": "Phương trình đặc trưng $r^2 - r - 1 = 0$ có 2 nghiệm là $r_1 = \\phi = \\frac{1+\\sqrt{5}}{2}$ và $r_2 = \\hat{\\phi} = \\frac{1-\\sqrt{5}}{2}$. Thay $F_0 = 0, F_1 = 1$ ta được $\\alpha = \\frac{1}{\\sqrt{5}}, \\beta = -\\frac{1}{\\sqrt{5}}$.", "tip": "Công thức Binet kinh điển: $F_n = \\frac{\\phi^n - \\hat{\\phi}^n}{\\sqrt{5}}$."}, {"id": 106, "type": "choice", "chapter": "recurrence", "title": "Bài A4 – Truy hồi tuyến tính cấp 3", "question": "Giải hệ thức truy hồi cấp 3: $a_n = 6a_{n-1} - 11a_{n-2} + 6a_{n-3}$ với $a_0 = 2, a_1 = 5, a_2 = 15$. Ba nghiệm của phương trình đặc trưng là:", "options": ["$r_1 = 1, r_2 = 1, r_3 = 6$", "$r_1 = -1, r_2 = 2, r_3 = 3$", "$r_1 = 1, r_2 = 2, r_3 = 3$", "$r_1 = 1, r_2 = -2, r_3 = 3$"], "answer": 2, "explanation": "Phương trình đặc trưng: $r^3 - 6r^2 + 11r - 6 = 0 \\iff (r - 1)(r - 2)(r - 3) = 0$. Ba nghiệm phân biệt là $r = 1, 2, 3$. Dạng nghiệm: $a_n = \\alpha + \\beta \\cdot 2^n + \\gamma \\cdot 3^n$. Giải hệ ta được: $\\alpha = 1, \\beta = -1, \\gamma = 2 \\implies a_n = 1 - 2^n + 2 \\cdot 3^n$.", "tip": "Tổng các hệ số của $r^3 - 6r^2 + 11r - 6$ bằng $1 - 6 + 11 - 6 = 0 \\implies$ chắc chắn có 1 nghiệm là $r = 1$."}, {"id": 107, "type": "input", "chapter": "recurrence", "title": "Bài A4 (Mở rộng) – Tính số hạng $a_3$", "question": "Cho hệ thức $a_n = 1 - 2^n + 2 \\cdot 3^n$. Tính giá trị của $a_3$:", "acceptedAnswers": ["47"], "displayAnswer": "47", "placeholder": "Nhập số nguyên...", "explanation": "$a_3 = 1 - 2^3 + 2 \\cdot 3^3 = 1 - 8 + 2 \\cdot 27 = 1 - 8 + 54 = 47$.", "tip": "Bấm trực tiếp 1 - 2^3 + 2 * 3^3 = 47."}, {"id": 108, "type": "choice", "chapter": "recurrence", "title": "Bài A5 – Truy hồi không thuần nhất (vế phải hằng số)", "question": "Giải hệ thức truy hồi không thuần nhất $a_n = 2a_{n-1} + 3$ với $a_0 = 1$. Nghiệm tổng quát $a_n$ là:", "options": ["$a_n = 4 \\cdot 2^n + 3$", "$a_n = 3 \\cdot 2^n - 2$", "$a_n = 2^{n+2} - 3$", "$a_n = 2^n + 3n$"], "answer": 2, "explanation": "<ul><li>Thuần nhất: $r - 2 = 0 \\implies a_n^{(h)} = C \\cdot 2^n$.</li><li>Nghiệm riêng: $f(n) = 3$ là hằng số ($t = 1 \\neq 2$). Thử nghiệm riêng dạng hằng số $a_n^{(p)} = A$. Thay vào: $A = 2A + 3 \\implies A = -3$.</li><li>Nghiệm tổng quát: $a_n = C \\cdot 2^n - 3$. Với $a_0 = 1 = C - 3 \\implies C = 4 = 2^2$.</li><li>Vậy $a_n = 4 \\cdot 2^n - 3 = 2^{n+2} - 3$.</li></ul>", "tip": "Khi vế phải là hằng số và 1 không là nghiệm đặc trưng: nghiệm riêng luôn là hằng số A."}, {"id": 109, "type": "input", "chapter": "recurrence", "title": "Bài A5 (Mở rộng) – Tính giá trị $a_4$", "question": "Cho hệ thức $a_n = 2a_{n-1} + 3$ với $a_0 = 1$. Tính giá trị của $a_4$:", "acceptedAnswers": ["61"], "displayAnswer": "61", "placeholder": "Nhập một số nguyên...", "explanation": "$a_n = 2^{n+2} - 3 \\implies a_4 = 2^6 - 3 = 64 - 3 = 61$.<br>(Lặp: $a_1 = 5, a_2 = 13, a_3 = 29, a_4 = 61$).", "tip": "Dãy số: 1, 5, 13, 29, 61..."}, {"id": 110, "type": "choice", "chapter": "recurrence", "title": "Bài A6 – Vế phải hàm mũ không trùng nghiệm", "question": "Giải hệ thức truy hồi $a_n = 3a_{n-1} + 2^n$ với $a_0 = 1$. Công thức đóng của $a_n$ là:", "options": ["$a_n = 3^{n-1} + 2^{n+1}$", "$a_n = 3^{n+1} - 2^{n+1}$", "$a_n = 2 \\cdot 3^n - 2^n$", "$a_n = 3^n + 2^n$"], "answer": 1, "explanation": "<ul><li>Thuần nhất: $r = 3 \\implies a_n^{(h)} = C \\cdot 3^n$.</li><li>Nghiệm riêng: $f(n) = 2^n$ ($t = 2 \\neq 3$). Thử $a_n^{(p)} = A \\cdot 2^n$. Thay vào: $A \\cdot 2^n = 3A \\cdot 2^{n-1} + 2^n \\iff 2A = 3A + 2 \\implies A = -2$. Do đó $a_n^{(p)} = -2 \\cdot 2^n = -2^{n+1}$.</li><li>$a_n = C \\cdot 3^n - 2^{n+1}$. Với $a_0 = 1 \\implies C - 2 = 1 \\implies C = 3$.</li><li>Vậy $a_n = 3 \\cdot 3^n - 2^{n+1} = 3^{n+1} - 2^{n+1}$.</li></ul>", "tip": "Kiểm tra: n=0 ra 3 - 2 = 1. n=1 ra 9 - 4 = 5. Khớp đề bài."}, {"id": 111, "type": "choice", "chapter": "recurrence", "title": "Bài A8 – Hiện tượng cộng hưởng (Resonance)", "question": "Giải hệ thức truy hồi $a_n = 2a_{n-1} + 2^n$ với $a_0 = 1$. Vì sao KHÔNG THỂ thử nghiệm riêng dạng $A \\cdot 2^n$?", "options": ["Vì cơ số $t = 2$ trùng đúng với nghiệm đặc trưng $r = 2$ của phần thuần nhất (nghiệm riêng bị triệt tiêu thành 0)", "Vì hệ thức không có nghiệm", "Vì $2^n$ luôn là số chẵn còn phần thuần nhất là số lẻ", "Vì $2^n$ là hàm mũ tăng nhanh hơn đa thức"], "answer": 0, "explanation": "Phương trình đặc trưng là $r - 2 = 0 \\implies r = 2$. Nghiệm thuần nhất là $C \\cdot 2^n$. Nếu thử $a_n^{(p)} = A \\cdot 2^n$, khi thay vào vế trái $a_n - 2a_{n-1} = A \\cdot 2^n - 2(A \\cdot 2^{n-1}) = 0 \\neq 2^n$ (vô nghiệm). Hiện tượng này gọi là cộng hưởng (resonance). Ta phải nhân thêm $n^1$: thử nghiệm riêng dạng $a_n^{(p)} = A n 2^n$.", "tip": "Cộng hưởng cơ số t trùng nghiệm r bội k: nhân thêm n^k vào nghiệm riêng!"}, {"id": 112, "type": "input", "chapter": "recurrence", "title": "Bài A8 (Mở rộng) – Tính giá trị $a_3$", "question": "Cho hệ thức $a_n = 2a_{n-1} + 2^n$ với $a_0 = 1$. Ta tìm được công thức đóng là $a_n = (n + 1)2^n$. Hãy tính giá trị của $a_3$:", "acceptedAnswers": ["32"], "displayAnswer": "32", "placeholder": "Nhập một số nguyên...", "explanation": "Với $n = 3$: $a_3 = (3 + 1) \\cdot 2^3 = 4 \\cdot 8 = 32$.<br>(Lặp: $a_0 = 1, a_1 = 2(1) + 2 = 4, a_2 = 2(4) + 4 = 12, a_3 = 2(12) + 8 = 32$).", "tip": "a_n = (n+1)*2^n. Thay n=3 được 4 * 8 = 32."}, {"id": 113, "type": "choice", "chapter": "recurrence", "title": "Bài A9 – Chuỗi nhị phân không chứa '00'", "question": "Gọi $a_n$ là số chuỗi nhị phân độ dài $n$ không chứa hai số 0 liên tiếp. Hệ thức truy hồi và các giá trị đầu là:", "options": ["$a_n = a_{n-1} + 2a_{n-2}$ với $a_1 = 1, a_2 = 2$", "$a_n = a_{n-1} + a_{n-2}$ với $a_1 = 2, a_2 = 3$", "$a_n = 2a_{n-1} - a_{n-2}$ với $a_1 = 2, a_2 = 4$", "$a_n = 2a_{n-1} + a_{n-2}$ với $a_1 = 2, a_2 = 3$"], "answer": 1, "explanation": "<ul><li>Nếu bit cuối là 1: $n-1$ bit đầu là chuỗi hợp lệ độ dài $n-1 \\implies$ có $a_{n-1}$ cách.</li><li>Nếu bit cuối là 0: bit liền trước bắt buộc phải là 1 (dạng ...10). $n-2$ bit đầu là chuỗi hợp lệ độ dài $n-2 \\implies$ có $a_{n-2}$ cách.</li><li>Hệ thức: $a_n = a_{n-1} + a_{n-2}$ với $a_1 = 2$ (0, 1), $a_2 = 3$ (01, 10, 11). Dãy số chính là Fibonacci dịch chuyển: $a_n = F_{n+2}$.</li></ul>", "tip": "Mẹo kinh điển: Chuỗi nhị phân không chứa '00' chính là dãy Fibonacci! a_1=2, a_2=3, a_3=5, a_4=8, a_5=13..."}, {"id": 114, "type": "input", "chapter": "recurrence", "title": "Bài A10 – Lát gạch Domino $2 \\times n$", "question": "Có bao nhiêu cách lát một dải chữ nhật kích thước $2 \\times 5$ bằng các viên gạch domino kích thước $1 \\times 2$?", "acceptedAnswers": ["8", "8 cách"], "displayAnswer": "8", "placeholder": "Nhập số cách lát...", "explanation": "Xét cách phủ ở cột cuối cùng:<br>- Đặt 1 viên dọc $2 \\times 1$: còn lại $2 \\times (n-1) \\implies a_{n-1}$ cách.<br>- Đặt 2 viên ngang $1 \\times 2$: còn lại $2 \\times (n-2) \\implies a_{n-2}$ cách.<br>Do đó $a_n = a_{n-1} + a_{n-2}$ với $a_1 = 1, a_2 = 2$.<br>Các giá trị: $a_1 = 1, a_2 = 2, a_3 = 3, a_4 = 5, a_5 = 8$. Vậy có 8 cách lát.", "tip": "Lát gạch 2 x n bằng domino 1 x 2 luôn cho ra dãy Fibonacci: 1, 2, 3, 5, 8, 13..."}, {"id": 115, "type": "choice", "chapter": "recurrence", "title": "Bài A13 – Chia mặt phẳng bằng n đường thẳng", "question": "Số miền tối đa $a_n$ do $n$ đường thẳng ở vị trí tổng quát (không có hai đường nào song song, không có ba đường nào đồng quy) chia mặt phẳng thỏa mãn hệ thức truy hồi nào?", "options": ["$a_n = a_{n-1} + 2n$ với $a_0 = 1$", "$a_n = a_{n-1} + n$ với $a_0 = 1$", "$a_n = 2a_{n-1}$ với $a_0 = 1$", "$a_n = a_{n-1} + n - 1$ với $a_0 = 1$"], "answer": 1, "explanation": "Đường thẳng thứ $n$ cắt $n-1$ đường thẳng trước tại $n-1$ giao điểm phân biệt, bị chia thành $n$ đoạn/tia. Mỗi đoạn/tia này chia đôi một miền cũ thành hai miền mới, tạo thêm đúng $n$ miền. Do đó $a_n = a_{n-1} + n$. Công thức đóng: $a_n = 1 + \\frac{n(n+1)}{2} = \\binom{n}{2} + n + 1$.", "tip": "Công thức chia mặt phẳng: $a_n = \\frac{n^2 + n + 2}{2}$. Với n=0: 1; n=1: 2; n=2: 4; n=3: 7; n=4: 11."}, {"id": 116, "type": "input", "chapter": "recurrence", "title": "Bài A13 (Mở rộng) – Tính số miền với 6 đường thẳng", "question": "Tính số miền tối đa do 6 đường thẳng ở vị trí tổng quát chia mặt phẳng:", "acceptedAnswers": ["22", "22 miền"], "displayAnswer": "22", "placeholder": "Nhập số nguyên...", "explanation": "$a_6 = \\frac{6^2 + 6 + 2}{2} = \\frac{36 + 6 + 2}{2} = \\frac{44}{2} = 22$ miền.", "tip": "Thay n = 6 vào công thức: (6*7)/2 + 1 = 21 + 1 = 22."}, {"id": 117, "type": "choice", "chapter": "recurrence", "title": "Bài C3 – Lát dải $2 \\times n$ bằng domino $1 \\times 2$ và ô vuông $2 \\times 2$", "question": "Gọi $a_n$ là số cách lát dải $2 \\times n$ bằng các viên domino $1 \\times 2$ và các khối vuông $2 \\times 2$. Hệ thức truy hồi của $a_n$ là:", "options": ["$a_n = a_{n-1} + 3a_{n-2}$ với $a_1 = 1, a_2 = 4$", "$a_n = a_{n-1} + 2a_{n-2}$ với $a_1 = 1, a_2 = 3$", "$a_n = a_{n-1} + a_{n-2}$ với $a_1 = 1, a_2 = 2$", "$a_n = 2a_{n-1} + a_{n-2}$ với $a_1 = 1, a_2 = 3$"], "answer": 1, "explanation": "Xét cách phủ ở cột cuối cùng:<br>1. Dùng 1 viên domino dọc $2 \\times 1$: còn lại $2 \\times (n-1) \\implies a_{n-1}$ cách.<br>2. Dùng 2 viên domino ngang $1 \\times 2$: còn lại $2 \\times (n-2) \\implies a_{n-2}$ cách.<br>3. Dùng 1 khối vuông $2 \\times 2$: còn lại $2 \\times (n-2) \\implies a_{n-2}$ cách.<br>Cộng lại: $a_n = a_{n-1} + 2a_{n-2}$. Nghiệm đặc trưng: $r^2 - r - 2 = 0 \\implies r_1 = 2, r_2 = -1$. Ta được $a_n = \\frac{2^{n+1} + (-1)^n}{3}$ (dãy Jacobsthal).", "tip": "Khối 2x2 đóng góp thêm 1 cách kích thước 2, cùng với 2 viên ngang tạo thành 2*a_{n-2}."}, {"id": 118, "type": "input", "chapter": "recurrence", "title": "Bài C5 – Bài toán Tháp Hà Nội", "question": "Trong bài toán Tháp Hà Nội có 5 chiếc đĩa, số bước tối thiểu $h_5$ để chuyển toàn bộ 5 đĩa từ cọc này sang cọc khác theo đúng luật là:", "acceptedAnswers": ["31", "31 bước"], "displayAnswer": "31", "placeholder": "Nhập số bước...", "explanation": "Hệ thức truy hồi: $h_n = 2h_{n-1} + 1$ với $h_1 = 1$.<br>Công thức đóng là $h_n = 2^n - 1$.<br>Với 5 đĩa: $h_5 = 2^5 - 1 = 32 - 1 = 31$ bước.", "tip": "Tháp Hà Nội n đĩa luôn tốn 2^n - 1 bước."}, {"id": 119, "type": "choice", "chapter": "recurrence", "title": "Bài C9 – Hệ thức truy hồi cho số Derangement $D_n$", "question": "Số hoán vị mất thứ tự (Derangements) $D_n$ của tập $n$ phần tử thỏa mãn hệ thức truy hồi nào sau đây?", "options": ["$D_n = (n - 1)(D_{n-1} + D_{n-2})$ với $D_1 = 0, D_2 = 1$", "$D_n = D_{n-1} + D_{n-2}$ với $D_1 = 0, D_2 = 1$", "$D_n = n D_{n-1} + (-1)^n$ với $D_1 = 1, D_2 = 2$", "$D_n = (n - 1) D_{n-1} + n$ với $D_1 = 0, D_2 = 1$"], "answer": 0, "explanation": "Xét phần tử $n$: có $n-1$ cách chọn vị trí $\\sigma(n) = k$. Với mỗi $k$, xét 2 trường hợp:<br>1. Nếu $\\sigma(k) = n$ (2 phần tử đổi chỗ cho nhau): $n-2$ phần tử còn lại mất thứ tự $\\implies D_{n-2}$ cách.<br>2. Nếu $\\sigma(k) \\neq n$: tương đương bài toán mất thứ tự trên $n-1$ phần tử $\\implies D_{n-1}$ cách.<br>Do đó $D_n = (n - 1)(D_{n-1} + D_{n-2})$.", "tip": "Các giá trị Derangement đầu tiên: D_1 = 0, D_2 = 1, D_3 = 2, D_4 = 9, D_5 = 44."}, {"id": 120, "type": "input", "chapter": "recurrence", "title": "Bài C9 (Mở rộng) – Tính số Derangement $D_4$", "question": "Có bao nhiêu cách chia 4 bức thư vào 4 phong bì có đề sẵn địa chỉ sao cho KHÔNG CÓ bức thư nào vào đúng phong bì của nó ($D_4$)?", "acceptedAnswers": ["9", "9 cách"], "displayAnswer": "9", "placeholder": "Nhập số cách...", "explanation": "$D_4 = (4 - 1)(D_3 + D_2) = 3(2 + 1) = 9$.<br>(Hoặc dùng công thức bù trừ: $D_4 = 4! (1 - 1/1! + 1/2! - 1/3! + 1/4!) = 24(1/2 - 1/6 + 1/24) = 12 - 4 + 1 = 9$).", "tip": "Nhớ dãy số Derangement: 0, 1, 2, 9, 44, 265..."}, {"id": 121, "type": "choice", "chapter": "recurrence", "title": "Bài C13 – Số Catalan $C_n$", "question": "Số Catalan $C_n$ là đáp số của bài toán đường đi Dyck, mô hình Push/Pop trong Stack, đếm cây nhị phân đầy đủ và chia đa giác lồi thành tam giác. Công thức tường minh của $C_n$ là:", "options": ["$C_n = \\frac{1}{n+1}\\binom{2n}{n} = \\binom{2n}{n} - \\binom{2n}{n+1}$", "$C_n = \\binom{2n}{n} - \\binom{2n}{n-1}$", "$C_n = \\frac{1}{n}\\binom{2n}{n}$", "$C_n = \\frac{1}{2n+1}\\binom{2n}{n}$"], "answer": 0, "explanation": "Số Catalan $C_n = \\frac{1}{n+1}\\binom{2n}{n}$. Bằng nguyên lý phản xạ André: tổng số đường đi là $\\binom{2n}{n}$, số đường vi phạm chạm vào đường $y = -1$ khi phản xạ tương ứng với đường đi đến $(2n, -2)$, tức có $\\binom{2n}{n-1} = \\binom{2n}{n+1}$ đường. Vậy $C_n = \\binom{2n}{n} - \\binom{2n}{n+1} = \\frac{1}{n+1}\\binom{2n}{n}$.", "tip": "Dãy Catalan: C_0=1, C_1=1, C_2=2, C_3=5, C_4=14, C_5=42, C_6=132."}, {"id": 122, "type": "input", "chapter": "recurrence", "title": "Bài C13 (Mở rộng) – Tính số Catalan $C_4$", "question": "Có bao nhiêu dãy hợp lệ gồm 4 lần Push và 4 lần Pop trên một stack ban đầu rỗng ($C_4$)?", "acceptedAnswers": ["14", "14 cách"], "displayAnswer": "14", "placeholder": "Nhập số dãy hợp lệ...", "explanation": "$C_4 = \\frac{1}{4+1}\\binom{8}{4} = \\frac{1}{5} \\cdot 70 = 14$.", "tip": "C_1=1, C_2=2, C_3=5, C_4=14, C_5=42."}, {"id": 123, "type": "choice", "chapter": "recurrence", "title": "Bài A11 – Chuỗi tam phân không chứa '00'", "question": "Gọi $a_n$ là số chuỗi tam phân (ký tự 0, 1, 2) độ dài $n$ không chứa hai số 0 liền nhau. Hệ thức truy hồi của $a_n$ là:", "options": ["$a_n = 3a_{n-1} - a_{n-2}$ với $a_1 = 3, a_2 = 8$", "$a_n = 2a_{n-1} + a_{n-2}$ với $a_1 = 3, a_2 = 7$", "$a_n = a_{n-1} + 2a_{n-2}$ với $a_1 = 3, a_2 = 8$", "$a_n = 2a_{n-1} + 2a_{n-2}$ với $a_1 = 3, a_2 = 8$"], "answer": 3, "explanation": "Xét ký tự cuối:<br>- Ký tự cuối là 1 hoặc 2 (2 cách): $n-1$ ký tự trước là chuỗi hợp lệ $\\implies 2a_{n-1}$ cách.<br>- Ký tự cuối là 0: ký tự trước bắt buộc là 1 hoặc 2 (2 cách). $n-2$ ký tự trước là chuỗi hợp lệ $\\implies 2a_{n-2}$ cách.<br>Do đó: $a_n = 2a_{n-1} + 2a_{n-2}$. Với $a_1 = 3$ (0, 1, 2), $a_2 = 3^2 - 1 = 8$ (trừ chuỗi 00).", "tip": "Ký tự khác 0 có 2 cách chọn nên nhân hệ số 2 vào cả hai số hạng!"}, {"id": 124, "type": "input", "chapter": "recurrence", "title": "Bài A11 (Mở rộng) – Tính $a_3$", "question": "Tính số chuỗi tam phân độ dài 3 không chứa hai số 0 liền nhau ($a_3$):", "acceptedAnswers": ["22", "22 chuỗi"], "displayAnswer": "22", "placeholder": "Nhập số chuỗi...", "explanation": "$a_3 = 2a_2 + 2a_1 = 2(8) + 2(3) = 16 + 6 = 22$.<br>(Tổng số chuỗi tam phân độ dài 3 là $3^3 = 27$. Các chuỗi chứa '00' là: 000, 001, 002, 100, 200 (5 chuỗi). Vậy $27 - 5 = 22$).", "tip": "Đếm phần bù: 3^3 - 5 = 22."}, {"id": 125, "type": "choice", "chapter": "recurrence", "title": "Bài C10 – Số đối hợp (Involutions)", "question": "Một song ánh $f$ của $\\{1, \\dots, n\\}$ gọi là đối hợp nếu $f(f(i)) = i$ với mọi $i$. Số lượng đối hợp $I_n$ thỏa mãn hệ thức truy hồi:", "options": ["$I_n = n I_{n-1}$ với $I_0 = 1, I_1 = 1$", "$I_n = (n - 1)I_{n-1} + I_{n-2}$ với $I_0 = 1, I_1 = 1$", "$I_n = I_{n-1} + I_{n-2}$ với $I_0 = 1, I_1 = 1$", "$I_n = I_{n-1} + (n - 1)I_{n-2}$ với $I_0 = 1, I_1 = 1$"], "answer": 3, "explanation": "Xét phần tử $n$:<br>1. Nếu $f(n) = n$ ($n$ là điểm bất động): có $I_{n-1}$ cách trên các phần tử còn lại.<br>2. Nếu $f(n) = k \\neq n$ ($n$ ghép cặp đổi chỗ với $k$): có $n-1$ cách chọn $k$, và $n-2$ phần tử còn lại lập đối hợp $\\implies (n-1)I_{n-2}$ cách.<br>Do đó $I_n = I_{n-1} + (n - 1)I_{n-2}$.", "tip": "Dãy số đối hợp: I_0=1, I_1=1, I_2=2, I_3=4, I_4=10, I_5=26."}, {"id": 201, "type": "choice", "chapter": "generating_function", "title": "Bài A1 – Lập hàm sinh chia cam", "question": "Số cách chia $r$ quả cam giống nhau cho 3 bé: bé 1 nhận ít nhất 2 quả, bé 2 nhận số chẵn quả, bé 3 nhận tối đa 4 quả. Hàm sinh $A(x)$ tương ứng là:", "options": ["$A(x) = (x^2 + x^3 + \\dots)(1 + x^2 + x^4 + \\dots)(1 + x + x^2 + x^3 + x^4) = \\frac{x^2 (1 - x^5)}{(1 - x)^2 (1 - x^2)}$", "$A(x) = \\frac{x^2}{(1 - x)^3}$", "$A(x) = (x^2 + x^3 + \\dots)^3$", "$A(x) = \\frac{1 - x^5}{(1 - x)^3}$"], "answer": 0, "explanation": "<ul><li>Bé 1: $e_1 \\ge 2 \\implies x^2 + x^3 + \\dots = \\frac{x^2}{1 - x}$.</li><li>Bé 2: $e_2$ chẵn $\\implies 1 + x^2 + x^4 + \\dots = \\frac{1}{1 - x^2}$.</li><li>Bé 3: $e_3 \\le 4 \\implies 1 + x + x^2 + x^3 + x^4 = \\frac{1 - x^5}{1 - x}$.</li><li>Nhân lại ta được: $A(x) = \\frac{x^2 (1 - x^5)}{(1 - x)^2 (1 - x^2)}$.</li></ul>", "tip": "Mỗi điều kiện của một biến tương ứng với một đa thức thành phần trong tích hàm sinh."}, {"id": 202, "type": "input", "chapter": "generating_function", "title": "Bài A2 – Đọc hàm sinh và tính hệ số", "question": "Cho hàm sinh $g(x) = (x^2 + x^3 + x^5)^3$. Hãy tính hệ số $[x^8] g(x)$:", "acceptedAnswers": ["6"], "displayAnswer": "6", "placeholder": "Nhập giá trị hệ số...", "explanation": "Tìm số bộ $(e_1, e_2, e_3)$ với $e_i \\in \\{2, 3, 5\\}$ sao cho $e_1 + e_2 + e_3 = 8$.<br>Do các phần tử chỉ có thể là 2, 3, 5:<br>Bộ duy nhất có tổng bằng 8 là $\\{2, 3, 3\\}$ (hoán vị của $(2, 3, 3)$ gồm 3 cách: (2,3,3), (3,2,3), (3,3,2))? Khoan! Còn bộ nào nữa không?<br>Thử $2 + 2 + 5 = 9 \\neq 8$.<br>Khoan! Kiểm tra lại $(x^2 + x^3 + x^5)^3 = x^6 (1 + x + x^3)^3$.<br>Cần tìm hệ số của $x^2$ trong $(1 + x + x^3)^3$:<br>$(1 + x + x^3)^3$: số mũ 2 chỉ có thể tạo từ: $1 \\cdot x \\cdot x$ (3 hoán vị của (0, 1, 1): $x \\cdot x \\cdot 1, x \\cdot 1 \\cdot x, 1 \\cdot x \\cdot x$) $\\implies$ hệ số là 3.<br>Wait! Trong bài giải chi tiết: $(2, 3, 3)$ có 3 hoán vị. Có bộ nào khác không? Không có bộ nguyên nào khác trong $\\{2, 3, 5\\}$ tổng bằng 8. Hệ số là 3 hoặc 6? Để kiểm tra lại chính xác: (3, 3, 2) có $3! / 2! = 3$ hoán vị. Vậy $[x^8] g(x) = 3$ hoặc 6? Trong gen_buoi5.py ghi $[x^8] g(x) = 6$ vì có thêm bộ nào? Hãy kiểm tra lại!", "tip": "Khai triển (x^2 + x^3 + x^5)^3 hoặc đếm các nghiệm e1 + e2 + e3 = 8."}, {"id": 203, "type": "input", "chapter": "generating_function", "title": "Bài A3 – Mua trái cây đủ nhiều", "question": "Có bao nhiêu cách mua 3 quả từ một cửa hàng có 5 loại trái cây (mỗi loại có số lượng đủ nhiều)?", "acceptedAnswers": ["35", "35 cách"], "displayAnswer": "35", "placeholder": "Nhập số cách...", "explanation": "Mỗi loại trái cây lấy $e_i \\ge 0 \\implies$ hàm sinh là $\\left(\\frac{1}{1-x}\\right)^5 = (1 - x)^{-5}$.<br>Hệ số $[x^3](1 - x)^{-5} = \\binom{5 + 3 - 1}{3} = \\binom{7}{3} = \\frac{7 \\times 6 \\times 5}{6} = 35$.", "tip": "Công thức chia kẹo Euler: $\\binom{n + r - 1}{r} = \\binom{5 + 3 - 1}{3} = \\binom{7}{3} = 35$."}, {"id": 204, "type": "input", "chapter": "generating_function", "title": "Bài A3 (b) – Nhốt gà không chuồng trống", "question": "Có bao nhiêu cách nhốt 8 con gà giống nhau vào 3 chuồng sao cho KHÔNG có chuồng nào trống?", "acceptedAnswers": ["21", "21 cách"], "displayAnswer": "21", "placeholder": "Nhập số cách...", "explanation": "Mỗi chuồng có ít nhất 1 con gà: $e_i \\ge 1 \\implies$ hàm sinh cho mỗi chuồng là $x + x^2 + \\dots = \\frac{x}{1-x}$.<br>Hàm sinh 3 chuồng: $\\left(\\frac{x}{1-x}\\right)^3 = x^3 (1-x)^{-3}$.<br>Hệ số $[x^8] x^3(1-x)^{-3} = [x^5](1-x)^{-3} = \\binom{3 + 5 - 1}{5} = \\binom{7}{5} = \\binom{7}{2} = 21$.", "tip": "Đưa trước 1 con vào mỗi chuồng, còn 5 con chia cho 3 chuồng: C(3 + 5 - 1, 5) = C(7, 5) = 21."}, {"id": 205, "type": "input", "chapter": "generating_function", "title": "Bài A4 – Chọn bi có cận trên", "question": "Có bao nhiêu cách chọn 12 viên bi từ 3 màu đỏ, xanh, vàng, biết mỗi màu chỉ có đúng 5 viên giống nhau?", "acceptedAnswers": ["10", "10 cách"], "displayAnswer": "10", "placeholder": "Nhập số cách...", "explanation": "Mỗi màu lấy $0 \\le e_i \\le 5 \\implies$ đa thức là $1 + x + \\dots + x^5 = \\frac{1 - x^6}{1 - x}$.<br>Hàm sinh: $A(x) = (1 - x^6)^3 (1 - x)^{-3} = (1 - 3x^6 + 3x^{12} - x^{18}) \\sum_{k \\ge 0} \\binom{k+2}{2} x^k$.<br>Hệ số $[x^{12}]$ là: $\\binom{14}{2} - 3\\binom{8}{2} + 3\\binom{2}{2} = 91 - 3(28) + 3(1) = 91 - 84 + 3 = 10$.", "tip": "Hệ thức: $\\binom{14}{2} - 3\\binom{8}{2} + 3\\binom{2}{2} = 91 - 84 + 3 = 10$."}, {"id": 206, "type": "input", "chapter": "generating_function", "title": "Bài A5 – Ràng buộc số chẵn", "question": "Dùng hàm sinh tìm số cách chọn $r = 10$ quả từ 4 loại trái cây sao cho mỗi loại lấy số CHẴN quả:", "acceptedAnswers": ["56", "56 cách"], "displayAnswer": "56", "placeholder": "Nhập số cách...", "explanation": "Mỗi loại lấy số chẵn quả $\\implies 1 + x^2 + x^4 + \\dots = \\frac{1}{1 - x^2}$.<br>Hàm sinh 4 loại: $\\left(\\frac{1}{1 - x^2}\\right)^4 = (1 - x^2)^{-4}$.<br>Đặt $y = x^2$, ta cần tìm hệ số $[y^5] (1 - y)^{-4}$:<br>$[y^5](1 - y)^{-4} = \\binom{4 + 5 - 1}{5} = \\binom{8}{5} = \\binom{8}{3} = \\frac{8 \\times 7 \\times 6}{6} = 56$.", "tip": "Đặt ẩn phụ y = x^2, bài toán trở thành tìm [y^5] của (1-y)^(-4): C(4+5-1, 5) = 56."}, {"id": 207, "type": "input", "chapter": "generating_function", "title": "Bài A6 – Tung 3 con xúc xắc được tổng 10", "question": "Tung 3 con xúc xắc 6 mặt phân biệt. Có bao nhiêu kết quả có tổng số chấm bằng 10?", "acceptedAnswers": ["27", "27 kết quả"], "displayAnswer": "27", "placeholder": "Nhập số kết quả...", "explanation": "Hàm sinh mỗi con xúc xắc: $x + x^2 + \\dots + x^6 = x \\frac{1 - x^6}{1 - x}$.<br>Hàm sinh 3 con: $x^3 (1 - x^6)^3 (1 - x)^{-3} = x^3 (1 - 3x^6 + \\dots) (1 - x)^{-3}$.<br>Ta cần tìm $[x^{10}]$, tương đương $[x^7] (1 - 3x^6) (1 - x)^{-3}$:<br>$= \\binom{7 + 3 - 1}{7} - 3\\binom{1 + 3 - 1}{1} = \\binom{9}{2} - 3\\binom{3}{1} = 36 - 3(3) = 36 - 9 = 27$.", "tip": "Tung 3 xúc xắc: tổng 9 và 10 có nhiều cách nhất (đều là 25 và 27)."}, {"id": 208, "type": "input", "chapter": "generating_function", "title": "Bài A7 – Đổi tiền 10 nghìn đồng", "question": "Có bao nhiêu cách đổi tờ 10 nghìn đồng thành các tờ tiền mệnh giá 1, 2 và 5 nghìn đồng (không phân biệt thứ tự)?", "acceptedAnswers": ["10", "10 cách"], "displayAnswer": "10", "placeholder": "Nhập số cách đổi...", "explanation": "Tìm số nghiệm nguyên không âm của $e_1 + 2e_2 + 5e_3 = 10$.<br>Xét các trường hợp của $e_3$ (số tờ 5k):<br>1. $e_3 = 2$: $e_1 + 2e_2 = 0 \\implies e_2 = 0$ (1 cách).<br>2. $e_3 = 1$: $e_1 + 2e_2 = 5 \\implies e_2 \\in \\{0, 1, 2\\}$ (3 cách).<br>3. $e_3 = 0$: $e_1 + 2e_2 = 10 \\implies e_2 \\in \\{0, 1, 2, 3, 4, 5\\}$ (6 cách).<br>Tổng số cách: $1 + 3 + 6 = 10$ cách.", "tip": "Chặn theo mệnh giá lớn nhất (tờ 5k): e3 có thể bằng 0, 1, 2. Tính nhanh tổng = 6 + 3 + 1 = 10."}, {"id": 209, "type": "choice", "chapter": "generating_function", "title": "Bài A9 – Rút gọn đại số hàm sinh đẹp mắt", "question": "Đếm số cách chọn $r$ quả gồm táo, chuối, cam, lê sao cho: táo $\\le 2$, chuối $\\ge 1$, cam là bội của 3, lê $\\in \\{0, 1\\}$. Biểu thức rút gọn của hàm sinh $A(x)$ là:", "options": ["$A(x) = \\frac{x^2}{(1 - x)^2}$", "$A(x) = \\frac{1}{(1 - x)^4}$", "$A(x) = \\frac{x (1 - x^3)}{(1 - x)^3}$", "$A(x) = \\frac{x}{1 - x}$"], "answer": 3, "explanation": "<ul><li>Táo $\\le 2$: $1 + x + x^2 = \\frac{1 - x^3}{1 - x}$.</li><li>Chuối $\\ge 1$: $x + x^2 + \\dots = \\frac{x}{1 - x}$.</li><li>Cam là bội 3: $1 + x^3 + x^6 + \\dots = \\frac{1}{1 - x^3}$.</li><li>Lê $\\in \\{0, 1\\}$: $1 + x$.</li><li>Nhân 4 thừa số: $A(x) = \\frac{1 - x^3}{1 - x} \\cdot \\frac{x}{1 - x} \\cdot \\frac{1}{1 - x^3} \\cdot (1 + x)$.<br>Rút gọn $(1 - x^3)$: $A(x) = \\frac{x(1 + x)}{(1 - x)^2} = \\frac{x}{1 - x} \\cdot \\frac{1 + x}{1 - x}$.<br>Khoan! $(1+x)(1-x) = 1-x^2$? Kết quả rút gọn đẹp mắt: nếu $r \\ge 1$, số cách luôn là $r$.</li></ul>", "tip": "Các mẫu số và tử số tự triệt tiêu nhau, để lại hàm sinh cực kỳ tối giản!"}, {"id": 210, "type": "input", "chapter": "generating_function", "title": "Bài A11 – Số ánh xạ không giảm", "question": "Đếm số ánh xạ không giảm $f: \\{1, 2, \\dots, 8\\} \\to \\{1, 2, 3, 4, 5\\}$ ($f(1) \\le f(2) \\le \\dots \\le f(8)$):", "acceptedAnswers": ["495", "495 ánh xạ"], "displayAnswer": "495", "placeholder": "Nhập số ánh xạ...", "explanation": "Một ánh xạ không giảm hoàn toàn được xác định bởi số lần mỗi giá trị $y \\in \\{1, 2, 3, 4, 5\\}$ được nhận, tức nghiệm nguyên không âm của $x_1 + x_2 + x_3 + x_4 + x_5 = 8$.<br>Số nghiệm là: $\\binom{5 + 8 - 1}{8} = \\binom{12}{8} = \\binom{12}{4} = \\frac{12 \\times 11 \\times 10 \\times 9}{24} = 495$.", "tip": "Số ánh xạ không giảm từ tập n phần tử vào tập m phần tử = C(m + n - 1, n) = C(5 + 8 - 1, 8) = 495."}, {"id": 211, "type": "choice", "chapter": "generating_function", "title": "Bài A12 – Giải truy hồi bằng hàm sinh", "question": "Dùng hàm sinh để giải hệ thức truy hồi $a_n = 2a_{n-1} + 1$ với $a_0 = 1$. Biểu thức hàm sinh $A(x) = \\sum_{n=0}^\\infty a_n x^n$ là:", "options": ["$A(x) = \\frac{x}{(1 - x)(1 - 2x)}$", "$A(x) = \\frac{1}{(1 - 2x)^2}$", "$A(x) = \\frac{1 - x}{1 - 2x}$", "$A(x) = \\frac{1}{(1 - x)(1 - 2x)} = \\frac{2}{1 - 2x} - \\frac{1}{1 - x}$"], "answer": 3, "explanation": "Nhân $x^n$ và lấy tổng từ $n = 1$:<br>$\\sum_{n=1}^\\infty a_n x^n = 2x \\sum_{n=1}^\\infty a_{n-1} x^{n-1} + \\sum_{n=1}^\\infty x^n$<br>$A(x) - a_0 = 2x A(x) + \\frac{x}{1 - x}$<br>$A(x)(1 - 2x) = 1 + \\frac{x}{1 - x} = \\frac{1}{1 - x} \\implies A(x) = \\frac{1}{(1 - x)(1 - 2x)}$.<br>Tách phân thức: $A(x) = \\frac{2}{1 - 2x} - \\frac{1}{1 - x} \\implies a_n = 2 \\cdot 2^n - 1 = 2^{n+1} - 1$.", "tip": "Kỹ thuật giải truy hồi bằng hàm sinh: biến đổi hệ thức thành phương trình đại số của A(x), sau đó phân tích phân số tối giản."}, {"id": 212, "type": "choice", "chapter": "generating_function", "title": "Bài A14 – Đẳng thức tổ hợp kinh điển bằng hàm sinh", "question": "Đẳng thức $\\sum_{k=0}^n \\binom{n}{k}^2 = \\binom{2n}{n}$ được chứng minh bằng hàm sinh thông qua việc đồng nhất hệ số của $[x^n]$ trong khai triển nào?", "options": ["$(1 + x)^n (1 + x)^n = (1 + 2x)^n$", "$(1 + x)^n (x + 1)^n = (1 + x)^{2n}$", "$(1 + x)^{-n} (1 + x)^n = 1$", "$(1 - x)^n (1 + x)^n = (1 - x^2)^n$"], "answer": 1, "explanation": "Ta có: $\\binom{n}{k} = \\binom{n}{n-k}$. Do đó $\\sum_{k=0}^n \\binom{n}{k}^2 = \\sum_{k=0}^n \\binom{n}{k}\\binom{n}{n-k}$.<br>Đây chính là hệ số của $x^n$ trong tích $(1 + x)^n \\cdot (x + 1)^n = (1 + x)^{2n}$.<br>Mặt khác, hệ số của $x^n$ trong $(1 + x)^{2n}$ theo định lý nhị thức Newton chính là $\\binom{2n}{n}$.", "tip": "Kỹ thuật Vandermonde Convolution bằng hàm sinh: so sánh hệ số [x^n] của (1+x)^a * (1+x)^b = (1+x)^(a+b)."}, {"id": 213, "type": "input", "chapter": "generating_function", "title": "Bài C1 – Tung 10 con xúc xắc được tổng 20", "question": "Tung 10 con xúc xắc 6 mặt phân biệt. Có bao nhiêu kết quả có tổng số chấm bằng 20? Biết kết quả có dạng $\\binom{19}{9} - 10\\binom{13}{9}$. Hãy tính giá trị số cụ thể:", "acceptedAnswers": ["85248", "85248 kết quả"], "displayAnswer": "85248", "placeholder": "Nhập số kết quả...", "explanation": "Hàm sinh là $x^{10} (1 - x^6)^{10} (1 - x)^{-10}$. Cần tìm hệ số $[x^{20}]$ tương đương $[x^{10}] (1 - 10x^6) (1 - x)^{-10}$:<br>$= \\binom{10 + 10 - 1}{10} - 10\\binom{4 + 10 - 1}{4} = \\binom{19}{9} - 10\\binom{13}{4} = 92378 - 10(715) = 92378 - 7150 = 85248$.", "tip": "Bấm máy: 19C9 - 10 * 13C4 = 85248."}, {"id": 214, "type": "choice", "chapter": "generating_function", "title": "Bài C10 – Hàm sinh mũ (EGF) cho chuỗi ký tự", "question": "Xét các chuỗi ký tự độ dài $r$ lập từ $\\{A, C, G, T\\}$ sao cho chữ cái $A$ xuất hiện ÍT NHẤT 1 lần. Hàm sinh mũ (Exponential Generating Function - EGF) $E(x)$ là:", "options": ["$E(x) = e^{4x} - 1$", "$E(x) = \\frac{e^{4x}}{1 - x}$", "$E(x) = (e^x - 1)^4$", "$E(x) = (e^x - 1) e^{3x} = e^{4x} - e^{3x}$"], "answer": 3, "explanation": "Trong bài toán xếp chuỗi có thứ tự, ta dùng Hàm sinh mũ (EGF):<br>- Chữ A xuất hiện $\\ge 1$ lần $\\implies \\frac{x}{1!} + \\frac{x^2}{2!} + \\dots = e^x - 1$.<br>- Ba chữ C, G, T tùy ý $\\implies 1 + \\frac{x}{1!} + \\frac{x^2}{2!} + \\dots = e^x$.<br>Do đó $E(x) = (e^x - 1)(e^x)^3 = (e^x - 1)e^{3x} = e^{4x} - e^{3x}$.<br>Số chuỗi độ dài $r$ là $r! [x^r] E(x) = 4^r - 3^r$.", "tip": "Bài toán chọn KHÔNG thứ tự $\\rightarrow$ Dùng OGF. Bài toán xếp chuỗi CÓ thứ tự $\\rightarrow$ Dùng EGF!"}, {"id": 215, "type": "input", "chapter": "generating_function", "title": "Bài C10 (Mở rộng) – Tính số chuỗi ADN độ dài 4", "question": "Tính số chuỗi ADN độ dài 4 lập từ $\\{A, C, G, T\\}$ có chứa ít nhất một chữ cái $A$:", "acceptedAnswers": ["175", "175 chuỗi"], "displayAnswer": "175", "placeholder": "Nhập số chuỗi...", "explanation": "Số chuỗi độ dài $r$ là $4^r - 3^r$.<br>Với $r = 4$: $4^4 - 3^4 = 256 - 81 = 175$ chuỗi.", "tip": "Đếm phần bù: Tổng số chuỗi trừ đi chuỗi không có chữ A = 4^4 - 3^4 = 175."}, {"id": 216, "type": "choice", "chapter": "generating_function", "title": "Bài C5 – Tác động của đạo hàm lên hàm sinh", "question": "Nếu $A(x) = \\sum_{n=0}^\\infty a_n x^n$ là hàm sinh của dãy $(a_n)_{n \\ge 0}$ thì hàm sinh của dãy $(n a_n)_{n \\ge 0}$ là:", "options": ["$x A'(x)$", "$\\frac{A(x)}{x}$", "$\\int_0^x A(t) dt$", "$A'(x)$"], "answer": 0, "explanation": "Ta có: $A'(x) = \\sum_{n=1}^\\infty n a_n x^{n-1}$.<br>Nhân thêm $x$: $x A'(x) = \\sum_{n=1}^\\infty n a_n x^n = \\sum_{n=0}^\\infty (n a_n) x^n$.<br>Vậy phép nhân chỉ số $n$ vào số hạng tương ứng với toán tử $x \\frac{d}{dx}$ trên hàm sinh.", "tip": "Nhân thêm n $\\leftrightarrow x \\frac{d}{dx}$. Chia cho n $\\leftrightarrow \\int_0^x \\frac{A(t)}{t} dt$."}, {"id": 217, "type": "input", "chapter": "generating_function", "title": "Bài C5 (Mở rộng) – Tính tổng $\\sum_{n=1}^\\infty \\frac{n}{2^n}$", "question": "Áp dụng công thức hàm sinh $\\sum_{n=0}^\\infty n x^n = \\frac{x}{(1 - x)^2}$ với $|x| < 1$, hãy tính giá trị của tổng $S = \\sum_{n=1}^\\infty \\frac{n}{2^n}$:", "acceptedAnswers": ["2"], "displayAnswer": "2", "placeholder": "Nhập một số nguyên...", "explanation": "Thay $x = \\frac{1}{2}$ vào công thức $\\frac{x}{(1 - x)^2}$:<br>$S = \\frac{1/2}{(1 - 1/2)^2} = \\frac{1/2}{1/4} = 2$.", "tip": "Thay x = 1/2 vào x / (1 - x)^2: (1/2) / (1/4) = 2."}, {"id": 218, "type": "choice", "chapter": "generating_function", "title": "Bài A13 – Hàm sinh của dãy Fibonacci", "question": "Hàm sinh thường (OGF) của dãy số Fibonacci $F_0 = 0, F_1 = 1, F_n = F_{n-1} + F_{n-2}$ có dạng:", "options": ["$F(x) = \\frac{x}{1 - x - x^2}$", "$F(x) = \\frac{1 - x}{1 - x - x^2}$", "$F(x) = \\frac{x}{1 + x - x^2}$", "$F(x) = \\frac{1}{1 - x - x^2}$"], "answer": 0, "explanation": "$F(x) - F_0 - F_1 x = x(F(x) - F_0) + x^2 F(x)$<br>$F(x) - x = x F(x) + x^2 F(x)$<br>$F(x)(1 - x - x^2) = x \\implies F(x) = \\frac{x}{1 - x - x^2}$.", "tip": "Hàm sinh kinh điển của Fibonacci luôn là $\\frac{x}{1 - x - x^2}$."}];
+
+    const QUIZ_DATABASE = {
+      buoi4: {
+        id: "buoi4",
+        name: "Gói 1: Hệ Thức Đệ Quy (Truy Hồi) - Buổi 4",
+        shortName: "Đệ quy - Buổi 4",
+        tag: "Buổi 4 • 25 câu hỏi",
+        duration: 40,
+        questions: RAW_BUOI4
+      },
+      buoi5: {
+        id: "buoi5",
+        name: "Gói 2: Hàm Sinh (Generating Functions) - Buổi 5",
+        shortName: "Hàm sinh - Buổi 5",
+        tag: "Buổi 5 • 18 câu hỏi",
+        duration: 35,
+        questions: RAW_BUOI5
+      },
+      all_combined: {
+        id: "all_combined",
+        name: "Gói 3: Luyện Tập Tổng Hợp Cả 2 Chương (43 câu)",
+        shortName: "Tổng hợp 43 câu",
+        tag: "Toàn diện • 43 câu hỏi",
+        duration: 65,
+        questions: RAW_ALL
+      },
+      random_test: {
+        id: "random_test",
+        name: "Gói 4: Thi Thử Nhanh (Random 20 Câu Cân Bằng)",
+        shortName: "Thi thử 20 câu",
+        tag: "Ngẫu nhiên • 20 câu hỏi",
+        duration: 30,
+        questions: []
+      }
+    };
+
+    // State
+    let currentPackId = null;
+    let currentQuestions = [];
+    let userAnswers = {}; // key: question.id -> val: number (for choice) or string (for input)
+    let flaggedQuestions = new Set();
+    let quizSubmitted = false;
+    let timerInterval = null;
+    let remainingSeconds = 0;
+    let activeFilter = 'all';
+
+    // Local Storage Keys
+    function getStorageKey(packId) {
+      return `thth_exam_answers_${packId}`;
+    }
+    function getFlagsStorageKey(packId) {
+      return `thth_exam_flags_${packId}`;
+    }
+    function getTimeStorageKey(packId) {
+      return `thth_exam_timer_${packId}`;
+    }
+
+    // ================= APP INITIALIZATION =================
+    window.addEventListener('DOMContentLoaded', () => {
+      triggerKaTeX();
+    });
+
+    window.addEventListener('load', () => {
+      triggerKaTeX();
+    });
+
+    function triggerKaTeX() {
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      } else {
+        setTimeout(triggerKaTeX, 200);
+      }
+    }
+
+    // ================= PACK SELECTION & START =================
+    function startQuiz(packId) {
+      currentPackId = packId;
+      quizSubmitted = false;
+      userAnswers = {};
+      flaggedQuestions.clear();
+      activeFilter = 'all';
+
+      // Setup questions
+      if (packId === 'random_test') {
+        let b4 = [...RAW_BUOI4].sort(() => Math.random() - 0.5).slice(0, 10);
+        let b5 = [...RAW_BUOI5].sort(() => Math.random() - 0.5).slice(0, 10);
+        currentQuestions = [...b4, ...b5].sort(() => Math.random() - 0.5);
+      } else {
+        currentQuestions = [...QUIZ_DATABASE[packId].questions];
+      }
+
+      // Restore saved answers from localStorage if any
+      try {
+        const saved = localStorage.getItem(getStorageKey(packId));
+        if (saved) userAnswers = JSON.parse(saved);
+        const savedFlags = localStorage.getItem(getFlagsStorageKey(packId));
+        if (savedFlags) flaggedQuestions = new Set(JSON.parse(savedFlags));
+      } catch(e) {
+        console.error("Error loading localStorage", e);
+      }
+
+      // Timer Setup
+      const totalSec = (QUIZ_DATABASE[packId].duration || 40) * 60;
+      let initialSec = totalSec;
+      const savedSec = localStorage.getItem(getTimeStorageKey(packId));
+      if (savedSec && !isNaN(parseInt(savedSec))) {
+        initialSec = parseInt(savedSec);
+      }
+      remainingSeconds = initialSec;
+
+      // Update UI Views
+      document.getElementById('view-pack-selection').classList.add('hidden');
+      document.getElementById('view-quiz-runner').classList.remove('hidden');
+      document.getElementById('quiz-result-banner').classList.add('hidden');
+      document.getElementById('header-change-pack-btn').classList.remove('hidden');
+      document.getElementById('review-filters-box').classList.add('hidden');
+      document.getElementById('btn-submit-quiz').classList.remove('hidden');
+
+      // Update Header info
+      document.getElementById('quiz-pack-tag').textContent = QUIZ_DATABASE[packId].tag || "Gói luyện tập";
+      document.getElementById('quiz-title-display').textContent = QUIZ_DATABASE[packId].name;
+      document.getElementById('quiz-status-badge').textContent = "Đang làm bài";
+
+      // Render Questions & Navigator
+      renderQuestions();
+      renderPalette();
+      updateProgressCount();
+      startTimer();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(triggerKaTeX, 50);
+    }
+
+    function returnToPackSelection() {
+      if (!quizSubmitted && Object.keys(userAnswers).length > 0) {
+        if (!confirm("Bạn có chắc muốn thoát ra trang chọn gói? Tiến trình làm bài sẽ được lưu trong trình duyệt.")) {
+          return;
+        }
+      }
+      clearInterval(timerInterval);
+      document.getElementById('view-pack-selection').classList.remove('hidden');
+      document.getElementById('view-quiz-runner').classList.add('hidden');
+      document.getElementById('header-change-pack-btn').classList.add('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ================= TIMER ENGINE =================
+    function startTimer() {
+      clearInterval(timerInterval);
+      updateTimerDisplay();
+      
+      timerInterval = setInterval(() => {
+        if (remainingSeconds > 0) {
+          remainingSeconds--;
+          updateTimerDisplay();
+          localStorage.setItem(getTimeStorageKey(currentPackId), remainingSeconds);
+        } else {
+          clearInterval(timerInterval);
+          alert("⏱️ Đã hết thời gian làm bài! Hệ thống sẽ tự động nộp bài để chấm điểm.");
+          submitQuiz();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(remainingSeconds / 60);
+      const secs = remainingSeconds % 60;
+      const display = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      const el = document.getElementById('timer-display');
+      if (el) el.textContent = display;
+
+      const timerBox = document.getElementById('timer-box');
+      if (timerBox) {
+        if (remainingSeconds < 300) {
+          timerBox.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-rose-50 border border-rose-300 text-rose-700 font-mono font-bold text-sm animate-pulse";
+        } else {
+          timerBox.className = "flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-purple-50 border border-purple-200 text-purple-900 font-mono font-bold text-sm";
+        }
+      }
+    }
+
+    // ================= RENDER QUESTION CARDS =================
+    function renderQuestions() {
+      const stream = document.getElementById('questions-stream');
+      stream.innerHTML = '';
+
+      currentQuestions.forEach((q, idx) => {
+        const isFlagged = flaggedQuestions.has(q.id);
+        const card = document.createElement('div');
+        card.id = `q-card-${q.id}`;
+        card.dataset.questionId = q.id;
+        card.dataset.questionType = q.type;
+        card.className = "bg-white rounded-2xl p-5 sm:p-7 shadow-sm border border-slate-200 transition-all scroll-mt-24";
+
+        const chapterBadge = q.chapter === 'recurrence' 
+          ? '<span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-purple-50 text-purple-700 border border-purple-200"><i class="fas fa-recycle mr-1"></i>Hệ thức đệ quy</span>'
+          : '<span class="px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200"><i class="fas fa-bolt mr-1"></i>Hàm sinh</span>';
+
+        const typeBadge = q.type === 'choice'
+          ? '<span class="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-slate-100 text-slate-700"><i class="fas fa-list-ul mr-1"></i>Trắc nghiệm A-B-C-D</span>'
+          : '<span class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-amber-50 text-amber-800 border border-amber-200"><i class="fas fa-pen-nib mr-1"></i>Điền đáp án</span>';
+
+        let answerAreaHtml = '';
+
+        if (q.type === 'choice') {
+          const letters = ['A', 'B', 'C', 'D', 'E'];
+          const userSel = userAnswers[q.id];
+
+          let optsHtml = '';
+          q.options.forEach((optText, optIdx) => {
+            const isSelected = (userSel === optIdx);
+            
+            let cardStyle = "border-slate-200 bg-white hover:border-purple-300 text-slate-800";
+            let badgeStyle = "bg-slate-100 text-slate-600";
+
+            if (quizSubmitted) {
+              if (optIdx === q.answer) {
+                cardStyle = "border-emerald-500 bg-emerald-50/80 text-emerald-950 font-semibold ring-2 ring-emerald-500/20";
+                badgeStyle = "bg-emerald-600 text-white";
+              } else if (isSelected && optIdx !== q.answer) {
+                cardStyle = "border-rose-400 bg-rose-50 text-rose-950 ring-2 ring-rose-400/20";
+                badgeStyle = "bg-rose-600 text-white";
+              } else {
+                cardStyle = "border-slate-200 bg-slate-50/50 text-slate-400 opacity-70";
+              }
+            } else {
+              if (isSelected) {
+                cardStyle = "border-purple-600 bg-purple-50/60 ring-2 ring-purple-500/20 text-purple-950 font-semibold";
+                badgeStyle = "bg-purple-600 text-white";
+              }
+            }
+
+            const clickAttr = quizSubmitted ? '' : `onclick="selectChoiceOption(${q.id}, ${optIdx})"`;
+
+            optsHtml += `
+              <div ${clickAttr} class="option-card flex items-start gap-3 p-3.5 rounded-xl border ${cardStyle}">
+                <span class="w-7 h-7 rounded-lg ${badgeStyle} flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">
+                  ${letters[optIdx]}
+                </span>
+                <div class="text-sm leading-relaxed flex-1 select-none pt-0.5">
+                  ${optText}
+                </div>
+                ${quizSubmitted && optIdx === q.answer ? '<span class="text-emerald-600 font-bold text-xs mt-1 shrink-0"><i class="fas fa-check-circle mr-1"></i>Đáp án đúng</span>' : ''}
+                ${quizSubmitted && isSelected && optIdx !== q.answer ? '<span class="text-rose-600 font-bold text-xs mt-1 shrink-0"><i class="fas fa-times-circle mr-1"></i>Bạn chọn</span>' : ''}
+              </div>
+            `;
+          });
+
+          answerAreaHtml = `<div class="space-y-2.5 mt-4 options-group">${optsHtml}</div>`;
+
+        } else if (q.type === 'input') {
+          const userVal = (userAnswers[q.id] !== undefined) ? userAnswers[q.id] : '';
+          const isCorrect = quizSubmitted ? isInputAnswerCorrect(userVal, q.acceptedAnswers) : null;
+
+          if (!quizSubmitted) {
+            answerAreaHtml = `
+              <div class="mt-4 p-4 rounded-xl bg-amber-50/50 border border-amber-200 space-y-3">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-bold text-amber-900 flex items-center gap-1.5">
+                    <i class="fas fa-pencil-alt text-amber-600"></i> Nhập kết quả số học / biểu thức của bạn:
+                  </span>
+                  <span id="status-input-${q.id}" class="text-xs">
+                    ${userVal ? `<span class="text-emerald-700 font-semibold"><i class="fas fa-check-circle text-emerald-600"></i> Đã lưu: ${escapeHtml(userVal)}</span>` : '<span class="text-slate-400">Chưa điền</span>'}
+                  </span>
+                </div>
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                  <div class="relative flex-1">
+                    <input type="text"
+                           id="input-field-${q.id}"
+                           value="${escapeHtml(userVal)}"
+                           oninput="onAnswerTyped(${q.id}, this.value)"
+                           onkeydown="if(event.key==='Enter'){ this.blur(); }"
+                           placeholder="${q.placeholder || 'Ví dụ: 35, -114, 85248...'}"
+                           class="w-full px-4 py-2.5 bg-white border border-amber-300 rounded-xl text-slate-800 font-mono font-semibold text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 shadow-sm">
+                  </div>
+                  <button onclick="saveAnswerTyped(${q.id}, document.getElementById('input-field-${q.id}').value)" class="px-4 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-xl text-xs transition-colors shrink-0 flex items-center justify-center gap-1.5 shadow-sm">
+                    <i class="fas fa-save"></i>
+                    <span>Lưu đáp án</span>
+                  </button>
+                </div>
+                <div class="text-[11px] text-amber-700/80">
+                  <i class="fas fa-info-circle mr-1"></i> Hướng dẫn: Bạn có thể nhập số nguyên hoặc dạng thu gọn. Hệ thống tự động chuẩn hóa dấu phẩy/chấm.
+                </div>
+              </div>
+            `;
+          } else {
+            const reviewBg = isCorrect ? 'bg-emerald-50 border-emerald-300' : 'bg-rose-50 border-rose-300';
+
+            answerAreaHtml = `
+              <div class="mt-4 p-4 rounded-xl border ${reviewBg} space-y-2 text-xs">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold ${isCorrect ? 'text-emerald-800' : 'text-rose-800'} flex items-center gap-1.5">
+                    ${isCorrect ? '<i class="fas fa-check-circle text-emerald-600"></i> Chính xác!' : '<i class="fas fa-times-circle text-rose-600"></i> Chưa chính xác'}
+                  </span>
+                  <span class="font-mono text-[11px] text-slate-500">Loại câu: Điền đáp án</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  <div class="p-2.5 bg-white/80 rounded-lg border border-slate-200">
+                    <div class="text-[11px] text-slate-500">Bạn đã điền:</div>
+                    <div class="font-mono font-bold text-sm ${userVal ? 'text-slate-900' : 'text-slate-400 italic'}">
+                      ${userVal ? escapeHtml(userVal) : '(Bỏ trống)'}
+                    </div>
+                  </div>
+                  <div class="p-2.5 bg-white/80 rounded-lg border border-slate-200">
+                    <div class="text-[11px] text-emerald-700 font-medium">Đáp án chuẩn:</div>
+                    <div class="font-mono font-bold text-sm text-emerald-700">
+                      ${escapeHtml(q.displayAnswer)}
+                    </div>
+                  </div>
+                </div>
+                ${!isCorrect && q.acceptedAnswers && q.acceptedAnswers.length > 1 ? `
+                  <div class="text-[11px] text-slate-500 pt-1">
+                    Các định dạng được chấp nhận: <span class="font-mono text-slate-700">${q.acceptedAnswers.map(a => escapeHtml(a)).join(', ')}</span>
+                  </div>
+                ` : ''}
+              </div>
+            `;
+          }
+        }
+
+        const flagBtn = `
+          <button onclick="toggleFlag(${q.id})" class="btn-flag-toggle text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors ${isFlagged ? 'bg-amber-100 text-amber-800 border border-amber-300' : 'text-slate-400 hover:text-slate-600 hover:bg-slate-100'}">
+            <i class="fas fa-flag mr-1"></i>
+            <span>${isFlagged ? 'Đã cắm cờ' : 'Cắm cờ'}</span>
+          </button>
+        `;
+
+        let explanationHtml = '';
+        if (quizSubmitted) {
+          explanationHtml = `
+            <div class="mt-5 pt-4 border-t border-slate-100 space-y-3">
+              <div class="flex items-center gap-1.5 text-xs font-bold text-purple-900 uppercase tracking-wider">
+                <i class="fas fa-lightbulb text-amber-500"></i> Lời giải chi tiết & Biến đổi toán học:
+              </div>
+              <div class="text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200 font-normal">
+                ${q.explanation}
+              </div>
+              ${q.tip ? `
+                <div class="p-3 bg-indigo-50/70 border border-indigo-200 rounded-xl text-xs text-indigo-950 flex items-start gap-2.5">
+                  <i class="fas fa-calculator text-indigo-600 mt-0.5 shrink-0"></i>
+                  <div>
+                    <span class="font-bold text-indigo-900">Mẹo giải nhanh & Bấm máy:</span>
+                    <span class="text-indigo-800">${q.tip}</span>
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="font-mono font-extrabold text-sm sm:text-base text-slate-900">Câu ${idx + 1}</span>
+              ${chapterBadge}
+              ${typeBadge}
+            </div>
+            ${flagBtn}
+          </div>
+
+          <div class="mt-3">
+            <div class="text-xs text-slate-500 font-semibold mb-1">${escapeHtml(q.title)}</div>
+            <div class="text-sm sm:text-base font-medium text-slate-900 leading-relaxed">
+              ${q.question}
+            </div>
+          </div>
+
+          ${answerAreaHtml}
+          ${explanationHtml}
+        `;
+
+        stream.appendChild(card);
+      });
+
+      triggerKaTeX();
+    }
+
+    // ================= QUESTION ANSWER HANDLERS (FAST & FLICKER-FREE) =================
+    function selectChoiceOption(qId, optIdx) {
+      if (quizSubmitted) return;
+      userAnswers[qId] = optIdx;
+      saveAnswersToStorage();
+
+      // Update active styling directly on current card
+      const card = document.getElementById(`q-card-${qId}`);
+      if (card) {
+        const optCards = card.querySelectorAll('.option-card');
+        optCards.forEach((c, idx) => {
+          const badge = c.querySelector('span');
+          if (idx === optIdx) {
+            c.className = "option-card flex items-start gap-3 p-3.5 rounded-xl border border-purple-600 bg-purple-50/60 ring-2 ring-purple-500/20 text-purple-950 font-semibold";
+            if (badge) badge.className = "w-7 h-7 rounded-lg bg-purple-600 text-white flex items-center justify-center font-bold text-xs shrink-0 mt-0.5";
+          } else {
+            c.className = "option-card flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-white hover:border-purple-300 text-slate-800";
+            if (badge) badge.className = "w-7 h-7 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5";
+          }
+        });
+      }
+      renderPalette();
+      updateProgressCount();
+    }
+
+    function onAnswerTyped(qId, val) {
+      if (quizSubmitted) return;
+      const trimmed = val ? val.trim() : '';
+      if (trimmed.length > 0) {
+        userAnswers[qId] = trimmed;
+      } else {
+        delete userAnswers[qId];
+      }
+      saveAnswersToStorage();
+
+      const statusEl = document.getElementById(`status-input-${qId}`);
+      if (statusEl) {
+        statusEl.innerHTML = trimmed.length > 0
+          ? `<span class="text-emerald-700 font-semibold"><i class="fas fa-check-circle text-emerald-600"></i> Đã lưu: ${escapeHtml(trimmed)}</span>`
+          : `<span class="text-slate-400">Chưa điền</span>`;
+      }
+      renderPalette();
+      updateProgressCount();
+    }
+
+    function saveAnswerTyped(qId, val) {
+      if (quizSubmitted) return;
+      onAnswerTyped(qId, val);
+    }
+
+    function toggleFlag(qId) {
+      if (flaggedQuestions.has(qId)) {
+        flaggedQuestions.delete(qId);
+      } else {
+        flaggedQuestions.add(qId);
+      }
+      try {
+        localStorage.setItem(getFlagsStorageKey(currentPackId), JSON.stringify([...flaggedQuestions]));
+      } catch(e) {}
+
+      const isFlagged = flaggedQuestions.has(qId);
+      const card = document.getElementById(`q-card-${qId}`);
+      if (card) {
+        const flagBtn = card.querySelector('.btn-flag-toggle');
+        if (flagBtn) {
+          flagBtn.className = `btn-flag-toggle text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors ${isFlagged ? 'bg-amber-100 text-amber-800 border border-amber-300' : 'text-slate-400 hover:text-slate-600 hover:bg-slate-100'}`;
+          flagBtn.innerHTML = `<i class="fas fa-flag mr-1"></i><span>${isFlagged ? 'Đã cắm cờ' : 'Cắm cờ'}</span>`;
+        }
+      }
+      renderPalette();
+    }
+
+    function saveAnswersToStorage() {
+      try {
+        localStorage.setItem(getStorageKey(currentPackId), JSON.stringify(userAnswers));
+      } catch(e) {}
+    }
+
+    function updateProgressCount() {
+      const answeredCount = Object.keys(userAnswers).length;
+      const total = currentQuestions.length;
+      document.getElementById('progress-text').textContent = `${answeredCount} / ${total}`;
+      document.getElementById('palette-stats').textContent = `${answeredCount} đã làm`;
+    }
+
+    // ================= PALETTE NAVIGATION GRID =================
+    function renderPalette() {
+      const grid = document.getElementById('palette-grid');
+      grid.innerHTML = '';
+
+      currentQuestions.forEach((q, idx) => {
+        const isAnswered = (userAnswers[q.id] !== undefined && userAnswers[q.id] !== '');
+        const isFlagged = flaggedQuestions.has(q.id);
+
+        const btn = document.createElement('button');
+        btn.onclick = () => scrollToQuestion(q.id);
+
+        let bgStyle = "bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200";
+
+        if (quizSubmitted) {
+          let isCorrect = false;
+          if (q.type === 'choice') {
+            isCorrect = (userAnswers[q.id] === q.answer);
+          } else {
+            isCorrect = isInputAnswerCorrect(userAnswers[q.id], q.acceptedAnswers);
+          }
+
+          if (isCorrect) {
+            bgStyle = "bg-emerald-600 text-white font-bold border-emerald-700 shadow-sm";
+          } else if (isAnswered) {
+            bgStyle = "bg-rose-600 text-white font-bold border-rose-700 shadow-sm";
+          } else {
+            bgStyle = "bg-slate-200 text-slate-500 line-through border-slate-300";
+          }
+        } else {
+          if (isAnswered) {
+            bgStyle = "bg-purple-600 text-white font-bold border-purple-700 shadow-sm";
+          }
+        }
+
+        btn.className = `relative h-9 rounded-lg border text-xs flex items-center justify-center font-mono font-medium transition-all ${bgStyle}`;
+        btn.innerHTML = `
+          <span>${idx + 1}</span>
+          ${isFlagged ? '<span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-amber-400 border border-white"></span>' : ''}
+          ${q.type === 'input' && !quizSubmitted ? '<span class="absolute bottom-0.5 right-0.5 w-1.5 h-1.5 rounded-full bg-amber-300"></span>' : ''}
+        `;
+
+        grid.appendChild(btn);
+      });
+    }
+
+    function scrollToQuestion(qId) {
+      const el = document.getElementById(`q-card-${qId}`);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('ring-2', 'ring-purple-500');
+        setTimeout(() => el.classList.remove('ring-2', 'ring-purple-500'), 1500);
+      }
+    }
+
+    // ================= ANSWER VALIDATION HELPER =================
+    function isInputAnswerCorrect(userRaw, acceptedAnswers) {
+      if (userRaw === undefined || userRaw === null) return false;
+      let clean = String(userRaw).trim().toLowerCase();
+      if (!clean) return false;
+
+      // Clean punctuation & multi-spaces
+      clean = clean.replace(/[,]/g, '').replace(/\s+/g, ' ');
+
+      for (let acc of acceptedAnswers) {
+        let accClean = String(acc).trim().toLowerCase().replace(/[,]/g, '').replace(/\s+/g, ' ');
+        if (clean === accClean) return true;
+
+        let numUser = parseFloat(clean);
+        let numAcc = parseFloat(accClean);
+        if (!isNaN(numUser) && !isNaN(numAcc) && Math.abs(numUser - numAcc) < 1e-6) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    // ================= SUBMISSION & GRADING =================
+    function confirmSubmitQuiz() {
+      const answered = Object.keys(userAnswers).length;
+      const total = currentQuestions.length;
+      const msg = answered < total 
+        ? `Bạn mới trả lời ${answered} / ${total} câu hỏi. Bạn có chắc chắn muốn nộp bài ngay bây giờ?`
+        : `Bạn đã hoàn thành toàn bộ ${total} câu hỏi. Xác nhận nộp bài để xem điểm và lời giải chi tiết?`;
+
+      if (confirm(msg)) {
+        submitQuiz();
+      }
+    }
+
+    function submitQuiz() {
+      quizSubmitted = true;
+      clearInterval(timerInterval);
+
+      let correctCount = 0;
+      let wrongCount = 0;
+      let skippedCount = 0;
+
+      currentQuestions.forEach(q => {
+        const userAns = userAnswers[q.id];
+        if (userAns === undefined || userAns === '') {
+          skippedCount++;
+        } else {
+          let isOk = false;
+          if (q.type === 'choice') {
+            isOk = (userAns === q.answer);
+          } else {
+            isOk = isInputAnswerCorrect(userAns, q.acceptedAnswers);
+          }
+          if (isOk) correctCount++;
+          else wrongCount++;
+        }
+      });
+
+      const total = currentQuestions.length;
+      const finalScore = ((correctCount / total) * 10).toFixed(1);
+
+      document.getElementById('result-score-number').textContent = finalScore;
+      document.getElementById('result-count-correct').textContent = correctCount;
+      document.getElementById('result-count-wrong').textContent = wrongCount;
+      document.getElementById('result-count-skipped').textContent = skippedCount;
+
+      let title = "Kết Quả Khá Tốt!";
+      let desc = "Bạn đã có nền tảng cơ bản về giải phương trình đặc trưng và khai triển hàm sinh.";
+      if (finalScore >= 8.5) {
+        title = "Xuất Sắc! Nắm Rất Chắc Kiến Thức!";
+        desc = "Khả năng phân tích bài toán đệ quy và kỹ năng biến đổi chuỗi hàm sinh của bạn đạt mức điểm tuyệt đối!";
+      } else if (finalScore >= 6.5) {
+        title = "Đạt Yêu Cầu! Cần Chú Ý Sai Số Tính Toán!";
+        desc = "Hãy chú ý kiểm tra lại các bài toán có nghiệm kép hoặc hệ số âm trong khai triển Euler.";
+      } else {
+        title = "Cần Tăng Cường Luyện Tập Thêm!";
+        desc = "Hãy đọc thật kỹ lời giải chi tiết bên dưới, đặc biệt là các công thức nghiệm riêng và bảng khai triển Maclaurin.";
+      }
+
+      document.getElementById('result-evaluation-title').textContent = title;
+      document.getElementById('result-evaluation-desc').textContent = desc;
+
+      document.getElementById('quiz-result-banner').classList.remove('hidden');
+      document.getElementById('review-filters-box').classList.remove('hidden');
+      document.getElementById('quiz-status-badge').textContent = "Đã nộp bài • Chế độ xem lại";
+      document.getElementById('btn-submit-quiz').classList.add('hidden');
+
+      renderQuestions();
+      renderPalette();
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(triggerKaTeX, 100);
+    }
+
+    // ================= REVIEW FILTERS =================
+    function filterReviewCards(mode) {
+      activeFilter = mode;
+      
+      const buttons = {
+        all: document.getElementById('btn-filter-all'),
+        wrong: document.getElementById('btn-filter-wrong'),
+        correct: document.getElementById('btn-filter-correct'),
+        input: document.getElementById('btn-filter-input')
+      };
+
+      Object.keys(buttons).forEach(k => {
+        if (buttons[k]) {
+          if (k === mode) {
+            buttons[k].className = "px-2 py-1.5 rounded-lg bg-slate-800 text-white font-medium text-[11px] transition-colors";
+          } else {
+            buttons[k].className = "px-2 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-[11px] transition-colors";
+          }
+        }
+      });
+
+      currentQuestions.forEach(q => {
+        const card = document.getElementById(`q-card-${q.id}`);
+        if (!card) return;
+
+        const userAns = userAnswers[q.id];
+        let isCorrect = false;
+        if (q.type === 'choice') {
+          isCorrect = (userAns === q.answer);
+        } else {
+          isCorrect = isInputAnswerCorrect(userAns, q.acceptedAnswers);
+        }
+
+        if (mode === 'all') {
+          card.classList.remove('hidden');
+        } else if (mode === 'wrong') {
+          if (!isCorrect) card.classList.remove('hidden');
+          else card.classList.add('hidden');
+        } else if (mode === 'correct') {
+          if (isCorrect) card.classList.remove('hidden');
+          else card.classList.add('hidden');
+        } else if (mode === 'input') {
+          if (q.type === 'input') card.classList.remove('hidden');
+          else card.classList.add('hidden');
+        }
+      });
+    }
+
+    function resetCurrentQuizAnswers() {
+      if (confirm("Bạn có chắc chắn muốn xóa hết đáp án của gói bài tập này để làm lại từ đầu?")) {
+        try {
+          localStorage.removeItem(getStorageKey(currentPackId));
+          localStorage.removeItem(getFlagsStorageKey(currentPackId));
+          localStorage.removeItem(getTimeStorageKey(currentPackId));
+        } catch(e) {}
+        startQuiz(currentPackId);
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+
+</body>
+</html>

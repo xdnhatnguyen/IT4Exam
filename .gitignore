@@ -4,7 +4,22 @@ mmt/docs/De_Mau_GK_2024_2025_LoiGiai_ChiTiet.pdf
 mmt/docs/De_Thi_Du_Doan_GK_MMT_2025_2026.pdf
 *.pdf.fdmdownload
 
+# LaTeX Source Files (DO NOT PUBLISH)
+*.tex
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv
+*.nav
+*.snm
+
 # Temporary & OS files
 .DS_Store
 Thumbs.db
 *.swp
+*.pyc
+__pycache__/
