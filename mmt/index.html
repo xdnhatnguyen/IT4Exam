@@ -150,200 +150,199 @@
 
       <!-- Pack Cards Grid -->
       <div class="space-y-4">
-        <div class="flex items-center justify-between">
-          <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
-            <span>📑</span> Các Gói Đề Thi & Chuyên Đề Luyện Tập
+        <div class="flex items-center justify-between flex-wrap gap-3">
+          <h3 class="text-lg font-bold text-slate-800">
+            Danh sách đề thi và chuyên đề
           </h3>
-          <span class="text-xs text-slate-500">Tự động lưu đáp án & Đếm ngược thời gian</span>
+          <div class="text-xs text-slate-600 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200">
+            Lượt làm bài: <strong id="attempt-count" class="font-mono text-blue-600 font-bold">0</strong>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- Card 0: Standard 57 questions (FEATURED) -->
-          <div class="bg-gradient-to-br from-indigo-50 to-blue-50/60 rounded-2xl border-2 border-indigo-400/80 shadow-md p-6 flex flex-col justify-between group relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+          <div class="bg-white rounded-2xl border-2 border-blue-500/80 shadow-md p-6 flex flex-col justify-between group relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
               Khuyên dùng
             </div>
             <div>
               <div class="flex items-start justify-between gap-3 mb-3">
-                <span class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform">
-                  🏆
-                </span>
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg border border-blue-100 shadow-sm">
+                  <i class="fa-regular fa-file-lines"></i>
+                </div>
               </div>
-              <h4 class="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                Thi thử Giữa kỳ Chuẩn Form
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                Thi thử giữa kỳ chuẩn form
               </h4>
               <p class="text-xs text-slate-600 mt-1 mb-4 leading-relaxed">
-                Đúng chuẩn ma trận đề thi giữa kỳ FIT HCMUS: 57 câu hỏi cân đối tỉ lệ (Subnetting, Tầng Ứng dụng, Transport, Network, Data Link).
+                Đúng chuẩn ma trận đề thi giữa kỳ FIT HCMUS: 57 câu hỏi cân đối tỉ lệ (Subnetting, Tầng ứng dụng, Transport, Network, Data Link).
               </p>
-              <div class="flex items-center gap-3 text-xs text-slate-700 mb-6 bg-white/80 p-2.5 rounded-xl border border-indigo-100 font-medium">
-                <span class="text-indigo-700 font-bold">57 câu hỏi</span>
+              <div class="flex items-center gap-3 text-xs text-slate-700 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-100 font-medium">
+                <span class="text-blue-700 font-bold">57 câu hỏi</span>
                 <span class="text-slate-300">•</span>
                 <span class="text-amber-600 font-bold">40 phút</span>
                 <span class="text-slate-300">•</span>
-                <span class="text-emerald-700">Form thi thật</span>
+                <span class="text-emerald-700">Chuẩn form</span>
               </div>
             </div>
-            <button onclick="startQuiz('standard_57')" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-xl text-sm transition shadow active:scale-98 flex items-center justify-center gap-2">
-              <span>Bắt đầu thi ngay</span>
+            <button onclick="requestStartQuiz('standard_57')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition shadow-sm flex items-center justify-center gap-1.5">
+              <span>Bắt đầu làm bài</span>
               <span>→</span>
             </button>
           </div>
 
-          <!-- Card 1: Exam 2024 (FEATURED - EXACT PAPER EXAM) -->
-          <div class="bg-gradient-to-br from-blue-50/70 to-indigo-50/40 rounded-2xl border-2 border-blue-500/80 shadow-md hover:shadow-xl transition-all p-6 flex flex-col justify-between group relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
-              Đề thi chính thức
-            </div>
+          <!-- Card 1: Exam 2024 -->
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between group hover:border-blue-400">
             <div>
               <div class="flex items-start justify-between gap-3 mb-3">
-                <span class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform">
-                  📝
-                </span>
-                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 border border-blue-200">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg border border-blue-100 shadow-sm">
+                  <i class="fa-regular fa-file-lines"></i>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
                   Mã đề 240
                 </span>
               </div>
-              <h4 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                Đề Thi Giữa Kỳ 2024–2025 (Mã Đề 240)
+              <h4 class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                Đề thi giữa kỳ 2024–2025 (Mã đề 240)
               </h4>
               <p class="text-xs text-slate-600 mt-1 mb-4 leading-relaxed">
-                Trọn bộ 70 câu hỏi chính thức từ đề thi thật 2024–2025, có đầy đủ 4 phương án, đáp án chuẩn, lời giải chi tiết và mẹo làm bài tính nhẩm Subnetting.
+                Trọn bộ 70 câu hỏi chính thức từ đề thi thật 2024–2025, có đầy đủ phương án, đáp án chuẩn, lời giải chi tiết và mẹo làm bài tính nhẩm Subnetting.
               </p>
-              <div class="flex items-center gap-3 text-xs text-slate-700 mb-6 bg-white/90 p-2.5 rounded-xl border border-blue-100 font-medium shadow-sm">
+              <div class="flex items-center gap-3 text-xs text-slate-700 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-100 font-medium">
                 <span class="text-blue-700 font-bold">70 câu hỏi</span>
                 <span class="text-slate-300">•</span>
                 <span class="text-amber-600 font-bold">60 phút</span>
                 <span class="text-slate-300">•</span>
-                <span class="text-emerald-700 font-semibold">Đề thi gốc 100%</span>
+                <span class="text-emerald-700">Đề chính thức</span>
               </div>
             </div>
-            <button onclick="startQuiz('exam_2024')" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-2.5 px-4 rounded-xl text-sm transition shadow active:scale-98 flex items-center justify-center gap-2">
-              <span>🚀 Bắt đầu làm đề 70 câu (60 phút)</span>
+            <button onclick="requestStartQuiz('exam_2024')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition shadow-sm flex items-center justify-center gap-1.5">
+              <span>Bắt đầu làm bài</span>
               <span>→</span>
             </button>
           </div>
 
           <!-- Card 2: Predicted 2025 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between group hover:border-emerald-300">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between group hover:border-blue-400">
             <div>
               <div class="flex items-start justify-between gap-3 mb-3">
-                <span class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                  🎯
-                </span>
-                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg border border-blue-100 shadow-sm">
+                  <i class="fa-regular fa-file-lines"></i>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
                   Mã đề 251
                 </span>
               </div>
-              <h4 class="text-lg font-bold text-slate-800 group-hover:text-emerald-600 transition-colors">
-                Đề Dự đoán Giữa kỳ 2025–2026
+              <h4 class="text-base font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
+                Đề dự đoán giữa kỳ 2025–2026
               </h4>
               <p class="text-xs text-slate-500 mt-1 mb-4 leading-relaxed">
-                50 câu hỏi dự đoán bám sát cấu trúc ra đề mới nhất: Overview, Subnetting, DHCP, DNS, HTTP, Socket, OSI.
+                50 câu hỏi dự đoán bám sát cấu trúc ra đề: Overview, Subnetting, DHCP, DNS, HTTP, Socket, OSI.
               </p>
               <div class="flex items-center gap-3 text-xs text-slate-600 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
                 <span><strong>50</strong> câu hỏi</span>
                 <span class="text-slate-300">•</span>
                 <span><strong>45</strong> phút</span>
                 <span class="text-slate-300">•</span>
-                <span class="text-emerald-600 font-semibold">Dự đoán 100%</span>
+                <span class="text-blue-600 font-semibold">Đề dự đoán</span>
               </div>
             </div>
-            <button onclick="startQuiz('predicted_2025')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition shadow-sm active:scale-98 flex items-center justify-center gap-2">
-              <span>Luyện đề này</span>
+            <button onclick="requestStartQuiz('predicted_2025')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition shadow-sm flex items-center justify-center gap-1.5">
+              <span>Bắt đầu làm bài</span>
               <span>→</span>
             </button>
           </div>
 
           <!-- Card 3: Subnet Pack -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between group hover:border-purple-300">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between group hover:border-blue-400">
             <div>
               <div class="flex items-start justify-between gap-3 mb-3">
-                <span class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                  🧮
-                </span>
-                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 border border-purple-200">
-                  Moodle & Slide 02
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg border border-blue-100 shadow-sm">
+                  <i class="fa-regular fa-file-lines"></i>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                  Chuyên đề
                 </span>
               </div>
-              <h4 class="text-lg font-bold text-slate-800 group-hover:text-purple-600 transition-colors">
-                Chuyên đề Bài tập chia Subnet
+              <h4 class="text-base font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
+                Chuyên đề chia mạng con Subnetting
               </h4>
               <p class="text-xs text-slate-500 mt-1 mb-4 leading-relaxed">
-                25 bài tập chia mạng con, tìm NetID, Broadcast, số host, bước nhảy Δ, kỹ thuật VLSM từ Quiz Moodle và Slide 02.
+                25 bài tập chia mạng con chọn lọc từ đề thi, quiz Moodle và Slide 02 (tìm NetID, Broadcast, Subnet Mask, số host khả dụng).
               </p>
               <div class="flex items-center gap-3 text-xs text-slate-600 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
-                <span><strong>25</strong> câu hỏi</span>
+                <span><strong>25</strong> bài tập</span>
                 <span class="text-slate-300">•</span>
                 <span><strong>30</strong> phút</span>
                 <span class="text-slate-300">•</span>
-                <span class="text-purple-600 font-semibold">Thực chiến Subnet</span>
+                <span class="text-blue-600 font-semibold">Subnetting</span>
               </div>
             </div>
-            <button onclick="startQuiz('subnet_pack')" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition shadow-sm active:scale-98 flex items-center justify-center gap-2">
-              <span>Luyện Subnetting</span>
+            <button onclick="requestStartQuiz('subnet_pack')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition shadow-sm flex items-center justify-center gap-1.5">
+              <span>Bắt đầu làm bài</span>
               <span>→</span>
             </button>
           </div>
 
           <!-- Card 4: Theory Pack -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between group hover:border-amber-300">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between group hover:border-blue-400">
             <div>
               <div class="flex items-start justify-between gap-3 mb-3">
-                <span class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                  📚
-                </span>
-                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-200">
-                  Slide 01–05 & MMT
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg border border-blue-100 shadow-sm">
+                  <i class="fa-regular fa-file-lines"></i>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                  Chuyên đề
                 </span>
               </div>
-              <h4 class="text-lg font-bold text-slate-800 group-hover:text-amber-600 transition-colors">
-                Chuyên đề Lý thuyết Ôn tập Tổng hợp
+              <h4 class="text-base font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
+                Chuyên đề lý thuyết Slide 01–05
               </h4>
               <p class="text-xs text-slate-500 mt-1 mb-4 leading-relaxed">
-                40 câu hỏi lý thuyết chọn lọc từ Slide 01-05, tài liệu ôn tập của anh Phúc Hoàng (itus) và TomTatMMT.
+                40 câu trắc nghiệm lý thuyết cô đọng từ slide bài giảng và tài liệu tóm tắt MMT (giao thức, chức năng các tầng, mô hình OSI/TCP-IP).
               </p>
               <div class="flex items-center gap-3 text-xs text-slate-600 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
                 <span><strong>40</strong> câu hỏi</span>
                 <span class="text-slate-300">•</span>
-                <span><strong>35</strong> phút</span>
+                <span><strong>30</strong> phút</span>
                 <span class="text-slate-300">•</span>
-                <span class="text-amber-600 font-semibold">Quét sạch lý thuyết</span>
+                <span class="text-blue-600 font-semibold">Lý thuyết</span>
               </div>
             </div>
-            <button onclick="startQuiz('theory_pack')" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition shadow-sm active:scale-98 flex items-center justify-center gap-2">
-              <span>Luyện Lý thuyết</span>
+            <button onclick="requestStartQuiz('theory_pack')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition shadow-sm flex items-center justify-center gap-1.5">
+              <span>Bắt đầu làm bài</span>
               <span>→</span>
             </button>
           </div>
 
           <!-- Card 5: Random Mixed Test -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between group hover:border-rose-300">
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between group hover:border-blue-400">
             <div>
               <div class="flex items-start justify-between gap-3 mb-3">
-                <span class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                  🎲
-                </span>
-                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-rose-100 text-rose-800 border border-rose-200">
-                  Trộn ngẫu nhiên
+                <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg border border-blue-100 shadow-sm">
+                  <i class="fa-regular fa-file-lines"></i>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                  Tổng hợp
                 </span>
               </div>
-              <h4 class="text-lg font-bold text-slate-800 group-hover:text-rose-600 transition-colors">
-                Thi thử Tổng hợp Random
+              <h4 class="text-base font-bold text-slate-800 group-hover:text-blue-600 transition-colors">
+                Đề luyện tập tổng hợp
               </h4>
               <p class="text-xs text-slate-500 mt-1 mb-4 leading-relaxed">
-                Bốc ngẫu nhiên 40 câu hỏi từ toàn bộ 185 câu hỏi trong ngân hàng để bạn luyện phản xạ giải đề nhanh.
+                Bốc ngẫu nhiên 40 câu hỏi từ toàn bộ ngân hàng câu hỏi để bạn luyện phản xạ giải đề nhanh.
               </p>
               <div class="flex items-center gap-3 text-xs text-slate-600 mb-6 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
                 <span><strong>40</strong> câu hỏi</span>
                 <span class="text-slate-300">•</span>
                 <span><strong>40</strong> phút</span>
                 <span class="text-slate-300">•</span>
-                <span class="text-rose-600 font-semibold">Phản xạ nhanh</span>
+                <span class="text-blue-600 font-semibold">Ngẫu nhiên</span>
               </div>
             </div>
-            <button onclick="startQuiz('random_test')" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition shadow-sm active:scale-98 flex items-center justify-center gap-2">
-              <span>Bắt đầu thi thử</span>
+            <button onclick="requestStartQuiz('random_test')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl text-sm transition shadow-sm flex items-center justify-center gap-1.5">
+              <span>Bắt đầu làm bài</span>
               <span>→</span>
             </button>
           </div>
@@ -633,6 +632,92 @@
       document.getElementById('header-progress-bar-container').classList.add('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    
+    // ================= PASSWORD & COUNTER LOGIC =================
+    let pendingPackId = null;
+
+    function requestStartQuiz(packId) {
+      if (sessionStorage.getItem('exam_auth_25ctt3') === 'true') {
+        startQuiz(packId);
+      } else {
+        pendingPackId = packId;
+        const err = document.getElementById('password-modal-error');
+        if (err) err.classList.add('hidden');
+        const input = document.getElementById('modal-password-input');
+        if (input) input.value = '';
+        const modal = document.getElementById('password-modal');
+        if (modal) {
+          modal.classList.remove('hidden');
+          setTimeout(() => input && input.focus(), 100);
+        }
+      }
+    }
+
+    function checkPasswordAndStart() {
+      const input = document.getElementById('modal-password-input');
+      const val = (input ? input.value : '').trim();
+      if (val.toUpperCase() === '25CTT3') {
+        sessionStorage.setItem('exam_auth_25ctt3', 'true');
+        closePasswordModal();
+        if (pendingPackId) {
+          startQuiz(pendingPackId);
+        }
+      } else {
+        const err = document.getElementById('password-modal-error');
+        if (err) {
+          err.innerText = 'Mật khẩu không chính xác. Vui lòng nhập lại!';
+          err.classList.remove('hidden');
+        }
+      }
+    }
+
+    function closePasswordModal() {
+      const modal = document.getElementById('password-modal');
+      if (modal) modal.classList.add('hidden');
+      pendingPackId = null;
+    }
+
+    function updateSubmissionCountDisplay() {
+      const localCount = parseInt(localStorage.getItem('exam_attempt_count_mmt') || '0', 10);
+      const globalCount = parseInt(localStorage.getItem('exam_global_submissions_mmt') || '0', 10);
+      const displayCount = Math.max(localCount, globalCount);
+      const el = document.getElementById('attempt-count');
+      if (el) el.innerText = displayCount;
+    }
+
+    function incrementSubmissionCount() {
+      let count = parseInt(localStorage.getItem('exam_attempt_count_mmt') || '0', 10);
+      count++;
+      localStorage.setItem('exam_attempt_count_mmt', count);
+      updateSubmissionCountDisplay();
+
+      try {
+        fetch('https://api.counterapi.dev/v1/exam_exe_fit_hcmus/mmt_submissions/up', { mode: 'cors' })
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.count) {
+              localStorage.setItem('exam_global_submissions_mmt', data.count);
+              updateSubmissionCountDisplay();
+            }
+          }).catch(e => {});
+      } catch(e) {}
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        fetch('https://api.counterapi.dev/v1/exam_exe_fit_hcmus/mmt_submissions', { mode: 'cors' })
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.count) {
+              localStorage.setItem('exam_global_submissions_mmt', data.count);
+              updateSubmissionCountDisplay();
+            }
+          }).catch(e => { updateSubmissionCountDisplay(); });
+      } catch(e) {
+        updateSubmissionCountDisplay();
+      }
+    });
 
     function startQuiz(packId) {
       currentPackId = packId;
@@ -932,6 +1017,7 @@
       closeSubmitModal();
       clearInterval(timerInterval);
       quizSubmitted = true;
+      incrementSubmissionCount();
 
       let correctCount = 0;
       currentQuestions.forEach((q) => {
@@ -1104,5 +1190,40 @@
       }
     }
   </script>
+
+  <!-- ================= PASSWORD MODAL (25CTT3) ================= -->
+  <div id="password-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-6 max-w-sm w-full shadow-2xl border border-slate-200">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-base border border-blue-100">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h4 class="text-base font-bold text-slate-800">Mật khẩu làm bài</h4>
+        </div>
+        <button onclick="closePasswordModal()" class="text-slate-400 hover:text-slate-600 p-1">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+        Vui lòng nhập mật khẩu để mở khóa đề thi:
+      </p>
+      <div class="space-y-3">
+        <input type="password" id="modal-password-input" placeholder="Nhập mật khẩu..." 
+          onkeydown="if(event.key === 'Enter') checkPasswordAndStart()"
+          class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm font-medium tracking-wider">
+        <p id="password-modal-error" class="hidden text-xs text-rose-600 font-medium"></p>
+        <div class="flex items-center gap-2 pt-1">
+          <button onclick="closePasswordModal()" class="w-1/2 py-2 px-3 rounded-xl border border-slate-300 text-slate-600 text-xs font-semibold hover:bg-slate-50 transition">
+            Hủy
+          </button>
+          <button onclick="checkPasswordAndStart()" class="w-1/2 py-2 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow transition">
+            Xác nhận
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
