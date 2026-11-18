@@ -1,6 +1,6 @@
 # 🎓 IT4Exam - Hệ Thống Ôn Thi Học Kỳ FIT HCMUS
 
-Hệ thống ôn luyện thi trắc nghiệm tương tác, ngân hàng câu hỏi có lời giải chi tiết, mẹo bấm máy tính Casio và tài liệu học tập dành cho sinh viên Khoa Công nghệ Thông tin - Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM (Lớp 25CTT3).
+Hệ thống ôn luyện thi trắc nghiệm tương tác, ngân hàng câu hỏi có lời giải chi tiết, mẹo bấm máy tính Casio và tài liệu học tập dành cho sinh viên Chương trình Chuẩn (Chính quy Đại trà) Khoa Công nghệ Thông tin - Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM (Lớp 25CTT3, có tham khảo mở rộng đề CLC & Tiên tiến).
 
 🌐 **Trang web chính thức trên GitHub Pages:** [https://xdnhatnguyen.github.io/IT4Exam/](https://xdnhatnguyen.github.io/IT4Exam/)
 
@@ -8,12 +8,12 @@ Hệ thống ôn luyện thi trắc nghiệm tương tác, ngân hàng câu hỏ
 
 ## 📅 Lịch Thi Giữa Kỳ Học Kỳ I (25CTT3)
 
-| Mã MH | Tên môn học | Ngày thi | Giờ thi | Thời gian | CBGD | Phòng | Trạng thái |
-| :--- | :--- | :---: | :---: | :---: | :--- | :---: | :---: |
-| **PHY00002** | Vật lý đại cương 2 (Điện từ - Quang) | 16/11/2026 | 16g00 | 60' | Nguyễn Nhật Kim Ngân | LT | 🔴 Hôm nay |
-| **MTH00044** | Xác suất thống kê | 18/11/2026 | 14g45 | 60' | Thái Phúc Hưng | LT | ⏳ Sắp tới |
-| **CSC10008** | **Mạng máy tính** | **19/11/2026** | **13g30** | **60'** | **Huỳnh Thụy Bảo Trân** | **LT** | 🚀 **Đang mở ôn thi** |
-| **MTH00050** | **Toán học tổ hợp** | **20/11/2026** | **10g15** | **60'** | **Bùi Văn Thạch** | **LT** | 🚀 **Đang mở ôn thi** |
+| Mã MH | Tên môn học | Ngày thi | Giờ thi | Phòng thi | Địa điểm | Thời gian | CBGD | Trạng thái |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :--- | :---: |
+| **PHY00002** | Vật lý đại cương 2 (Điện từ - Quang) | 16/11/2026 | 16g00 | **F306** | LT | 60' | Nguyễn Nhật Kim Ngân | ✅ Đã thi |
+| **MTH00044** | Xác suất thống kê | 18/11/2026 | 14g45 | **F104** | LT | 60' | Thái Phúc Hưng | ✅ Đã thi (Hôm nay) |
+| **CSC10008** | **Mạng máy tính** | **19/11/2026** | **13g30** | **F104** | **LT** | **60'** | **Huỳnh Thụy Bảo Trân** | ⚡ **Ngày mai (13g30)** |
+| **MTH00050** | **Toán học tổ hợp** | **20/11/2026** | **10g15** | **F104** | **LT** | **60'** | **Bùi Văn Thạch** | ⏳ **Còn 2 ngày** |
 
 ---
 

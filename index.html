@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IT4Exam - Hệ Thống Ôn Thi Học Kỳ FIT HCMUS (25CTT3)</title>
+  <title>IT4Exam - Hệ Thống Ôn Thi Học Kỳ • Khóa 25CTT3 (Chương Trình Chuẩn)</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,7 +78,7 @@
     <section class="bg-gradient-to-r from-blue-700 via-indigo-700 to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
       <div class="relative z-10 max-w-3xl space-y-3">
         <span class="inline-block px-3 py-1 bg-white/15 backdrop-blur-sm rounded-full text-xs font-semibold text-blue-100 uppercase tracking-wider">
-          Học kỳ I • Năm học 2026–2027 • Lớp 25CTT3
+          Học kỳ I • Năm học 2026–2027 • Lớp 25CTT3 (Chương Trình Chuẩn)
         </span>
         <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
           Cổng Ôn Thi Giữa Kỳ FIT HCMUS
@@ -98,112 +98,48 @@
 
     <!-- ================= SECTION 1: LỊCH THI GIỮA KỲ (EXAM SCHEDULE) ================= -->
     <section id="lich-thi" class="space-y-4 scroll-mt-24">
-      <div class="flex items-center justify-between">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-            <span>📅</span> Lịch Thi Giữa Kỳ Học Kỳ I (Lớp 25CTT3)
+            <span>📅</span> Lịch Thi Giữa Kỳ • Khóa 25CTT3 (Chương Trình Chuẩn)
           </h3>
-          <p class="text-xs text-slate-500 mt-0.5">
-            Kế hoạch tổ chức thi Giữa kỳ chính thức của Phòng Khảo thí & Đào tạo
+          <p class="text-xs text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
+            <span>Kế hoạch thi chính thức từ phòng Khảo thí & Đào tạo</span>
+            <span class="text-slate-300">•</span>
+            <span class="text-indigo-600 font-medium inline-flex items-center gap-1.5">
+              <i class="far fa-clock"></i>
+              <span>Thời gian thực tế: <strong id="current-live-time" class="font-mono text-slate-800">Đang cập nhật...</strong></span>
+            </span>
           </p>
         </div>
-        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-200 text-slate-700">
-          Phòng thi: Giảng đường LT
-        </span>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 inline-flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Tự động đếm ngày & cập nhật trạng thái thi</span>
+          </span>
+        </div>
       </div>
 
-      <!-- Schedule Table / Cards Responsive -->
+      <!-- Schedule Table / Cards Responsive with Dynamic Room & Dates -->
       <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
         <div class="overflow-x-auto">
           <table class="w-full text-left text-sm text-slate-700">
             <thead class="bg-slate-100/80 text-xs font-bold uppercase text-slate-600 border-b border-slate-200">
               <tr>
-                <th class="py-3 px-4">Mã MH</th>
-                <th class="py-3 px-4">Tên môn học</th>
-                <th class="py-3 px-4 text-center">Lớp</th>
-                <th class="py-3 px-4">Ngày thi</th>
-                <th class="py-3 px-4">Giờ thi</th>
-                <th class="py-3 px-4">Thời gian</th>
-                <th class="py-3 px-4">Cán bộ giảng dạy</th>
-                <th class="py-3 px-4 text-center">Trạng thái</th>
+                <th class="py-3.5 px-4">Mã MH</th>
+                <th class="py-3.5 px-4">Tên môn học</th>
+                <th class="py-3.5 px-4 text-center">Lớp</th>
+                <th class="py-3.5 px-4">Ngày thi</th>
+                <th class="py-3.5 px-4">Giờ thi</th>
+                <th class="py-3.5 px-4 text-center">Phòng thi</th>
+                <th class="py-3.5 px-4 text-center">Địa điểm</th>
+                <th class="py-3.5 px-4">Thời gian</th>
+                <th class="py-3.5 px-4">Cán bộ giảng dạy</th>
+                <th class="py-3.5 px-4 text-center">Trạng thái theo ngày</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-100">
-              
-              <!-- Row 1: PHY00002 -->
-              <tr class="hover:bg-slate-50 transition">
-                <td class="py-3.5 px-4 font-mono font-bold text-indigo-700 text-xs">PHY00002</td>
-                <td class="py-3.5 px-4 font-semibold text-slate-900">
-                  Vật lý đại cương 2 (Điện từ - Quang)
-                </td>
-                <td class="py-3.5 px-4 text-center font-mono text-xs">25CTT3</td>
-                <td class="py-3.5 px-4 font-medium">16/11/2026</td>
-                <td class="py-3.5 px-4 font-mono font-semibold text-amber-600">16g00</td>
-                <td class="py-3.5 px-4">60 phút</td>
-                <td class="py-3.5 px-4 text-slate-600">Nguyễn Nhật Kim Ngân</td>
-                <td class="py-3.5 px-4 text-center">
-                  <span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300">
-                    🔴 Hôm nay
-                  </span>
-                </td>
-              </tr>
-
-              <!-- Row 2: MTH00044 -->
-              <tr class="hover:bg-slate-50 transition">
-                <td class="py-3.5 px-4 font-mono font-bold text-indigo-700 text-xs">MTH00044</td>
-                <td class="py-3.5 px-4 font-semibold text-slate-900">
-                  Xác suất thống kê
-                </td>
-                <td class="py-3.5 px-4 text-center font-mono text-xs">25CTT3</td>
-                <td class="py-3.5 px-4 font-medium">18/11/2026</td>
-                <td class="py-3.5 px-4 font-mono font-semibold text-slate-700">14g45</td>
-                <td class="py-3.5 px-4">60 phút</td>
-                <td class="py-3.5 px-4 text-slate-600">Thái Phúc Hưng</td>
-                <td class="py-3.5 px-4 text-center">
-                  <span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-700 border border-slate-200">
-                    ⏳ Còn 2 ngày
-                  </span>
-                </td>
-              </tr>
-
-              <!-- Row 3: CSC10008 (HIGHLIGHTED) -->
-              <tr class="bg-blue-50/50 hover:bg-blue-50 transition border-l-4 border-l-blue-600">
-                <td class="py-3.5 px-4 font-mono font-bold text-blue-700 text-xs">CSC10008</td>
-                <td class="py-3.5 px-4 font-bold text-blue-900 flex items-center gap-2">
-                  <span>Mạng máy tính</span>
-                  <span class="text-[10px] uppercase font-extrabold px-2 py-0.5 rounded bg-blue-600 text-white">Trọng tâm</span>
-                </td>
-                <td class="py-3.5 px-4 text-center font-mono text-xs">25CTT3</td>
-                <td class="py-3.5 px-4 font-semibold text-blue-900">19/11/2026</td>
-                <td class="py-3.5 px-4 font-mono font-bold text-blue-700">13g30</td>
-                <td class="py-3.5 px-4">60 phút</td>
-                <td class="py-3.5 px-4 text-blue-950 font-medium">Huỳnh Thụy Bảo Trân</td>
-                <td class="py-3.5 px-4 text-center">
-                  <a href="mmt/index.html" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-600 text-white shadow-sm hover:bg-emerald-700 transition">
-                    🚀 Đang mở ôn thi
-                  </a>
-                </td>
-              </tr>
-
-              <!-- Row 4: MTH00050 (OPEN) -->
-              <tr class="hover:bg-purple-50/40 transition bg-purple-50/20 border-l-4 border-l-purple-600">
-                <td class="py-3.5 px-4 font-mono font-bold text-purple-700 text-xs">MTH00050</td>
-                <td class="py-3.5 px-4 font-bold text-purple-900 flex items-center gap-2">
-                  <span>Toán học tổ hợp</span>
-                  <span class="text-[10px] uppercase font-extrabold px-2 py-0.5 rounded bg-purple-600 text-white">Đệ quy & Hàm sinh</span>
-                </td>
-                <td class="py-3.5 px-4 text-center font-mono text-xs">25CTT3</td>
-                <td class="py-3.5 px-4 font-semibold text-purple-900">20/11/2026</td>
-                <td class="py-3.5 px-4 font-mono font-bold text-purple-700">10g15</td>
-                <td class="py-3.5 px-4">60 phút</td>
-                <td class="py-3.5 px-4 text-purple-950 font-medium">Bùi Văn Thạch</td>
-                <td class="py-3.5 px-4 text-center">
-                  <a href="thth/index.html" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-purple-600 text-white shadow-sm hover:bg-purple-700 transition">
-                    🚀 Đang mở ôn thi
-                  </a>
-                </td>
-              </tr>
-
+            <tbody id="exam-schedule-tbody" class="divide-y divide-slate-100">
+              <!-- Rendered Dynamically by JavaScript -->
             </tbody>
           </table>
         </div>
@@ -376,14 +312,207 @@
   <!-- ================= FOOTER ================= -->
   <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs space-y-2">
-      <p class="font-medium text-slate-300">
-        IT4Exam - Hệ Thống Ôn Thi Học Kỳ • Khóa 25CTT3 (Chương trình Tiên tiến & CLC)
+      <p class="font-semibold text-slate-200">
+        IT4Exam - Hệ Thống Ôn Thi Học Kỳ • Khóa 25CTT3 (Chương Trình Chuẩn / Chính Quy FIT HCMUS)
       </p>
-      <p class="text-slate-500">
-        Khoa Công nghệ Thông tin - Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM
+      <p class="text-slate-400">
+        Khoa Công nghệ Thông tin - Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM • Tham khảo & tổng hợp đề thi chuẩn, mở rộng đề CLC & Đề thi thử nghiệm
       </p>
     </div>
   </footer>
 
+  <!-- Dynamic Real-Time Exam Schedule Engine -->
+  <script>
+    const EXAMS_DATA = [
+      {
+        code: "PHY00002",
+        name: "Vật lý đại cương 2 (Điện từ - Quang)",
+        classCode: "25CTT3",
+        dateStr: "2026-11-16",
+        dateDisplay: "16/11/2026",
+        timeStr: "16:00",
+        timeDisplay: "16g00",
+        room: "F306",
+        location: "LT",
+        durationMins: 60,
+        lecturer: "Nguyễn Nhật Kim Ngân",
+        link: null,
+        tag: ""
+      },
+      {
+        code: "MTH00044",
+        name: "Xác suất thống kê",
+        classCode: "25CTT3",
+        dateStr: "2026-11-18",
+        dateDisplay: "18/11/2026",
+        timeStr: "14:45",
+        timeDisplay: "14g45",
+        room: "F104",
+        location: "LT",
+        durationMins: 60,
+        lecturer: "Thái Phúc Hưng",
+        link: null,
+        tag: ""
+      },
+      {
+        code: "CSC10008",
+        name: "Mạng máy tính",
+        classCode: "25CTT3",
+        dateStr: "2026-11-19",
+        dateDisplay: "19/11/2026",
+        timeStr: "13:30",
+        timeDisplay: "13g30",
+        room: "F104",
+        location: "LT",
+        durationMins: 60,
+        lecturer: "Huỳnh Thụy Bảo Trân",
+        link: "mmt/index.html",
+        tag: "Đề 70 câu & 57 câu"
+      },
+      {
+        code: "MTH00050",
+        name: "Toán học tổ hợp",
+        classCode: "25CTT3",
+        dateStr: "2026-11-20",
+        dateDisplay: "20/11/2026",
+        timeStr: "10:15",
+        timeDisplay: "10g15",
+        room: "F104",
+        location: "LT",
+        durationMins: 60,
+        lecturer: "Bùi Văn Thạch",
+        link: "thth/index.html",
+        tag: "Đệ quy & Hàm sinh"
+      }
+    ];
+
+    function updateExamSchedule() {
+      const tbody = document.getElementById('exam-schedule-tbody');
+      const clockElem = document.getElementById('current-live-time');
+      if (!tbody) return;
+
+      const now = new Date();
+      
+      // Update Live Clock display
+      if (clockElem) {
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const year = now.getFullYear();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        clockElem.textContent = `${hours}:${minutes}:${seconds} • ${day}/${month}/${year}`;
+      }
+
+      tbody.innerHTML = '';
+
+      // Normalize today to start of day for accurate day-difference calculations
+      const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+
+      let nextUpcomingFound = false;
+
+      EXAMS_DATA.forEach(exam => {
+        const [year, month, day] = exam.dateStr.split('-').map(Number);
+        const [hour, minute] = exam.timeStr.split(':').map(Number);
+
+        const examStartTime = new Date(year, month - 1, day, hour, minute).getTime();
+        const examEndTime = examStartTime + exam.durationMins * 60 * 1000;
+        const examDateStart = new Date(year, month - 1, day).getTime();
+
+        const diffDays = Math.round((examDateStart - todayStart) / (1000 * 60 * 60 * 24));
+
+        let statusHtml = '';
+        let rowClass = 'hover:bg-slate-50 transition';
+
+        if (now.getTime() > examEndTime) {
+          // Exam already finished
+          statusHtml = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-500 border border-slate-200">
+            <i class="fas fa-check-circle text-slate-400"></i> Đã thi xong
+          </span>`;
+          rowClass += ' opacity-80';
+        } else if (now.getTime() >= examStartTime && now.getTime() <= examEndTime) {
+          // Currently taking the exam right now!
+          statusHtml = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-rose-600 text-white animate-pulse shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-white"></span> Đang thi (${exam.timeDisplay})
+          </span>`;
+          rowClass = 'bg-rose-50/70 hover:bg-rose-50 transition border-l-4 border-l-rose-600 font-medium';
+          nextUpcomingFound = true;
+        } else if (diffDays === 0) {
+          // Exam is today (upcoming later today)
+          statusHtml = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300 animate-pulse">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span> Hôm nay (${exam.timeDisplay})
+          </span>`;
+          rowClass = 'bg-amber-50/50 hover:bg-amber-50 transition border-l-4 border-l-amber-500';
+          nextUpcomingFound = true;
+        } else if (diffDays === 1) {
+          // Exam is tomorrow!
+          statusHtml = `<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-900 border border-blue-300">
+            <i class="fas fa-bolt text-blue-600"></i> Ngày mai (${exam.timeDisplay})
+          </span>`;
+          if (!nextUpcomingFound) {
+            rowClass = 'bg-blue-50/50 hover:bg-blue-50 transition border-l-4 border-l-blue-600 font-medium';
+            nextUpcomingFound = true;
+          }
+        } else if (diffDays > 1) {
+          // Future exam
+          statusHtml = `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200">
+            <i class="far fa-calendar-alt text-slate-400"></i> Còn ${diffDays} ngày
+          </span>`;
+          if (!nextUpcomingFound) {
+            rowClass = 'bg-indigo-50/30 hover:bg-indigo-50 transition border-l-4 border-l-indigo-500';
+            nextUpcomingFound = true;
+          }
+        }
+
+        // Add action button if course quiz is available online
+        let actionBtnHtml = '';
+        if (exam.link) {
+          actionBtnHtml = `
+            <div class="mt-1.5">
+              <a href="${exam.link}" class="inline-flex items-center gap-1 px-3 py-0.5 rounded-full text-[11px] font-bold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-sm transition">
+                <span>🚀 Vào ôn thi</span>
+                <i class="fas fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          `;
+        }
+
+        const tr = document.createElement('tr');
+        tr.className = rowClass;
+        tr.innerHTML = `
+          <td class="py-3.5 px-4 font-mono font-bold text-indigo-700 text-xs">${exam.code}</td>
+          <td class="py-3.5 px-4 font-semibold text-slate-900">
+            <div class="flex items-center gap-2">
+              <span>${exam.name}</span>
+              ${exam.tag ? `<span class="text-[10px] uppercase font-extrabold px-2 py-0.5 rounded bg-blue-600 text-white">${exam.tag}</span>` : ''}
+            </div>
+          </td>
+          <td class="py-3.5 px-4 text-center font-mono text-xs">${exam.classCode}</td>
+          <td class="py-3.5 px-4 font-medium text-slate-800">${exam.dateDisplay}</td>
+          <td class="py-3.5 px-4 font-mono font-semibold text-slate-800">${exam.timeDisplay}</td>
+          <td class="py-3.5 px-4 text-center font-mono font-bold text-purple-700 bg-purple-50/50 rounded-lg">
+            ${exam.room}
+          </td>
+          <td class="py-3.5 px-4 text-center text-xs font-semibold text-slate-600">
+            ${exam.location}
+          </td>
+          <td class="py-3.5 px-4 text-xs text-slate-600">${exam.durationMins} phút</td>
+          <td class="py-3.5 px-4 text-slate-700">${exam.lecturer}</td>
+          <td class="py-3.5 px-4 text-center">
+            <div class="flex flex-col items-center justify-center">
+              ${statusHtml}
+              ${actionBtnHtml}
+            </div>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateExamSchedule();
+      setInterval(updateExamSchedule, 1000);
+    });
+  </script>
 </body>
 </html>
