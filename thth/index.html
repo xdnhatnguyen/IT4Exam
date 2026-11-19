@@ -130,14 +130,7 @@
             <p class="text-indigo-100 text-sm sm:text-base mt-2 leading-relaxed">
               Trọn bộ 7 đề thi ma trận FIT HCMUS: Trắc nghiệm khách quan + Điền đáp số ngắn + Tự luận tổ hợp • 60 phút
             </p>
-            <div class="flex items-center gap-3 mt-4 text-xs">
-              <span class="bg-indigo-950/40 text-cyan-300 px-3 py-1 rounded-lg border border-indigo-400/30 font-medium">
-                Lượt làm bài: <strong id="attempt-counter" class="font-mono font-bold">0</strong>
-              </span>
-              <span class="bg-indigo-950/40 text-amber-300 px-3 py-1 rounded-lg border border-indigo-400/30 font-medium">
-                Mật khẩu: <strong class="font-mono font-bold">20/11</strong>
-              </span>
-            </div>
+
           </div>
           <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
         </div>
@@ -271,7 +264,7 @@
           <div>
             <h3 class="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
               <i class="fa-solid fa-layer-group text-indigo-600"></i>
-              <span>Đề luyện thi chuyên sâu theo Chương (OnPhanXa)</span>
+              <span>Luyện theo từng Chương</span>
             </h3>
             <p class="text-xs text-slate-500 mt-0.5">Mỗi đề gồm 18 câu trắc nghiệm điền khuyết khó nhất và 2 bài tự luận kinh điển</p>
           </div>
@@ -590,14 +583,10 @@
       <form onsubmit="handlePasswordSubmit(event)" class="space-y-4">
         <div>
           <label class="block text-xs font-semibold text-slate-700 mb-1">Mật khẩu truy cập</label>
-          <input type="text" id="password-input" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm" placeholder="Nhập mật khẩu..." autocomplete="off">
+          <input type="password" id="password-input" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm" placeholder="Nhập mật khẩu..." autocomplete="off">
           <p id="password-error" class="hidden text-xs text-rose-600 mt-1 font-medium">
             <i class="fa-solid fa-triangle-exclamation"></i> Mật khẩu không chính xác! Vui lòng thử lại.
           </p>
-        </div>
-
-        <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
-          <span>Mật khẩu: <code class="font-mono font-bold text-indigo-600">20/11</code></span>
         </div>
 
         <div class="flex items-center gap-2 pt-2">
